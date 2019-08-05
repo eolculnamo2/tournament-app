@@ -6,7 +6,7 @@ import { Router } from 'express';
 
 // Internal Dependencies
 import pages from '../../client/src/pages';
-import IPathComponent from '../../constants/interfaces/IPathComponent';
+import { IPathComponent } from '../../constants/interfaces';
 
 const router: Router = Router();
 const routes: Array<string> = pages.map((route: IPathComponent) => route.path);

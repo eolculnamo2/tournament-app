@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router';
 import { Router } from 'react-router';
 import { createBrowserHistory } from 'history';
 import pages from './pages';
-import IPathComponent from '../../constants/interfaces/IPathComponent';
+import { IPathComponent } from '../../constants/interfaces';
 
 const history = createBrowserHistory();
 
