@@ -1,10 +1,11 @@
+// External Dependencies
 import express, { Application } from 'express';
-import path from 'path';
+
+// Internal Dependencies
+import { PageController } from './contollers';
 
 const app: Application = express();
 
-app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, '..', '/client/index.html'))
-);
+app.use('/', PageController);
 
 app.listen(8080, () => console.log('ON'));
