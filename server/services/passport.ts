@@ -1,10 +1,10 @@
 import passport from 'passport';
-import LocalStrategy from 'passport-local';
+import * as passportLocal from 'passport-local';
 import bodyParser from 'body-parser';
 import { Router } from 'express';
-// models
 import User from '../models/User';
 
+const LocalStrategy = passportLocal.Strategy;
 const router: Router = Router();
 
 router.use(bodyParser.json());
@@ -21,16 +21,6 @@ router.post('/register', (req, res) => {
       new User({
         username: req.body.username,
         email: req.body.email,
-        displayName: req.body.displayName,
-        headline: req.body.headline,
-        profileImage: req.body.imageUrl,
-        location: req.body.location,
-        group: req.body.studyGroup,
-        bestThree: [req.body.skill1, req.body.skill2, req.body.skill3],
-        articles: [],
-        likedArticles: [],
-        contacts: [],
-        groupMembers: [],
       }),
       req.body.password.trim(),
       err => {
@@ -75,14 +65,6 @@ router.post('/logout', (req, res) => {
   return res.send({ data: 'You are logged out.' });
 });
 
-router.post('/checkLogin', (req, res) => {
-  if (req.user) {
-    res.json({ loggedIn: true, user: req.user.username.trim() });
-  } else if (!req.user) {
-    res.json({ loggedIn: false });
-  }
-});
-
 router.post('/getUserProfile', (req, res) => {
   if (req.user) {
     res.json({ data: req.user });
@@ -96,12 +78,12 @@ router.post('/getProfile', (req, res) => {
     let isContact = false;
     if (req.user) {
       for (let i = 0; i < req.user.contacts.length; i += 1) {
-        if (response.username === req.user.contacts[i].username) {
+        if (response && response.username === req.user.contacts[i].username) {
           isContact = true;
           break;
         }
       }
-      if (req.user.username === response.username) {
+      if (response && req.user.username === response.username) {
         isContact = true;
       }
     }
@@ -111,27 +93,6 @@ router.post('/getProfile', (req, res) => {
       res.json({ data: response, isContact });
     }
   });
-});
-
-router.post('/add-contact', (req, res) => {
-  if (req.user) {
-    User.findOneAndUpdate(
-      { username: req.user.username },
-      {
-        $push: {
-          contacts: {
-            username: req.body.username,
-            image: req.body.image,
-          },
-        },
-      },
-      () => {
-        res.json({ data: true });
-      }
-    );
-  } else if (!req.user) {
-    res.json({ data: false });
-  }
 });
 
 export default router;

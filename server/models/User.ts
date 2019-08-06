@@ -1,12 +1,13 @@
 import mongoose, { Schema, PassportLocalSchema } from 'mongoose';
 import passportLocalMongoose from 'passport-local-mongoose';
+import { IUser } from '../../constants/interfaces';
 
-const User = new Schema({
-  username: String,
-  password: String,
-  email: String,
+const User: Schema = new Schema({
+  username: { type: String, reuqired: true, unique: true },
+  password: { type: String, required: true },
+  email: { type: String, required: true },
 });
 
 User.plugin(passportLocalMongoose);
 
-export default mongoose.model('users', User as PassportLocalSchema);
+export default mongoose.model<IUser>('users', User as PassportLocalSchema);
