@@ -4,7 +4,6 @@ import { IUser } from '../../constants/interfaces';
 
 const User: Schema = new Schema({
   username: { type: String, reuqired: true, unique: true },
-  password: { type: String, required: true },
   email: { type: String, required: true },
 });
 

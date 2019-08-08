@@ -19,8 +19,8 @@ router.post('/register', (req, res) => {
   if (req.body.password === req.body.confirmPassword) {
     User.register(
       new User({
-        username: req.body.username,
-        email: req.body.email,
+        username: req.body.username.trim().toLowerCase(),
+        email: req.body.email.trim(),
       }),
       req.body.password.trim(),
       err => {
