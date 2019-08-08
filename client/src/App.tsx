@@ -1,24 +1,38 @@
-import React from 'react';
+import React, { useReducer, Reducer } from 'react';
 import { Switch, Route } from 'react-router';
 import { Router } from 'react-router';
 import { createBrowserHistory } from 'history';
 import pages from './pages';
-import { IPathComponent } from '../../constants/interfaces';
+import {
+  IPathComponent,
+  IGlobalState,
+  IAction,
+} from '../../constants/interfaces';
+import GlobalContext from './contexts/global/GlobalContext';
+import GlobalState from './contexts/global/GlobalState';
+import reducer from './contexts/reducer';
 
 const history = createBrowserHistory();
 
 function App(): JSX.Element {
+  const [state, dispatch] = useReducer<Reducer<IGlobalState, IAction>>(
+    reducer,
+    GlobalState
+  );
+
   return (
     <>
-      <Router history={history}>
-        <Switch>
-          {pages.map((route: IPathComponent) => {
-            return (
-              <Route exact path={route.path} component={route.component} />
-            );
-          })}
-        </Switch>
-      </Router>
+      <GlobalContext.Provider value={{ state, dispatch }}>
+        <Router history={history}>
+          <Switch>
+            {pages.map((route: IPathComponent) => {
+              return (
+                <Route exact path={route.path} component={route.component} />
+              );
+            })}
+          </Switch>
+        </Router>
+      </GlobalContext.Provider>
     </>
   );
 }
