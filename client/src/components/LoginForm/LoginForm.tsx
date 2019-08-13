@@ -13,13 +13,14 @@ function LoginForm(): JSX.Element {
   };
 
   return (
-    <>
+    <div>
       <h3>Login</h3>
       <div>Username</div>
       <input onChange={e => setUsername(e.target.value)} type="text" />
       <div>Password</div>
       <input onChange={e => setPassword(e.target.value)} type="text" />
-    </>
+      <button>Login</button>
+    </div>
   );
 }
 

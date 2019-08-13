@@ -11,6 +11,7 @@ import {
 import GlobalContext from './contexts/global/GlobalContext';
 import GlobalState from './contexts/global/GlobalState';
 import reducer from './contexts/reducer';
+import { Header, Footer } from './components';
 
 const history = createBrowserHistory();
 
@@ -24,18 +25,22 @@ function App(): JSX.Element {
     <>
       <GlobalContext.Provider value={{ state, dispatch }}>
         <Router history={history}>
-          <Switch>
-            {pages.map((route: IPathComponent, i: number) => {
-              return (
-                <Route
-                  exact
-                  path={route.path}
-                  component={route.component}
-                  key={'route' + i}
-                />
-              );
-            })}
-          </Switch>
+          <div className="footer-at-bottom">
+            <Header />
+            <Switch>
+              {pages.map((route: IPathComponent, i: number) => {
+                return (
+                  <Route
+                    exact
+                    path={route.path}
+                    component={route.component}
+                    key={'route' + i}
+                  />
+                );
+              })}
+            </Switch>
+          </div>
+          <Footer />
         </Router>
       </GlobalContext.Provider>
     </>

@@ -4,3 +4,4 @@ export { default as IGlobalState } from './IGlobalState';
 export { default as IAction } from './IAction';
 export { default as ICredentials } from './ICredentials';
 export { default as INewUser } from './INewUser';
+export { default as IRegistrationForm } from './IRegistrationForm';

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { INewUser } from '../../../../constants/interfaces';
+import { INewUser, IRegistrationForm } from '../../../../constants/interfaces';
 import { postData } from '../../helpers/api';
 
-function RegistrationForm(): JSX.Element {
+function RegistrationForm(props: IRegistrationForm): JSX.Element {
+  const { goToLogin } = props;
+
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
@@ -25,18 +27,46 @@ function RegistrationForm(): JSX.Element {
   };
 
   return (
-    <>
-      <h3>Registration</h3>
-      <div>Username</div>
-      <input onChange={e => setUsername(e.target.value)} type="text" />
-      <div>Password</div>
-      <input onChange={e => setPassword(e.target.value)} type="text" />
-      <div>Confirm Password</div>
-      <input onChange={e => setConfirmPassword(e.target.value)} type="text" />
-      <div>Email</div>
-      <input onChange={e => setEmail(e.target.value)} type="text" />
-      <button onClick={register}>Register</button>
-    </>
+    <div className="RegistrationForm">
+      <div className="RegistrationForm__head">
+        <h3 className="RegistrationForm__heading">Registration</h3>
+      </div>
+      <div className="RegistrationForm__body">
+        <div className="RegistrationForm__label">Username</div>
+        <input
+          onChange={e => setUsername(e.target.value)}
+          className="RegistrationForm__input"
+          type="text"
+        />
+        <div className="RegistrationForm__label">Password</div>
+        <input
+          onChange={e => setPassword(e.target.value)}
+          className="RegistrationForm__input"
+          type="password"
+        />
+        <div className="RegistrationForm__label">Confirm Password</div>
+        <input
+          onChange={e => setConfirmPassword(e.target.value)}
+          className="RegistrationForm__input"
+          type="password"
+        />
+        <div className="RegistrationForm__label">Email</div>
+        <input
+          onChange={e => setEmail(e.target.value)}
+          className="RegistrationForm__input"
+          type="text"
+        />
+        <button onClick={register} className="RegistrationForm__btn">
+          Register
+        </button>
+        <p
+          className="RegistrationForm__already-have"
+          onClick={() => goToLogin(true)}
+        >
+          Already have an account?
+        </p>
+      </div>
+    </div>
   );
 }
 

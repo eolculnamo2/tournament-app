@@ -1,0 +1,12 @@
+@import '../settings';
+@import '../global';
+@import '../components/Header';
+@import '../components/Footer';
+@import '../components/RegistrationForm';
+
+$block: '.Home';
+
+#{$block} {
+  margin: auto;
+  margin-top: 3em;
+}

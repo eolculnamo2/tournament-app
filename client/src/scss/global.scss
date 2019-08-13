@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  font-size: 14px;
+
+  @media(min-width: 800px) {
+    font-size: 16px;
+  }
+}
+
+.footer-at-bottom {
+  min-height: calc(100vh - 3em);
+}
+
+input {
+  padding: .5em .75em;
+  border-radius: 3px;
+  border: 1px solid $borderGray1;
+  outline: none;
+  box-sizing: border-box;
+  font-size: .875em;
+
+  &:focus {
+    border: 1px solid $primaryBlue;
+  }
+}
