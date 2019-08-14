@@ -1,0 +1,14 @@
+$block: '.RandomQuote';
+
+#{$block} {
+  margin: 2em auto;
+  max-width: 500px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#{$block}__text {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin: 0;
+}

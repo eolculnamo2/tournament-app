@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RegistrationForm, LoginForm } from '../components';
+import { RegistrationForm, LoginForm, RandomQuote } from '../components';
 import '../scss/pages/home.scss';
 
 function Home(): JSX.Element {
@@ -7,6 +7,7 @@ function Home(): JSX.Element {
 
   return (
     <div className="Home">
+      <RandomQuote />
       {!showLogin && <RegistrationForm goToLogin={setShowLogin} />}
       {showLogin && <LoginForm goToRegister={setShowLogin} />}
     </div>
