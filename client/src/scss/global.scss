@@ -11,6 +11,12 @@ body {
   min-height: calc(100vh - 3em);
 }
 
+.error-msg {
+  color: red;
+  margin-top: .2em;
+  font-size: .875em;
+}
+
 input {
   padding: .5em .75em;
   border-radius: 3px;
