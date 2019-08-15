@@ -3,8 +3,7 @@ import { IRandomQuote } from '../../../../constants/interfaces';
 
 const quotes: Array<IRandomQuote> = [
   {
-    text:
-      'A despondent heart will always be defeated, regardless of all skill.',
+    text: 'A despondent heart will always be defeated regardless of all skill.',
     author: 'Ringeck',
   },
 ];
