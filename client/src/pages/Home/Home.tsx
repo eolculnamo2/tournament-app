@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { RegistrationForm, LoginForm, RandomQuote } from '../components';
-import '../scss/pages/home.scss';
+import { RegistrationForm, LoginForm, RandomQuote } from '../../components';
+import '../../scss/pages/home.scss';
 
 function Home(): JSX.Element {
   const [showLogin, setShowLogin] = useState<boolean>(true);
