@@ -1,4 +1,4 @@
-async function postData(route: string, payload: string) {
+async function postData(route: string, payload?: string) {
   const response = await fetch(route, {
     method: 'POST',
     body: payload,
@@ -8,4 +8,9 @@ async function postData(route: string, payload: string) {
   return await response.json();
 }
 
-export { postData };
+async function getData(route: string) {
+  const response = await fetch(route);
+  return await response.json();
+}
+
+export { getData, postData };

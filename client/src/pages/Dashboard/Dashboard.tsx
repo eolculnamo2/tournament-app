@@ -25,12 +25,12 @@ function Dashboard(): JSX.Element {
       color: 'blue2',
     },
     {
-      text: 'View Articles',
+      text: 'Discuss',
       link: '/create-tournament',
       color: 'blue2',
     },
     {
-      text: 'Discuss',
+      text: 'Manage Event',
       link: '/create-tournament',
       color: 'red1',
     },

@@ -95,4 +95,12 @@ router.post('/getProfile', (req, res) => {
   });
 });
 
+router.post('/checkLogin', (req, res) => {
+  if (req.user) {
+    res.json({ loggedIn: true, user: req.user.username.trim() });
+  } else if (!req.user) {
+    res.json({ loggedIn: false });
+  }
+});
+
 export default router;

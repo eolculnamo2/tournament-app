@@ -1,5 +1,5 @@
-import React, { useReducer, Reducer } from 'react';
-import { Switch, Route } from 'react-router';
+import React, { useReducer, Reducer, useState } from 'react';
+import { Switch, Route, Redirect } from 'react-router';
 import { Router } from 'react-router';
 import { createBrowserHistory } from 'history';
 import pages from './pages';
@@ -12,6 +12,7 @@ import GlobalContext from './contexts/global/GlobalContext';
 import GlobalState from './contexts/global/GlobalState';
 import reducer from './contexts/reducer';
 import { Header, Footer } from './components';
+import { postData } from './helpers/api';
 
 const history = createBrowserHistory();
 
@@ -20,6 +21,23 @@ function App(): JSX.Element {
     reducer,
     GlobalState
   );
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
+
+  (async () => {
+    const response = await postData('/authenticate/checkLogin';
+    setLoggedIn(response.loggedIn);
+  })();
+
+  function handleRedirects(props: any, route: IPathComponent) {
+    if (loggedIn && route.path !== '/') {
+      return <route.component {...props} />;
+    } else if (loggedIn && route.path === '/') {
+      return <Redirect to="/dashboard" />;
+    } else if (!loggedIn && route.path !== '/') {
+      return <Redirect to="/" />;
+    }
+    return <route.component />;
+  }
 
   return (
     <>
@@ -33,8 +51,8 @@ function App(): JSX.Element {
                   <Route
                     exact
                     path={route.path}
-                    component={route.component}
                     key={'route' + i}
+                    render={props => handleRedirects(props, route)}
                   />
                 );
               })}
