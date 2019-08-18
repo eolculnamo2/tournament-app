@@ -1,4 +1,4 @@
-import React, { useReducer, Reducer, useState } from 'react';
+import React, { useReducer, Reducer, useState, useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router';
 import { Router } from 'react-router';
 import { createBrowserHistory } from 'history';
@@ -13,20 +13,24 @@ import GlobalState from './contexts/global/GlobalState';
 import reducer from './contexts/reducer';
 import { Header, Footer } from './components';
 import { postData } from './helpers/api';
+import { ACTION_TYPES } from './contexts/global/GlobalActions';
 
-const history = createBrowserHistory();
+export const history = createBrowserHistory();
 
 function App(): JSX.Element {
   const [state, dispatch] = useReducer<Reducer<IGlobalState, IAction>>(
     reducer,
     GlobalState
   );
-  const [loggedIn, setLoggedIn] = useState<boolean>(false);
+  const { loggedIn } = state;
 
-  (async () => {
-    const response = await postData('/authenticate/checkLogin');
-    setLoggedIn(response.loggedIn);
-  })();
+  useEffect(() => {
+    // @todo: make checkLogin fire on every page change.
+    (async () => {
+      const response = await postData('/authenticate/checkLogin');
+      dispatch({ type: ACTION_TYPES.UPDATE_LOGIN, payload: response.loggedIn });
+    })();
+  }, []);
 
   function handleRedirects(props: any, route: IPathComponent) {
     if (loggedIn && route.path !== '/') {

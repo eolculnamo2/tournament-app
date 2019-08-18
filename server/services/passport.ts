@@ -20,7 +20,7 @@ router.post('/register', (req, res) => {
     User.register(
       new User({
         username: req.body.username.trim().toLowerCase(),
-        email: req.body.email.trim(),
+        email: req.body.email.trim().toLowerCase(),
       }),
       req.body.password.trim(),
       err => {
@@ -30,9 +30,8 @@ router.post('/register', (req, res) => {
         } else {
           passport.authenticate('local')(req, res, () => {
             res.send({
-              name: 'authenticated',
+              success: true,
               user: req.user.username.trim(),
-              data: 'Registration Successful!',
             });
           });
         }
@@ -47,14 +46,12 @@ router.post('/register', (req, res) => {
 router.post('/login', passport.authenticate('local'), (req, res) => {
   if (!req.user) {
     res.send({
-      name: 'invalid-credentials',
-      data: 'Login Failed. Please try Again.',
+      success: false,
     });
   } else if (req.user) {
     res.send({
-      name: 'authenticated',
+      success: true,
       user: req.user.username.trim(),
-      data: 'Login Successful!',
     });
   }
 });

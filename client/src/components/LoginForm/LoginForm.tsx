@@ -1,17 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import { ICredentials, ILoginForm } from '../../../../constants/interfaces';
 import { postData } from '../../helpers/api';
 import { displayErrMsg, checkVars } from '../../helpers/validations';
+import { history } from '../../App';
+import GlobalContext from '../../contexts/global/GlobalContext';
+import { ACTION_TYPES } from '../../contexts/global/GlobalActions';
 
 function LoginForm(props: ILoginForm): JSX.Element {
   const { goToRegister } = props;
+  // global state
+  const { dispatch } = useContext(GlobalContext);
+
+  //local state
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
   // validations
+  const [failedLogin, setFailedLogin] = useState<boolean>(false);
   const [dirty, setDirty] = useState<boolean>(false);
   const requiredVariables: Array<any> = [username, password];
   const displayErr: (val: any) => boolean = displayErrMsg(dirty);
+
+  useEffect(() => {
+    window.addEventListener('keypress', handleEnterBtn);
+    return () => window.removeEventListener('keypress', handleEnterBtn);
+  }, []);
+  const loginBtn = useRef<HTMLButtonElement>(null);
+
+  const handleEnterBtn = (e: KeyboardEvent) => {
+    if (e.keyCode === 13 && loginBtn && loginBtn.current) {
+      loginBtn.current.click();
+    }
+  };
 
   const login = async () => {
     setDirty(true);
@@ -27,7 +47,12 @@ function LoginForm(props: ILoginForm): JSX.Element {
         JSON.stringify(loginPayload)
       );
 
-      console.log(data);
+      if (data.success) {
+        dispatch({ type: ACTION_TYPES.UPDATE_LOGIN, payload: true });
+        history.push('/dashboard');
+      } else {
+        setFailedLogin(true);
+      }
     }
   };
 
@@ -55,7 +80,14 @@ function LoginForm(props: ILoginForm): JSX.Element {
         {displayErr(password) && (
           <div className="error-msg">Password is required.</div>
         )}
-        <button className="RegistrationForm__btn" onClick={login}>
+        {failedLogin && (
+          <div className="error-msg">Login Failed. Please try again.</div>
+        )}
+        <button
+          className="RegistrationForm__btn"
+          onClick={login}
+          ref={loginBtn}
+        >
           Login
         </button>
         <p
