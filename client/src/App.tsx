@@ -24,7 +24,7 @@ function App(): JSX.Element {
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
 
   (async () => {
-    const response = await postData('/authenticate/checkLogin';
+    const response = await postData('/authenticate/checkLogin');
     setLoggedIn(response.loggedIn);
   })();
 
