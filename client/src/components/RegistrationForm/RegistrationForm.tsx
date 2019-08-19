@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { INewUser, IRegistrationForm } from '../../../../constants/interfaces';
 import { postData } from '../../helpers/api';
 import { displayErrMsg, checkVars } from '../../helpers/validations';
+import GlobalContext from '../../contexts/global/GlobalContext';
+import { ACTION_TYPES } from '../../contexts/global/GlobalActions';
+import { history } from '../../App';
 
 function RegistrationForm(props: IRegistrationForm): JSX.Element {
   const { goToLogin } = props;
 
-  // State
+  // Global Context State
+  const { dispatch } = useContext(GlobalContext);
+
+  // Local State
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
@@ -20,7 +26,22 @@ function RegistrationForm(props: IRegistrationForm): JSX.Element {
     email,
   ];
   const [dirty, setDirty] = useState<boolean>(false);
+  const [failedRegistration, setFailedRegistration] = useState<boolean>(false);
   const displayErr: (val: any) => boolean = displayErrMsg(dirty);
+
+  useEffect(() => {
+    window.addEventListener('keypress', handleEnterBtn);
+    return () => window.removeEventListener('keypress', handleEnterBtn);
+  }, []);
+
+  const handleEnterBtn = (e: KeyboardEvent) => {
+    if (e.keyCode === 13 && registerBtn && registerBtn.current) {
+      registerBtn.current.click();
+    }
+  };
+
+  // refs
+  const registerBtn = useRef<HTMLButtonElement>(null);
 
   const register = async () => {
     setDirty(true);
@@ -36,8 +57,13 @@ function RegistrationForm(props: IRegistrationForm): JSX.Element {
         '/authenticate/register',
         JSON.stringify(registerPayload)
       );
-      // @TODO dispatch user details to global state here
-      console.log(data);
+
+      if (data.success) {
+        dispatch({ type: ACTION_TYPES.UPDATE_LOGIN, payload: true });
+        history.push('/dashboard');
+      } else {
+        setFailedRegistration(true);
+      }
     }
   };
 
@@ -83,7 +109,16 @@ function RegistrationForm(props: IRegistrationForm): JSX.Element {
         {displayErr(email) && (
           <div className="error-msg">Email is required</div>
         )}
-        <button onClick={register} className="RegistrationForm__btn">
+        {failedRegistration && (
+          <div className="error-msg">
+            Registration Failed. Please try again.
+          </div>
+        )}
+        <button
+          onClick={register}
+          className="RegistrationForm__btn"
+          ref={registerBtn}
+        >
           Register
         </button>
         <p

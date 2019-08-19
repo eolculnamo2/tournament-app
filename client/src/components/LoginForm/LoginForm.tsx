@@ -21,11 +21,13 @@ function LoginForm(props: ILoginForm): JSX.Element {
   const requiredVariables: Array<any> = [username, password];
   const displayErr: (val: any) => boolean = displayErrMsg(dirty);
 
+  // refs
+  const loginBtn = useRef<HTMLButtonElement>(null);
+
   useEffect(() => {
     window.addEventListener('keypress', handleEnterBtn);
     return () => window.removeEventListener('keypress', handleEnterBtn);
   }, []);
-  const loginBtn = useRef<HTMLButtonElement>(null);
 
   const handleEnterBtn = (e: KeyboardEvent) => {
     if (e.keyCode === 13 && loginBtn && loginBtn.current) {
