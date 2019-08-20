@@ -40,7 +40,7 @@ function App(): JSX.Element {
     } else if (!loggedIn && route.path !== '/') {
       return <Redirect to="/" />;
     }
-    return <route.component />;
+    return <route.component {...props} />;
   }
 
   return (

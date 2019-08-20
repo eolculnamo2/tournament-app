@@ -15,6 +15,11 @@ $block: '.Dashboard';
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
 }
 
 #{$block}__circle {

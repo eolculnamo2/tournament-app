@@ -1,6 +1,7 @@
 import React from 'react';
 import { ICircleLink } from '../../../../constants/interfaces';
 import '../../scss/pages/dashboard.scss';
+import { Link } from 'react-router-dom';
 
 function Dashboard(): JSX.Element {
   const circleLinks: Array<ICircleLink> = [
@@ -47,21 +48,23 @@ function Dashboard(): JSX.Element {
   ];
 
   return (
-    <div>
+    <>
       <h1 className="Dashboard__title">Sword Point Tournaments</h1>
       <div className="Dashboard__circles-wrap">
         {circleLinks.map((x: ICircleLink, i: number) => {
           return (
-            <div
-              key={x.link + i}
-              className={`Dashboard__circle Dashboard__circle--${x.color}`}
-            >
-              <div className="Dashboard__circle-txt">{x.text}</div>
-            </div>
+            <Link to={x.link}>
+              <div
+                key={x.link + i}
+                className={`Dashboard__circle Dashboard__circle--${x.color}`}
+              >
+                <div className="Dashboard__circle-txt">{x.text}</div>
+              </div>
+            </Link>
           );
         })}
       </div>
-    </div>
+    </>
   );
 }
 
