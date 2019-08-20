@@ -1,0 +1,39 @@
+@import '../sets//global-set';
+
+$block: '.CreateDashboard';
+
+#{$block} {
+  margin: auto;
+  width: 500px;
+
+  // React Datepicker
+  .react-datepicker-wrapper,
+  .react-datepicker__input-container,
+  .react-datepicker-ignore-onclickoutside {
+    width: 100%;
+
+    input {
+      width: 100%;
+    }
+  }
+}
+
+#{$block}__heading {
+  font-size: 1.75em;
+  text-align: center;
+  margin-top: 2em;
+}
+
+#{$block}__line-break {
+  border-bottom: 1px solid black;
+  margin: .5em 0;
+}
+
+#{$block}__label {
+  margin-top: 1em;
+  font-size: 1.15em;
+}
+
+#{$block}__input {
+  width: 100%;
+}

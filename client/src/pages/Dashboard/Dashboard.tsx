@@ -1,7 +1,7 @@
 import React from 'react';
 import { ICircleLink } from '../../../../constants/interfaces';
-import '../../scss/pages/dashboard.scss';
 import { Link } from 'react-router-dom';
+import '../../scss/pages/dashboard.scss';
 
 function Dashboard(): JSX.Element {
   const circleLinks: Array<ICircleLink> = [
@@ -53,9 +53,8 @@ function Dashboard(): JSX.Element {
       <div className="Dashboard__circles-wrap">
         {circleLinks.map((x: ICircleLink, i: number) => {
           return (
-            <Link to={x.link}>
+            <Link to={x.link} key={x.link + i}>
               <div
-                key={x.link + i}
                 className={`Dashboard__circle Dashboard__circle--${x.color}`}
               >
                 <div className="Dashboard__circle-txt">{x.text}</div>
