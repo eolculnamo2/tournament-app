@@ -2,7 +2,7 @@ import { IGlobalState } from '../../../../constants/interfaces';
 
 const GlobalState: IGlobalState = {
   username: '',
-  loggedIn: false,
+  loggedIn: true,
 };
 
 export default GlobalState;
