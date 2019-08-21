@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
+    "client": "yarn --cwd ./client start",
     "dev": "ts-node-dev --respawn --transpileOnly ./server/server.ts",
+    "both": "concurrently \"yarn dev\" \"yarn client\"",
     "prod": "tsc && node ./build/server/server.js"
   },
   "author": "",
@@ -15,6 +17,7 @@
     "@types/express-session": "^1.15.13",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
+    "concurrently": "^4.1.2",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
