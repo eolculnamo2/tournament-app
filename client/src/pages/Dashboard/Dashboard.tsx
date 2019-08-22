@@ -37,7 +37,7 @@ function Dashboard(): JSX.Element {
     },
     {
       text: "Judge's Table",
-      link: '/create-tournament',
+      link: '/judges-table',
       color: 'red2',
     },
     {
