@@ -10,8 +10,8 @@ function CreateTournamentForm(): JSX.Element {
   // State: payload
   const [hostClub, setHostClub] = useState<string>('');
   const [eventName, setEventName] = useState<string>('');
-  const [startDate, setStartDate] = useState<Date | null>(new Date());
-  const [endDate, setEndDate] = useState<Date | null>(new Date());
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(null);
   const [registrationCost, setRegistrationCost] = useState<number>(0);
 
   //Validations
@@ -52,6 +52,9 @@ function CreateTournamentForm(): JSX.Element {
         type="text"
         value={hostClub}
       />
+      {displayErr(hostClub) && (
+        <div className="Global__error-msg">Hosting Club is Required</div>
+      )}
       <div className="CreateTournament__label">Event Name</div>
       <input
         className="CreateTournament__input"
@@ -59,10 +62,19 @@ function CreateTournamentForm(): JSX.Element {
         type="text"
         value={eventName}
       />
+      {displayErr(eventName) && (
+        <div className="Global__error-msg">Event Name is Required</div>
+      )}
       <div className="CreateTournament__label">Event Start Date</div>
       <DatePicker selected={startDate} onChange={setStartDate} />
+      {displayErr(startDate) && (
+        <div className="Global__error-msg">Start Date is Required</div>
+      )}
       <div className="CreateTournament__label">Event End Date</div>
       <DatePicker selected={endDate} onChange={setEndDate} />
+      {displayErr(endDate) && (
+        <div className="Global__error-msg">End Date is Required</div>
+      )}
       <div className="CreateTournament__label">
         Registration Cost (US Dollars)
       </div>
@@ -72,6 +84,9 @@ function CreateTournamentForm(): JSX.Element {
         type="number"
         value={registrationCost}
       />
+      {displayErr(registrationCost) && (
+        <div className="Global__error-msg">Registration Cost is Required</div>
+      )}
       <button
         className="CreateTournament__btn"
         type="button"
