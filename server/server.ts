@@ -4,6 +4,7 @@ import express, { Application } from 'express';
 import compression from 'compression';
 import mongoose from 'mongoose';
 import passport from 'passport';
+import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import bodyParser from 'body-parser';
 
@@ -17,6 +18,7 @@ const app: Application = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(cookieParser(process.env.KEY));
 app.use(
   session({
     secret: process.env.KEY as string | string[],

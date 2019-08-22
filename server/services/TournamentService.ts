@@ -1,8 +1,29 @@
 import INewTournament from '../../constants/interfaces/INewTournament';
+import Tournament from '../models/Tournament';
 
 export default class TournamentService {
-  public createTournament(payload: INewTournament) {
-    // make db call here
-    console.log(JSON.stringify(payload, null, 3));
+  public createTournament(payload: INewTournament, adminUser: string): boolean {
+    const {
+      hostClub,
+      eventName,
+      startDate,
+      endDate,
+      registrationCost,
+    } = payload;
+
+    new Tournament({
+      adminUser,
+      hostClub,
+      eventName,
+      startDate,
+      endDate,
+      registrationCost,
+    }).save(err => {
+      if (err) {
+        console.error(err);
+        return false;
+      }
+    });
+    return true;
   }
 }

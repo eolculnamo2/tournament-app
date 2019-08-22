@@ -36,8 +36,16 @@ function CreateTournamentForm(): JSX.Element {
         registrationCost,
       };
 
-      await postData('/api/create-tournament', JSON.stringify(payload));
-      // Add confirmation modal/ Rejection Modal logic here
+      const response = await postData(
+        '/api/create-tournament',
+        JSON.stringify(payload)
+      );
+      // @todo Replace with custom modals
+      if (!response.success) {
+        alert('Tournament creation failed.');
+      } else {
+        alert('Tournament successfully created');
+      }
     }
   };
 
