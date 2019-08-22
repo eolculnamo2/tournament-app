@@ -71,7 +71,7 @@ function LoginForm(props: ILoginForm): JSX.Element {
           type="text"
         />
         {displayErr(username) && (
-          <div className="error-msg">Username is required.</div>
+          <div className="Global__error-msg">Username is required.</div>
         )}
         <div className="RegistrationForm__label">Password</div>
         <input
@@ -80,10 +80,12 @@ function LoginForm(props: ILoginForm): JSX.Element {
           type="password"
         />
         {displayErr(password) && (
-          <div className="error-msg">Password is required.</div>
+          <div className="Global__error-msg">Password is required.</div>
         )}
         {failedLogin && (
-          <div className="error-msg">Login Failed. Please try again.</div>
+          <div className="Global__error-msg">
+            Login Failed. Please try again.
+          </div>
         )}
         <button
           className="RegistrationForm__btn"

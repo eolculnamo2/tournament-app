@@ -80,7 +80,7 @@ function RegistrationForm(props: IRegistrationForm): JSX.Element {
           type="text"
         />
         {displayErr(username) && (
-          <div className="error-msg">Username is required</div>
+          <div className="Global__error-msg">Username is required</div>
         )}
         <div className="RegistrationForm__label">Password</div>
         <input
@@ -89,7 +89,7 @@ function RegistrationForm(props: IRegistrationForm): JSX.Element {
           type="password"
         />
         {displayErr(password) && (
-          <div className="error-msg">Password is required</div>
+          <div className="Global__error-msg">Password is required</div>
         )}
         <div className="RegistrationForm__label">Confirm Password</div>
         <input
@@ -98,7 +98,7 @@ function RegistrationForm(props: IRegistrationForm): JSX.Element {
           type="password"
         />
         {displayErr(confirmPassword) && (
-          <div className="error-msg">Confirm Password is required</div>
+          <div className="Global__error-msg">Confirm Password is required</div>
         )}
         <div className="RegistrationForm__label">Email</div>
         <input
@@ -107,10 +107,10 @@ function RegistrationForm(props: IRegistrationForm): JSX.Element {
           type="text"
         />
         {displayErr(email) && (
-          <div className="error-msg">Email is required</div>
+          <div className="Global__error-msg">Email is required</div>
         )}
         {failedRegistration && (
-          <div className="error-msg">
+          <div className="Global__error-msg">
             Registration Failed. Please try again.
           </div>
         )}

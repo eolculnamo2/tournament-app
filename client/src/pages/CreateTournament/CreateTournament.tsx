@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import '../../scss/pages/create-dashboard.scss';
+import '../../scss/pages/create-tournament.scss';
 
 function CreateTournament(): JSX.Element {
   // Local State
@@ -9,19 +9,20 @@ function CreateTournament(): JSX.Element {
   const [endDate, setEndDate] = useState<Date | null>(new Date());
 
   return (
-    <div className="CreateDashboard">
-      <h3 className="CreateDashboard__heading">Create Tournament</h3>
-      <div className="CreateDashboard__line-break" />
-      <div className="CreateDashboard__label">Hosting Club</div>
-      <input className="CreateDashboard__input" type="text" />
-      <div className="CreateDashboard__label">Event Name</div>
-      <input className="CreateDashboard__input" type="text" />
-      <div className="CreateDashboard__label">Event Start Date</div>
+    <div className="CreateTournament">
+      <h3 className="CreateTournament__heading">Create Tournament</h3>
+      <div className="CreateTournament__line-break" />
+      <div className="CreateTournament__label">Hosting Club</div>
+      <input className="CreateTournament__input" type="text" />
+      <div className="CreateTournament__label">Event Name</div>
+      <input className="CreateTournament__input" type="text" />
+      <div className="CreateTournament__label">Event Start Date</div>
       <DatePicker selected={startDate} onChange={setStartDate} />
-      <div className="CreateDashboard__label">Event End Date</div>
+      <div className="CreateTournament__label">Event End Date</div>
       <DatePicker selected={endDate} onChange={setEndDate} />
-      <div className="CreateDashboard__label">Event Cost (US Dollars)</div>
-      <input className="CreateDashboard__input" type="text" />
+      <div className="CreateTournament__label">Event Cost (US Dollars)</div>
+      <input className="CreateTournament__input" type="text" />{' '}
+      <button className="CreateTournament__btn">Create Event</button>
     </div>
   );
 }

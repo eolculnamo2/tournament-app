@@ -1,6 +1,6 @@
 @import '../sets//global-set';
 
-$block: '.CreateDashboard';
+$block: '.CreateTournament';
 
 #{$block} {
   margin: auto;
@@ -36,4 +36,8 @@ $block: '.CreateDashboard';
 
 #{$block}__input {
   width: 100%;
+}
+
+#{$block}__btn {
+  @include button($secondaryRed, $borderGray1);
 }

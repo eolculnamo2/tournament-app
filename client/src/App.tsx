@@ -47,7 +47,7 @@ function App(): JSX.Element {
     <>
       <GlobalContext.Provider value={{ state, dispatch }}>
         <Router history={history}>
-          <div className="footer-at-bottom">
+          <div className="Global__footer-at-bottom">
             <Header />
             <Switch>
               {pages.map((route: IPathComponent, i: number) => {
