@@ -1,4 +1,5 @@
 import React from 'react';
+// import {ICompetitor} from "../../../../constants/interfaces";
 
 interface CompetitorPropTypes {
   competitor: string;
