@@ -3,7 +3,8 @@ const checkVars = (requiredVars: Array<any>) =>
 
 const displayRequiredErrMsg = (dirty: boolean) => (val: any) => {
   const valueCheck: any = Array.isArray(val) ? val.length : val;
-  return Boolean(dirty && !valueCheck);
+
+  return typeof val === 'number' ? false : Boolean(dirty && !valueCheck);
 };
 
 const arrayHasNoValues = (val: Array<string>): boolean => {
@@ -13,4 +14,11 @@ const arrayHasNoValues = (val: Array<string>): boolean => {
   return true;
 };
 
-export { arrayHasNoValues, checkVars, displayRequiredErrMsg };
+const numberNotNegative = (n: number) => n >= 0;
+
+export {
+  arrayHasNoValues,
+  checkVars,
+  displayRequiredErrMsg,
+  numberNotNegative,
+};

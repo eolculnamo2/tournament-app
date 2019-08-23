@@ -7,6 +7,7 @@ import {
   displayRequiredErrMsg,
   checkVars,
   arrayHasNoValues,
+  numberNotNegative,
 } from '../../helpers/validations';
 import { removeBlankValues } from '../../helpers/helpers';
 import { postData } from '../../helpers/api';
@@ -36,7 +37,12 @@ function CreateTournamentForm(): JSX.Element {
 
   const canSubmit = (): boolean => {
     // Combine all validations
-    return checkVars(requiredVariables) && !arrayHasNoValues(events);
+    const validations: Array<boolean> = [
+      checkVars(requiredVariables),
+      !arrayHasNoValues(events),
+      !numberNotNegative(registrationCost),
+    ];
+    return validations.find((x: boolean) => x === false) === undefined;
   };
 
   const handleSubmit = async () => {
@@ -158,6 +164,11 @@ function CreateTournamentForm(): JSX.Element {
       />
       {displayRequiredErr(registrationCost) && (
         <div className="Global__error-msg">Registration Cost is Required</div>
+      )}
+      {!numberNotNegative(registrationCost) && dirty && (
+        <div className="Global__error-msg">
+          Registration Cost cannot be negative
+        </div>
       )}
       <button
         className="CreateTournament__btn"
