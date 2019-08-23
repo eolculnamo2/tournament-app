@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
 import { INewUser, IRegistrationForm } from '../../../../constants/interfaces';
 import { postData } from '../../helpers/api';
-import { displayErrMsg, checkVars } from '../../helpers/validations';
+import { displayRequiredErrMsg, checkVars } from '../../helpers/validations';
 import GlobalContext from '../../contexts/global/GlobalContext';
 import { ACTION_TYPES } from '../../contexts/global/GlobalActions';
 import { history } from '../../App';
@@ -27,7 +27,9 @@ function RegistrationForm(props: IRegistrationForm): JSX.Element {
   ];
   const [dirty, setDirty] = useState<boolean>(false);
   const [failedRegistration, setFailedRegistration] = useState<boolean>(false);
-  const displayErr: (val: any) => boolean = displayErrMsg(dirty);
+  const displayRequiredErr: (val: any) => boolean = displayRequiredErrMsg(
+    dirty
+  );
 
   useEffect(() => {
     window.addEventListener('keypress', handleEnterBtn);
@@ -79,7 +81,7 @@ function RegistrationForm(props: IRegistrationForm): JSX.Element {
           className="RegistrationForm__input"
           type="text"
         />
-        {displayErr(username) && (
+        {displayRequiredErr(username) && (
           <div className="Global__error-msg">Username is required</div>
         )}
         <div className="RegistrationForm__label">Password</div>
@@ -88,7 +90,7 @@ function RegistrationForm(props: IRegistrationForm): JSX.Element {
           className="RegistrationForm__input"
           type="password"
         />
-        {displayErr(password) && (
+        {displayRequiredErr(password) && (
           <div className="Global__error-msg">Password is required</div>
         )}
         <div className="RegistrationForm__label">Confirm Password</div>
@@ -97,7 +99,7 @@ function RegistrationForm(props: IRegistrationForm): JSX.Element {
           className="RegistrationForm__input"
           type="password"
         />
-        {displayErr(confirmPassword) && (
+        {displayRequiredErr(confirmPassword) && (
           <div className="Global__error-msg">Confirm Password is required</div>
         )}
         <div className="RegistrationForm__label">Email</div>
@@ -106,7 +108,7 @@ function RegistrationForm(props: IRegistrationForm): JSX.Element {
           className="RegistrationForm__input"
           type="text"
         />
-        {displayErr(email) && (
+        {displayRequiredErr(email) && (
           <div className="Global__error-msg">Email is required</div>
         )}
         {failedRegistration && (

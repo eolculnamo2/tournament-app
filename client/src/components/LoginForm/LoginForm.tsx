@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import { ICredentials, ILoginForm } from '../../../../constants/interfaces';
 import { postData } from '../../helpers/api';
-import { displayErrMsg, checkVars } from '../../helpers/validations';
+import { displayRequiredErrMsg, checkVars } from '../../helpers/validations';
 import { history } from '../../App';
 import GlobalContext from '../../contexts/global/GlobalContext';
 import { ACTION_TYPES } from '../../contexts/global/GlobalActions';
@@ -19,7 +19,9 @@ function LoginForm(props: ILoginForm): JSX.Element {
   const [failedLogin, setFailedLogin] = useState<boolean>(false);
   const [dirty, setDirty] = useState<boolean>(false);
   const requiredVariables: Array<any> = [username, password];
-  const displayErr: (val: any) => boolean = displayErrMsg(dirty);
+  const displayRequiredErr: (val: any) => boolean = displayRequiredErrMsg(
+    dirty
+  );
 
   // refs
   const loginBtn = useRef<HTMLButtonElement>(null);
@@ -70,7 +72,7 @@ function LoginForm(props: ILoginForm): JSX.Element {
           onChange={e => setUsername(e.target.value)}
           type="text"
         />
-        {displayErr(username) && (
+        {displayRequiredErr(username) && (
           <div className="Global__error-msg">Username is required.</div>
         )}
         <div className="RegistrationForm__label">Password</div>
@@ -79,7 +81,7 @@ function LoginForm(props: ILoginForm): JSX.Element {
           onChange={e => setPassword(e.target.value)}
           type="password"
         />
-        {displayErr(password) && (
+        {displayRequiredErr(password) && (
           <div className="Global__error-msg">Password is required.</div>
         )}
         {failedLogin && (

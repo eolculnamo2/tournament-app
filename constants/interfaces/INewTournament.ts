@@ -1,6 +1,7 @@
 export default interface INewTournament {
   hostClub: string;
-  eventName: string;
+  tournamentName: string;
+  events: Array<string>;
   startDate: Date | null;
   endDate: Date | null;
   registrationCost: number;

@@ -3,37 +3,54 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import '../../scss/pages/create-tournament.scss';
 import INewTournament from '../../../../constants/interfaces/INewTournament';
-import { displayErrMsg, checkVars } from '../../helpers/validations';
+import {
+  displayRequiredErrMsg,
+  checkVars,
+  arrayHasNoValues,
+} from '../../helpers/validations';
+import { removeBlankValues } from '../../helpers/helpers';
 import { postData } from '../../helpers/api';
 
 function CreateTournamentForm(): JSX.Element {
   // State: payload
   const [hostClub, setHostClub] = useState<string>('');
-  const [eventName, setEventName] = useState<string>('');
+  const [tournamentName, setTournamentName] = useState<string>('');
+  const [events, setEvents] = useState<Array<string>>(['']);
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
   const [registrationCost, setRegistrationCost] = useState<number>(0);
 
   //Validations
   const [dirty, setDirty] = useState<boolean>(false);
-  const displayErr: (val: any) => boolean = displayErrMsg(dirty);
+  const displayRequiredErr: (val: any) => boolean = displayRequiredErrMsg(
+    dirty
+  );
   const requiredVariables: Array<any> = [
     hostClub,
-    eventName,
+    tournamentName,
     startDate,
     endDate,
     registrationCost,
+    events,
   ];
+
+  const canSubmit = (): boolean => {
+    // Combine all validations
+    return checkVars(requiredVariables) && !arrayHasNoValues(events);
+  };
 
   const handleSubmit = async () => {
     setDirty(true);
-    if (checkVars(requiredVariables)) {
+    if (canSubmit()) {
+      setEvents(removeBlankValues(events));
+
       const payload: INewTournament = {
         hostClub,
-        eventName,
+        tournamentName,
         startDate,
         endDate,
         registrationCost,
+        events,
       };
 
       const response = await postData(
@@ -49,6 +66,24 @@ function CreateTournamentForm(): JSX.Element {
     }
   };
 
+  const handleEventChange = (val: string, i: number) => {
+    const updatedEvents: Array<string> = events;
+    updatedEvents[i] = val;
+    setEvents([...updatedEvents]);
+  };
+
+  const addEvent = () => {
+    const updatedEvents: Array<string> = events;
+    updatedEvents.push('');
+    setEvents([...updatedEvents]);
+  };
+
+  const deleteEvent = () => {
+    const updatedEvents: Array<string> = events;
+    updatedEvents.pop();
+    setEvents([...updatedEvents]);
+  };
+
   return (
     <>
       <h3 className="CreateTournament__heading">Create Tournament</h3>
@@ -60,27 +95,56 @@ function CreateTournamentForm(): JSX.Element {
         type="text"
         value={hostClub}
       />
-      {displayErr(hostClub) && (
+      {displayRequiredErr(hostClub) && (
         <div className="Global__error-msg">Hosting Club is Required</div>
       )}
-      <div className="CreateTournament__label">Event Name</div>
+      <div className="CreateTournament__label">Tournament Name</div>
       <input
         className="CreateTournament__input"
-        onChange={e => setEventName(e.target.value)}
+        onChange={e => setTournamentName(e.target.value)}
         type="text"
-        value={eventName}
+        value={tournamentName}
       />
-      {displayErr(eventName) && (
+      {displayRequiredErr(tournamentName) && (
         <div className="Global__error-msg">Event Name is Required</div>
+      )}
+      <div className="CreateTournament__label">
+        Tournament Events (i.e. Men's/Women's Longsword, Sword and Buckler,
+        etc.)
+      </div>
+      {events.map((event: string, i: number) => {
+        return (
+          <input
+            className="CreateTournament__input CreateTournament__input--m-t"
+            onChange={e => handleEventChange(e.target.value, i)}
+            placeholder={`Event # ${i + 1}`}
+            type="text"
+            value={event}
+          />
+        );
+      })}
+      <button
+        className="CreateTournament__btn-event CreateTournament__btn-event--delete"
+        onClick={deleteEvent}
+      >
+        Delete Event
+      </button>
+      <button className="CreateTournament__btn-event" onClick={addEvent}>
+        Add Event
+      </button>
+      {(displayRequiredErr(events) || (arrayHasNoValues(events) && dirty)) && (
+        <div className="Global__error-msg">
+          Tournaments must have at least one event.
+        </div>
       )}
       <div className="CreateTournament__label">Event Start Date</div>
       <DatePicker selected={startDate} onChange={setStartDate} />
-      {displayErr(startDate) && (
+      {displayRequiredErr(startDate) && (
         <div className="Global__error-msg">Start Date is Required</div>
       )}
       <div className="CreateTournament__label">Event End Date</div>
       <DatePicker selected={endDate} onChange={setEndDate} />
-      {displayErr(endDate) && (
+      {displayRequiredErr(endDate) && (
         <div className="Global__error-msg">End Date is Required</div>
       )}
       <div className="CreateTournament__label">
@@ -92,7 +156,7 @@ function CreateTournamentForm(): JSX.Element {
         type="number"
         value={registrationCost}
       />
-      {displayErr(registrationCost) && (
+      {displayRequiredErr(registrationCost) && (
         <div className="Global__error-msg">Registration Cost is Required</div>
       )}
       <button

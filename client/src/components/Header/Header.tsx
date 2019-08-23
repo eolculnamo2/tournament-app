@@ -10,7 +10,7 @@ function Header(): JSX.Element {
         <img
           className="Header__logo"
           src={Logo}
-          alt="Sword-Point Hema Tournament Software"
+          alt="Sword Point HEMA Tournament Software"
         />
       </Link>
       <div className="Header__links-wrap">

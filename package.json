@@ -27,7 +27,8 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1",
     "ts-node-dev": "^1.0.0-pre.40",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "uuid": "^3.3.3"
   },
   "prettier": {
     "trailingComma": "es5",
@@ -42,6 +43,7 @@
     "@types/mongoose": "^5.5.11",
     "@types/passport": "^1.0.0",
     "@types/passport-local": "^1.0.33",
-    "@types/passport-local-mongoose": "^4.0.12"
+    "@types/passport-local-mongoose": "^4.0.12",
+    "@types/uuid": "^3.4.5"
   }
 }
