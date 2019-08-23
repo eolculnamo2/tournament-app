@@ -40,7 +40,7 @@ function CreateTournamentForm(): JSX.Element {
     const validations: Array<boolean> = [
       checkVars(requiredVariables),
       !arrayHasNoValues(events),
-      !numberNotNegative(registrationCost),
+      numberNotNegative(registrationCost),
     ];
     return validations.find((x: boolean) => x === false) === undefined;
   };
