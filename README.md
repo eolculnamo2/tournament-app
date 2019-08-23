@@ -1,4 +1,4 @@
-#HEMA Tournament App
+# HEMA Tournament App
 
 ## Set up
 

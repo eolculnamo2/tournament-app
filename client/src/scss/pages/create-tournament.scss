@@ -1,6 +1,6 @@
 @import '../sets//global-set';
 
-$block: '.CreateDashboard';
+$block: '.CreateTournament';
 
 #{$block} {
   margin: auto;
@@ -36,4 +36,23 @@ $block: '.CreateDashboard';
 
 #{$block}__input {
   width: 100%;
+
+  &--m-t {
+    margin-top: 1em;
+  }
+}
+
+#{$block}__btn {
+  @include button($secondaryRed, $borderGray1);
+}
+
+#{$block}__btn-event {
+  @include button($fl-green, $borderGray1);
+  width: 200px;
+  color: $textColorDark;
+
+  &--delete {
+    margin-right: .25em;
+    background-color: $danger-red;
+  }
 }
