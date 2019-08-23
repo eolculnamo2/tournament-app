@@ -1,7 +1,7 @@
 import React from 'react';
 // import {ICompetitor} from "../../../../constants/interfaces";
 
-interface CompetitorPropTypes {
+interface ICompetitor {
   competitor: string;
   competitorNum: string;
   competitorScore: number;
@@ -13,7 +13,7 @@ const Competitor = ({
   competitorNum,
   competitorScore,
   handleScoreAdjust,
-}: CompetitorPropTypes): JSX.Element => {
+}: ICompetitor): JSX.Element => {
   return (
     <div>
       <h3>{competitor}</h3>
