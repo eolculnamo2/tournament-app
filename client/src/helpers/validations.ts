@@ -4,7 +4,9 @@ const checkVars = (requiredVars: Array<any>) =>
 const displayRequiredErrMsg = (dirty: boolean) => (val: any) => {
   const valueCheck: any = Array.isArray(val) ? val.length : val;
 
-  return typeof val === 'number' ? false : Boolean(dirty && !valueCheck);
+  return typeof val === 'number'
+    ? Boolean(dirty && Object.is(val, NaN))
+    : Boolean(dirty && !valueCheck);
 };
 
 const arrayHasNoValues = (val: Array<string>): boolean => {

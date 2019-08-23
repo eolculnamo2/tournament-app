@@ -19,7 +19,7 @@ function CreateTournamentForm(): JSX.Element {
   const [events, setEvents] = useState<Array<string>>(['']);
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
-  const [registrationCost, setRegistrationCost] = useState<number>(0);
+  const [registrationCost, setRegistrationCost] = useState<number>(NaN);
 
   //Validations
   const [dirty, setDirty] = useState<boolean>(false);
@@ -88,6 +88,18 @@ function CreateTournamentForm(): JSX.Element {
     const updatedEvents: Array<string> = events;
     updatedEvents.pop();
     setEvents([...updatedEvents]);
+  };
+
+  const registrationCostErrorMsg = (): JSX.Element => {
+    let errorMsg = '';
+
+    if (displayRequiredErr(registrationCost)) {
+      errorMsg = 'Registration Cost is Required';
+    } else if (!numberNotNegative(registrationCost) && dirty) {
+      errorMsg = 'Registration Cost cannot be Negative';
+    }
+
+    return <div className="Global__error-msg">{errorMsg}</div>;
   };
 
   return (
@@ -162,14 +174,7 @@ function CreateTournamentForm(): JSX.Element {
         type="number"
         value={registrationCost}
       />
-      {displayRequiredErr(registrationCost) && (
-        <div className="Global__error-msg">Registration Cost is Required</div>
-      )}
-      {!numberNotNegative(registrationCost) && dirty && (
-        <div className="Global__error-msg">
-          Registration Cost cannot be negative
-        </div>
-      )}
+      {registrationCostErrorMsg()}
       <button
         className="CreateTournament__btn"
         type="button"
