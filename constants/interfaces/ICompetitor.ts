@@ -1,6 +1,6 @@
 // import React from 'react';
 
-// interface CompetitorPropTypes {
+// export default interface ICompetitor {
 //     competitor: string;
 //     competitorNum: string;
 //     competitorScore: number;
