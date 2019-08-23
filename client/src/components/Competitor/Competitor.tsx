@@ -1,19 +1,12 @@
 import React from 'react';
-// import {ICompetitor} from "../../../../constants/interfaces";
-
-interface CompetitorPropTypes {
-  competitor: string;
-  competitorNum: string;
-  competitorScore: number;
-  handleScoreAdjust(e: React.MouseEvent, num: number, comp: string): void;
-}
+import { ICompetitor } from '../../../../constants/interfaces';
 
 const Competitor = ({
   competitor,
   competitorNum,
   competitorScore,
   handleScoreAdjust,
-}: CompetitorPropTypes): JSX.Element => {
+}: ICompetitor): JSX.Element => {
   return (
     <div>
       <h3>{competitor}</h3>

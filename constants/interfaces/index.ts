@@ -8,3 +8,4 @@ export { default as IRegistrationForm } from './IRegistrationForm';
 export { default as ILoginForm } from './ILoginForm';
 export { default as IRandomQuote } from './IRandomQuote';
 export { default as ICircleLink } from './ICircleLink';
+export { default as ICompetitor } from './ICompetitor';
