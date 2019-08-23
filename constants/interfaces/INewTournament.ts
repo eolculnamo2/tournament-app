@@ -4,5 +4,5 @@ export default interface INewTournament {
   events: Array<string>;
   startDate: Date | null;
   endDate: Date | null;
-  registrationCost: number;
+  registrationCost: number | null;
 }

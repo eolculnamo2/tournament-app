@@ -6,7 +6,7 @@ export default interface INewTournamentModel extends Document {
   events: Array<string>;
   startDate: Date | null;
   endDate: Date | null;
-  registrationCost: number;
+  registrationCost: number | null;
   adminUser: string;
   uuid: string;
 }

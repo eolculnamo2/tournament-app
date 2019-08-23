@@ -16,7 +16,7 @@ const arrayHasNoValues = (val: Array<string>): boolean => {
   return true;
 };
 
-const numberNotNegative = (n: number) => n >= 0;
+const numberNotNegative = (n: number | null): boolean => n === null || n >= 0;
 
 export {
   arrayHasNoValues,

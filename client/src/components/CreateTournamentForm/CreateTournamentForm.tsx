@@ -19,7 +19,7 @@ function CreateTournamentForm(): JSX.Element {
   const [events, setEvents] = useState<Array<string>>(['']);
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
-  const [registrationCost, setRegistrationCost] = useState<number>(NaN);
+  const [registrationCost, setRegistrationCost] = useState<number | null>(null);
 
   //Validations
   const [dirty, setDirty] = useState<boolean>(false);
@@ -136,6 +136,7 @@ function CreateTournamentForm(): JSX.Element {
             className="CreateTournament__input CreateTournament__input--m-t"
             onChange={e => handleEventChange(e.target.value, i)}
             placeholder={`Event # ${i + 1}`}
+            key={`event-input${i}`}
             type="text"
             value={event}
           />
@@ -172,7 +173,7 @@ function CreateTournamentForm(): JSX.Element {
         className="CreateTournament__input"
         onChange={e => setRegistrationCost(+e.target.value)}
         type="number"
-        value={registrationCost}
+        value={registrationCost === null ? '' : registrationCost}
       />
       {registrationCostErrorMsg()}
       <button
