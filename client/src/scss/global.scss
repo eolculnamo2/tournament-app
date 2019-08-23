@@ -1,3 +1,18 @@
+@import './mixins';
+
+$block: '.Global';
+
+
+#{$block}__footer-at-bottom {
+  min-height: calc(100vh - 3em);
+}
+
+#{$block}__error-msg {
+  color: red;
+  margin-top: .2em;
+  font-size: .875em;
+}
+
 body {
   margin: 0;
   font-size: 14px;
@@ -5,16 +20,6 @@ body {
   @media(min-width: 800px) {
     font-size: 16px;
   }
-}
-
-.footer-at-bottom {
-  min-height: calc(100vh - 3em);
-}
-
-.error-msg {
-  color: red;
-  margin-top: .2em;
-  font-size: .875em;
 }
 
 input {

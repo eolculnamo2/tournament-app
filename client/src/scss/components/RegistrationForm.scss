@@ -41,21 +41,7 @@ $block: ".RegistrationForm";
 }
 
 #{$block}__btn {
-  width: 100%;
-  margin-top: 1.2em;
-  margin-bottom: .4em;
-  background-color: $secondaryRed;
-  padding: .3em;
-  color: white;
-  font-size: 1em;
-  border-radius: 3px;
-  border: 1px solid $borderGray1;
-  cursor: pointer;
-  outline: none;
-
-  &:hover {
-    opacity: .8;
-  }
+  @include button($secondaryRed, $borderGray1);
 }
 
 #{$block}__already-have {

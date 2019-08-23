@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import { ICredentials, ILoginForm } from '../../../../constants/interfaces';
 import { postData } from '../../helpers/api';
-import { displayErrMsg, checkVars } from '../../helpers/validations';
+import { displayRequiredErrMsg, checkVars } from '../../helpers/validations';
 import { history } from '../../App';
 import GlobalContext from '../../contexts/global/GlobalContext';
 import { ACTION_TYPES } from '../../contexts/global/GlobalActions';
@@ -19,7 +19,9 @@ function LoginForm(props: ILoginForm): JSX.Element {
   const [failedLogin, setFailedLogin] = useState<boolean>(false);
   const [dirty, setDirty] = useState<boolean>(false);
   const requiredVariables: Array<any> = [username, password];
-  const displayErr: (val: any) => boolean = displayErrMsg(dirty);
+  const displayRequiredErr: (val: any) => boolean = displayRequiredErrMsg(
+    dirty
+  );
 
   // refs
   const loginBtn = useRef<HTMLButtonElement>(null);
@@ -70,8 +72,8 @@ function LoginForm(props: ILoginForm): JSX.Element {
           onChange={e => setUsername(e.target.value)}
           type="text"
         />
-        {displayErr(username) && (
-          <div className="error-msg">Username is required.</div>
+        {displayRequiredErr(username) && (
+          <div className="Global__error-msg">Username is required.</div>
         )}
         <div className="RegistrationForm__label">Password</div>
         <input
@@ -79,11 +81,13 @@ function LoginForm(props: ILoginForm): JSX.Element {
           onChange={e => setPassword(e.target.value)}
           type="password"
         />
-        {displayErr(password) && (
-          <div className="error-msg">Password is required.</div>
+        {displayRequiredErr(password) && (
+          <div className="Global__error-msg">Password is required.</div>
         )}
         {failedLogin && (
-          <div className="error-msg">Login Failed. Please try again.</div>
+          <div className="Global__error-msg">
+            Login Failed. Please try again.
+          </div>
         )}
         <button
           className="RegistrationForm__btn"

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
 import { INewUser, IRegistrationForm } from '../../../../constants/interfaces';
 import { postData } from '../../helpers/api';
-import { displayErrMsg, checkVars } from '../../helpers/validations';
+import { displayRequiredErrMsg, checkVars } from '../../helpers/validations';
 import GlobalContext from '../../contexts/global/GlobalContext';
 import { ACTION_TYPES } from '../../contexts/global/GlobalActions';
 import { history } from '../../App';
@@ -27,7 +27,9 @@ function RegistrationForm(props: IRegistrationForm): JSX.Element {
   ];
   const [dirty, setDirty] = useState<boolean>(false);
   const [failedRegistration, setFailedRegistration] = useState<boolean>(false);
-  const displayErr: (val: any) => boolean = displayErrMsg(dirty);
+  const displayRequiredErr: (val: any) => boolean = displayRequiredErrMsg(
+    dirty
+  );
 
   useEffect(() => {
     window.addEventListener('keypress', handleEnterBtn);
@@ -79,8 +81,8 @@ function RegistrationForm(props: IRegistrationForm): JSX.Element {
           className="RegistrationForm__input"
           type="text"
         />
-        {displayErr(username) && (
-          <div className="error-msg">Username is required</div>
+        {displayRequiredErr(username) && (
+          <div className="Global__error-msg">Username is required</div>
         )}
         <div className="RegistrationForm__label">Password</div>
         <input
@@ -88,8 +90,8 @@ function RegistrationForm(props: IRegistrationForm): JSX.Element {
           className="RegistrationForm__input"
           type="password"
         />
-        {displayErr(password) && (
-          <div className="error-msg">Password is required</div>
+        {displayRequiredErr(password) && (
+          <div className="Global__error-msg">Password is required</div>
         )}
         <div className="RegistrationForm__label">Confirm Password</div>
         <input
@@ -97,8 +99,8 @@ function RegistrationForm(props: IRegistrationForm): JSX.Element {
           className="RegistrationForm__input"
           type="password"
         />
-        {displayErr(confirmPassword) && (
-          <div className="error-msg">Confirm Password is required</div>
+        {displayRequiredErr(confirmPassword) && (
+          <div className="Global__error-msg">Confirm Password is required</div>
         )}
         <div className="RegistrationForm__label">Email</div>
         <input
@@ -106,11 +108,11 @@ function RegistrationForm(props: IRegistrationForm): JSX.Element {
           className="RegistrationForm__input"
           type="text"
         />
-        {displayErr(email) && (
-          <div className="error-msg">Email is required</div>
+        {displayRequiredErr(email) && (
+          <div className="Global__error-msg">Email is required</div>
         )}
         {failedRegistration && (
-          <div className="error-msg">
+          <div className="Global__error-msg">
             Registration Failed. Please try again.
           </div>
         )}
