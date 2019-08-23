@@ -11,6 +11,7 @@ import {
 } from '../../helpers/validations';
 import { removeBlankValues } from '../../helpers/helpers';
 import { postData } from '../../helpers/api';
+import { history } from '../../App';
 
 function CreateTournamentForm(): JSX.Element {
   // State: payload
@@ -68,6 +69,7 @@ function CreateTournamentForm(): JSX.Element {
         alert('Tournament creation failed.');
       } else {
         alert('Tournament successfully created');
+        history.push('/dashboard');
       }
     }
   };

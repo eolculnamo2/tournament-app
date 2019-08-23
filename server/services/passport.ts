@@ -62,36 +62,7 @@ router.post('/logout', (req, res) => {
   return res.send({ data: 'You are logged out.' });
 });
 
-router.post('/getUserProfile', (req, res) => {
-  if (req.user) {
-    res.json({ data: req.user });
-  } else if (!req.user) {
-    res.json({ data: false });
-  }
-});
-
-router.post('/getProfile', (req, res) => {
-  User.findOne({ username: req.body.profile }, (err, response) => {
-    let isContact = false;
-    if (req.user) {
-      for (let i = 0; i < req.user.contacts.length; i += 1) {
-        if (response && response.username === req.user.contacts[i].username) {
-          isContact = true;
-          break;
-        }
-      }
-      if (response && req.user.username === response.username) {
-        isContact = true;
-      }
-    }
-    if (response === null) {
-      res.json({ data: false });
-    } else {
-      res.json({ data: response, isContact });
-    }
-  });
-});
-
+// Check Login
 router.post('/checkLogin', (req, res) => {
   if (req.user) {
     res.json({ loggedIn: true, user: req.user.username.trim() });
