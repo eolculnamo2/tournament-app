@@ -10,3 +10,4 @@ export { default as IRandomQuote } from './IRandomQuote';
 export { default as ICircleLink } from './ICircleLink';
 export { default as INewTournament } from './INewTournament';
 export { default as INewTournamentModel } from './INewTournamentModel';
+export { default as ICompetitor } from './ICompetitor';
