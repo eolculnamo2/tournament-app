@@ -1,5 +1,3 @@
-// import React from 'react';
-
 export default interface ICompetitor {
   competitor: string;
   competitorNum: string;
