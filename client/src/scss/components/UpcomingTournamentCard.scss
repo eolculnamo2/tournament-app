@@ -1,0 +1,15 @@
+$block: ".UpcomingTournamentCard";
+
+#{$block} {
+  width: 100%;
+  padding: .5em 1em;
+  margin: .5em 0;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, .7);
+  background-color: $primaryBlue;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    opacity: .8;
+  }
+}

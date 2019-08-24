@@ -35,22 +35,32 @@ export default class TournamentService {
     return true;
   }
 
-  public async getUpcomingTournaments(): Promise<Array<INewTournamentModel>> {
-    let futureTournaments: Array<INewTournamentModel> = [];
+  public async getUpcomingTournaments(): Promise<Array<INewTournament>> {
+    let futureTournaments: Array<INewTournament> = [];
 
     await Tournament.find({}, (err, allTournaments) => {
       if (err) throw Error(err);
 
       const today: Moment = moment(new Date());
 
-      futureTournaments = allTournaments.filter(
-        (tournament: INewTournamentModel) => {
+      // Filter tournaments that have not yet ended and format into INewTournament
+      futureTournaments = allTournaments
+        .filter((tournament: INewTournamentModel) => {
           if (tournament.endDate) {
             const endDate: Moment = moment(tournament.endDate);
             return today.diff(endDate) < 0;
           }
-        }
-      );
+        })
+        .map((tournament: INewTournamentModel) => {
+          return {
+            hostClub: tournament.hostClub,
+            tournamentName: tournament.tournamentName,
+            events: tournament.events,
+            startDate: tournament.startDate,
+            endDate: tournament.endDate,
+            registrationCost: tournament.registrationCost,
+          };
+        });
     });
     return futureTournaments;
   }
