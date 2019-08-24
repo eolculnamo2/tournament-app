@@ -9,3 +9,7 @@
 ## Starting local server
 
 1. yarn run dev in root in one terminal and yarn start in client in a second terminal.
+
+## Dual startup
+
+1. "yarn both" in root to start server and client in one command
