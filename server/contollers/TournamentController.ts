@@ -5,8 +5,8 @@ const router: Router = Router();
 const { createTournament, getUpcomingTournaments } = new TournamentService();
 
 //**** GET REQUESTS ****\\
-router.get('/get-upcoming-tournaments', (req, res) =>
-  res.send(getUpcomingTournaments())
+router.get('/get-upcoming-tournaments', async (req, res) =>
+  res.send(await getUpcomingTournaments())
 );
 //**** END GET REQUESTS ****\\
 //**** POST REQUESTS ****\\

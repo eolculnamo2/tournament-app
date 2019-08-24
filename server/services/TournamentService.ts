@@ -36,22 +36,22 @@ export default class TournamentService {
   }
 
   public async getUpcomingTournaments(): Promise<Array<INewTournamentModel>> {
+    let futureTournaments: Array<INewTournamentModel> = [];
+
     await Tournament.find({}, (err, allTournaments) => {
       if (err) throw Error(err);
 
       const today: Moment = moment(new Date());
 
-      const futureTs: Array<INewTournamentModel> = allTournaments.filter(
+      futureTournaments = allTournaments.filter(
         (tournament: INewTournamentModel) => {
           if (tournament.endDate) {
             const endDate: Moment = moment(tournament.endDate);
-            console.log(today.diff(endDate));
             return today.diff(endDate) < 0;
           }
         }
       );
-      return futureTs;
     });
-    return [];
+    return futureTournaments;
   }
 }
