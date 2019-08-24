@@ -1,6 +1,4 @@
 // page level server side get routes
-
-// External Dependencies
 import path from 'path';
 import { Router } from 'express';
 
@@ -10,6 +8,7 @@ const routes: Array<string> = [
   '/dashboard',
   '/create-tournament',
   '/judges-table',
+  'upcoming-tournaments',
 ];
 
 router.get(routes, (req, res) =>

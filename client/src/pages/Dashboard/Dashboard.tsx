@@ -22,7 +22,7 @@ function Dashboard(): JSX.Element {
     },
     {
       text: 'Upcoming Tournaments',
-      link: '/create-tournament',
+      link: '/upcoming-tournaments',
       color: 'blue2',
     },
     {

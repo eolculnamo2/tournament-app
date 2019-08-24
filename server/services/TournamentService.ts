@@ -1,6 +1,10 @@
-import { INewTournament } from '../../constants/interfaces';
-import Tournament from '../models/Tournament';
 import uuid from 'uuid/v1';
+import moment, { Moment } from 'moment';
+import {
+  INewTournament,
+  INewTournamentModel,
+} from '../../constants/interfaces';
+import Tournament from '../models/Tournament';
 
 export default class TournamentService {
   public createTournament(payload: INewTournament, adminUser: string): boolean {
@@ -29,5 +33,25 @@ export default class TournamentService {
       }
     });
     return true;
+  }
+
+  public async getUpcomingTournaments(): Promise<Array<INewTournamentModel>> {
+    await Tournament.find({}, (err, allTournaments) => {
+      if (err) throw Error(err);
+
+      const today: Moment = moment(new Date());
+
+      const futureTs: Array<INewTournamentModel> = allTournaments.filter(
+        (tournament: INewTournamentModel) => {
+          if (tournament.endDate) {
+            const endDate: Moment = moment(tournament.endDate);
+            console.log(today.diff(endDate));
+            return today.diff(endDate) < 0;
+          }
+        }
+      );
+      return futureTs;
+    });
+    return [];
   }
 }
