@@ -1,9 +1,6 @@
 import { Document } from 'mongoose';
+import { IMatch } from '.';
 
-export default interface IMatchModel extends Document {
-  round: number;
-  fighter1: string;
-  fighter2: string;
-  winner: string;
+export default interface IMatchModel extends Document, IMatch {
   uuid: string;
 }

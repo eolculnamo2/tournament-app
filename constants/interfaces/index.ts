@@ -14,4 +14,6 @@ export { default as INewTournamentModel } from './INewTournamentModel';
 export { default as ICompetitor } from './ICompetitor';
 export { default as IPassportService } from './IPassportService';
 export { default as ITournamentService } from './ITournamentService';
+export { default as IMatch } from './IMatch';
 export { default as IMatchModel } from './IMatchModel';
+export { default as IJudgesTableService } from './IJudgesTableService';
