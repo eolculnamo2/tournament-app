@@ -1,6 +1,6 @@
 import mongoose, { Schema, PassportLocalSchema } from 'mongoose';
 import passportLocalMongoose from 'passport-local-mongoose';
-import { IUser } from '../../constants/interfaces';
+import { IUserModel } from '../../constants/interfaces';
 
 const User: Schema = new Schema({
   username: { type: String, reuqired: true, unique: true },
@@ -9,4 +9,4 @@ const User: Schema = new Schema({
 
 User.plugin(passportLocalMongoose);
 
-export default mongoose.model<IUser>('users', User as PassportLocalSchema);
+export default mongoose.model<IUserModel>('users', User as PassportLocalSchema);

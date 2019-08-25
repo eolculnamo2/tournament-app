@@ -1,4 +1,5 @@
 import PageController from './PageController';
 import TournamentController from './TournamentController';
+import PassportController from './PassportController';
 
-export { PageController, TournamentController };
+export { PageController, TournamentController, PassportController };

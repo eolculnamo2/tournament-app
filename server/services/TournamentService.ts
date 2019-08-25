@@ -4,10 +4,11 @@ import { Response } from 'express';
 import {
   INewTournament,
   INewTournamentModel,
+  ITournamentService,
 } from '../../constants/interfaces';
 import Tournament from '../models/Tournament';
 
-export default class TournamentService {
+export default class TournamentService implements ITournamentService {
   public createTournament(payload: INewTournament, adminUser: string): boolean {
     const {
       hostClub,

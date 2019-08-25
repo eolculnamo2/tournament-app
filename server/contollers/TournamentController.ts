@@ -10,6 +10,7 @@ router.get('/get-upcoming-tournaments', (req, res: Response) => {
   getUpcomingTournaments(res);
 });
 //**** END GET REQUESTS ****\\
+
 //**** POST REQUESTS ****\\
 router.post('/create-tournament', (req, res) => {
   if (req.user) {
