@@ -3,7 +3,7 @@
 $block: '.Competitor';
 
 #{$block}__container {
-  width: 350px;
+  width: 21.875em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,17 +18,17 @@ $block: '.Competitor';
 
 #{$block}__score {
   width: 50%;
-  margin: 15px auto;
+  margin: 0.938em auto;
   border: 1px solid gray;
   color: $textColorDark;
   border-radius: 0.188em;
   text-align: center;
-  line-height: 25px;
+  line-height: 1.563em;
 }
 
 #{$block}__score-adjust-container {
   width: 100%;
-  padding: 10px;
+  padding: 0.625em;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -38,9 +38,9 @@ $block: '.Competitor';
 
 #{$block}__deduct-score {
   background-color: $danger-red;
-  width: 150px;
-  margin: 5px auto;
-  border-radius: 3px;
+  width: 9.375em;
+  margin: 0.313em auto;
+  border-radius: 0.188em;
   color: $textColorDark;
   cursor: pointer;
   box-shadow: 1px 1px 2px gray;
@@ -54,16 +54,16 @@ $block: '.Competitor';
     outline: none;
   }
 
-  @media (min-width: 320px) {
+  @media (min-width: 20em) {
     margin: auto;
   }
 }
 
 #{$block}__add-score {
   background-color: $fl-green;
-  width: 150px;
-  margin: 5px auto;
-  border-radius: 3px;
+  width: 9.375em;
+  margin: 0.313em auto;
+  border-radius: 0.188em;
   color: $textColorDark;
   cursor: pointer;
   box-shadow: 1px 1px 2px gray;
@@ -77,7 +77,7 @@ $block: '.Competitor';
     outline: none;
   }
 
-  @media (min-width: 320px) {
+  @media (min-width: 20em) {
     margin: auto;
   }
 }
@@ -86,10 +86,10 @@ $block: '.Competitor';
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  padding: 10px;
+  padding: 0.625em;
   box-sizing: border-box;
 
-  @media (min-width: 320px) {
+  @media (min-width: 20em) {
     flex-wrap: nowrap;
   }
 }
@@ -100,9 +100,9 @@ $block: '.Competitor';
   justify-content: center;
   align-content: center;
   width: 100%;
-  margin: 5px auto;
+  margin: 0.313em auto;
 
-  @media (min-width: 320px) {
+  @media (min-width: 20em) {
     width: 50%;
     justify-content: space-evenly;
     margin: auto;
@@ -115,22 +115,22 @@ $block: '.Competitor';
   justify-content: center;
   align-content: center;
   box-sizing: border-box;
-  width: 27px;
-  height: 27px;
+  width: 1.688em;
+  height: 1.688em;
   text-align: center;
   border: 1px solid gray;
-  border-radius: 3px;
-  margin: auto 5px;
+  border-radius: 0.188em;
+  margin: auto 0.313em;
 
-  @media (min-width: 320px) {
+  @media (min-width: 20em) {
     margin: 0;
   }
 }
 
 #{$block}__penalty-deduct {
   background-color: $danger-red;
-  width: 25px;
-  height: 25px;
+  width: 1.563em;
+  height: 1.563em;
   border: none;
   cursor: pointer;
   box-shadow: 1px 1px 2px gray;
@@ -147,8 +147,8 @@ $block: '.Competitor';
 
 #{$block}__penalty-add {
   background-color: $fl-green;
-  width: 25px;
-  height: 25px;
+  width: 1.563em;
+  height: 1.563em;
   border: none;
   cursor: pointer;
   box-shadow: 1px 1px 2px gray;
@@ -169,19 +169,19 @@ $block: '.Competitor';
   flex-direction: row;
   justify-content: center;
 
-  @media (min-width: 320px) {
+  @media (min-width: 20em) {
     width: 50%;
     justify-content: flex-end;
-    margin-right: 10px;
+    margin-right: 0.625em;
   }
 }
 
 #{$block}__penalty-img {
   background-color: $secondaryRed;
-  height: 22px;
-  width: 22px;
-  border-radius: 3px;
-  padding: 3px;
+  height: 1.375em;
+  width: 1.375em;
+  border-radius: 0.188em;
+  padding: 0.188em;
 }
 
 #{$block}__line-break {

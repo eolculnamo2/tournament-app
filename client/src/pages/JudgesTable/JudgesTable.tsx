@@ -35,10 +35,20 @@ function JudgesTable(): JSX.Element {
   ) => {
     switch (comp) {
       case 'comp1':
-        setCompetitor1Penalties(competitor1Penalties + num);
+        if (
+          competitor1Penalties + num >= 0 &&
+          competitor1Penalties + num <= 5
+        ) {
+          setCompetitor1Penalties(competitor1Penalties + num);
+        }
         break;
       case 'comp2':
-        setCompetitor2Penalties(competitor2Penalties + num);
+        if (
+          competitor2Penalties + num >= 0 &&
+          competitor2Penalties + num <= 5
+        ) {
+          setCompetitor2Penalties(competitor2Penalties + num);
+        }
       default:
         break;
     }
