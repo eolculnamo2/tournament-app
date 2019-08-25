@@ -1,5 +1,3 @@
-import PageController from './PageController';
-import TournamentController from './TournamentController';
-import PassportController from './PassportController';
-
-export { PageController, TournamentController, PassportController };
+export { default as PageController } from './PageController';
+export { default as TournamentController } from './TournamentController';
+export { default as PassportController } from './PassportController';
