@@ -58,6 +58,7 @@ function CreateTournamentForm(): JSX.Element {
         endDate,
         registrationCost,
         events,
+        competitors: [],
       };
 
       const response = await postData(

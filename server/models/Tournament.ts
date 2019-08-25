@@ -9,6 +9,7 @@ const Tournament: Schema = new Schema({
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
   registrationCost: { type: Number, required: true },
+  competitors: { type: Array, required: true },
   uuid: { type: String, required: true, unique: true },
 });
 

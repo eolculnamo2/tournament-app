@@ -17,6 +17,7 @@ export default class TournamentService implements ITournamentService {
       endDate,
       registrationCost,
       events,
+      competitors,
     } = payload;
 
     new Tournament({
@@ -27,6 +28,7 @@ export default class TournamentService implements ITournamentService {
       endDate,
       registrationCost,
       events,
+      competitors,
       uuid: uuid(),
     }).save(err => {
       if (err) {
@@ -62,6 +64,7 @@ export default class TournamentService implements ITournamentService {
             startDate: tournament.startDate,
             endDate: tournament.endDate,
             registrationCost: tournament.registrationCost,
+            competitors: tournament.competitors,
           };
         });
       response.send(futureTournaments);
