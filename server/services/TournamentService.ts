@@ -1,5 +1,6 @@
 import uuid from 'uuid/v1';
 import moment, { Moment } from 'moment';
+import { Response } from 'express';
 import {
   INewTournament,
   INewTournamentModel,
@@ -35,12 +36,13 @@ export default class TournamentService {
     return true;
   }
 
-  public async getUpcomingTournaments(): Promise<Array<INewTournament>> {
-    let futureTournaments: Array<INewTournament> = [];
-
-    await Tournament.find({}, (err, allTournaments) => {
+  public getUpcomingTournaments(
+    response: Response
+  ): Array<INewTournament> | void {
+    Tournament.find({}, (err, allTournaments) => {
       if (err) throw Error(err);
 
+      let futureTournaments: Array<INewTournament> = [];
       const today: Moment = moment(new Date());
 
       // Filter tournaments that have not yet ended and format into INewTournament
@@ -61,7 +63,7 @@ export default class TournamentService {
             registrationCost: tournament.registrationCost,
           };
         });
+      response.send(futureTournaments);
     });
-    return futureTournaments;
   }
 }

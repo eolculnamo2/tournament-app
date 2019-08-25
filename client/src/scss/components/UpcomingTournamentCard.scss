@@ -8,6 +8,7 @@ $block: ".UpcomingTournamentCard";
   background-color: $primaryBlue;
   color: white;
   cursor: pointer;
+  border-radius: 4px;
 
   &:hover {
     opacity: .8;

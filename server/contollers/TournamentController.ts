@@ -1,14 +1,13 @@
 import { Router } from 'express';
 import TournamentService from '../services/TournamentService';
-import { INewTournament } from '../../constants/interfaces';
+import { Response } from 'express';
 const router: Router = Router();
 
 const { createTournament, getUpcomingTournaments } = new TournamentService();
 
 //**** GET REQUESTS ****\\
-router.get('/get-upcoming-tournaments', async (req, res) => {
-  const payload: Array<INewTournament> = await getUpcomingTournaments();
-  res.send(payload);
+router.get('/get-upcoming-tournaments', (req, res: Response) => {
+  getUpcomingTournaments(res);
 });
 //**** END GET REQUESTS ****\\
 //**** POST REQUESTS ****\\
