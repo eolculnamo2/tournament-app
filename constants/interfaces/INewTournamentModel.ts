@@ -1,12 +1,7 @@
 import { Document } from 'mongoose';
+import { INewTournament } from '.';
 
-export default interface INewTournamentModel extends Document {
-  hostClub: string;
-  tournamentName: string;
-  events: Array<string>;
-  startDate: Date | null;
-  endDate: Date | null;
-  registrationCost: number | null;
+export default interface INewTournamentModel extends Document, INewTournament {
   adminUser: string;
   uuid: string;
 }
