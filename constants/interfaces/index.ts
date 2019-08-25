@@ -1,5 +1,6 @@
 export { default as IPathComponent } from './IPathComponent';
 export { default as IUser } from './IUser';
+export { default as IUserModel } from './IUserModel';
 export { default as IGlobalState } from './IGlobalState';
 export { default as IAction } from './IAction';
 export { default as ICredentials } from './ICredentials';
@@ -11,3 +12,5 @@ export { default as ICircleLink } from './ICircleLink';
 export { default as INewTournament } from './INewTournament';
 export { default as INewTournamentModel } from './INewTournamentModel';
 export { default as ICompetitor } from './ICompetitor';
+export { default as IPassportService } from './IPassportService';
+export { default as ITournamentService } from './ITournamentService';

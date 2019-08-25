@@ -9,8 +9,12 @@ import session from 'express-session';
 import bodyParser from 'body-parser';
 
 // Internal Dependencies
-import { PageController, TournamentController } from './contollers';
-import Authentication from './services/passport';
+import {
+  PageController,
+  TournamentController,
+  PassportController,
+} from './contollers';
+import PassportService from './services/PassportService';
 
 dotenv.config();
 const app: Application = express();
@@ -32,13 +36,14 @@ app.use(
   })
 );
 
+PassportService.setup();
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(compression());
 app.use('/', PageController);
 app.use('/api', TournamentController);
-app.use('/authenticate', Authentication);
+app.use('/authenticate', PassportController);
 
 mongoose.set('useCreateIndex', true);
 if (process.env.MONGO_URI) {

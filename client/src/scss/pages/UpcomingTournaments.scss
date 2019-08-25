@@ -1,0 +1,15 @@
+@import '../sets/global-set';
+@import '../components/UpcomingTournamentCard.scss';
+
+$block: '.UpcomingTournaments';
+
+#{$block} {
+  margin: auto;
+  max-width: 800px;
+}
+
+#{$block}__header {
+  font-size: 1.75em;
+  text-align: center;
+  margin-top: 2em;
+}

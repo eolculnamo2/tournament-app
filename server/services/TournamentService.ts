@@ -1,12 +1,14 @@
 import uuid from 'uuid/v1';
 import moment, { Moment } from 'moment';
+import { Response } from 'express';
 import {
   INewTournament,
   INewTournamentModel,
+  ITournamentService,
 } from '../../constants/interfaces';
 import Tournament from '../models/Tournament';
 
-export default class TournamentService {
+export default class TournamentService implements ITournamentService {
   public createTournament(payload: INewTournament, adminUser: string): boolean {
     const {
       hostClub,
@@ -35,23 +37,34 @@ export default class TournamentService {
     return true;
   }
 
-  public async getUpcomingTournaments(): Promise<Array<INewTournamentModel>> {
-    await Tournament.find({}, (err, allTournaments) => {
+  public getUpcomingTournaments(
+    response: Response
+  ): Array<INewTournament> | void {
+    Tournament.find({}, (err, allTournaments) => {
       if (err) throw Error(err);
 
+      let futureTournaments: Array<INewTournament> = [];
       const today: Moment = moment(new Date());
 
-      const futureTs: Array<INewTournamentModel> = allTournaments.filter(
-        (tournament: INewTournamentModel) => {
+      // Filter tournaments that have not yet ended and format into INewTournament
+      futureTournaments = allTournaments
+        .filter((tournament: INewTournamentModel) => {
           if (tournament.endDate) {
             const endDate: Moment = moment(tournament.endDate);
-            console.log(today.diff(endDate));
             return today.diff(endDate) < 0;
           }
-        }
-      );
-      return futureTs;
+        })
+        .map((tournament: INewTournamentModel) => {
+          return {
+            hostClub: tournament.hostClub,
+            tournamentName: tournament.tournamentName,
+            events: tournament.events,
+            startDate: tournament.startDate,
+            endDate: tournament.endDate,
+            registrationCost: tournament.registrationCost,
+          };
+        });
+      response.send(futureTournaments);
     });
-    return [];
   }
 }
