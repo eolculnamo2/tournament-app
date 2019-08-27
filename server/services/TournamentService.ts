@@ -7,6 +7,7 @@ import {
   ITournamentService,
 } from '../../constants/interfaces';
 import Tournament from '../models/Tournament';
+import Match from '../models/Match';
 
 export default class TournamentService implements ITournamentService {
   public createTournament(payload: INewTournament, adminUser: string): boolean {
@@ -69,5 +70,22 @@ export default class TournamentService implements ITournamentService {
         });
       response.send(futureTournaments);
     });
+  }
+
+  public createMatch(
+    fighter1: string,
+    fighter2: string,
+    event: string,
+    tournamentId: string
+  ) {
+    new Match({
+      round: 1,
+      fighter1,
+      fighter2,
+      event,
+      winner: '',
+      tournamentId,
+      uuid: uuid(),
+    }).save();
   }
 }
