@@ -7,6 +7,7 @@ const UpcomingTournamentCard: FC<INewTournament> = ({
   hostClub,
   startDate,
   endDate,
+  uuid,
 }): JSX.Element => {
   const formatDate = (date: Date | null): string => {
     if (date) {
@@ -15,8 +16,12 @@ const UpcomingTournamentCard: FC<INewTournament> = ({
     return '';
   };
 
+  const goToTournamentView = () => {
+    window.location.href = `/view-tournament?tournamentId=${uuid}`;
+  };
+
   return (
-    <div className="UpcomingTournamentCard">
+    <div onClick={goToTournamentView} className="UpcomingTournamentCard">
       <h3>{tournamentName}</h3>
       <div>
         <div>Hosted by: {hostClub}</div>

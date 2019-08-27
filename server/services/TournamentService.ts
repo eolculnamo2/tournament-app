@@ -46,28 +46,18 @@ export default class TournamentService implements ITournamentService {
     Tournament.find({}, (err, allTournaments) => {
       if (err) throw Error(err);
 
-      let futureTournaments: Array<INewTournament> = [];
+      let futureTournaments: Array<INewTournamentModel> = [];
       const today: Moment = moment(new Date());
 
       // Filter tournaments that have not yet ended and format into INewTournament
-      futureTournaments = allTournaments
-        .filter((tournament: INewTournamentModel) => {
+      futureTournaments = allTournaments.filter(
+        (tournament: INewTournamentModel) => {
           if (tournament.endDate) {
             const endDate: Moment = moment(tournament.endDate);
             return today.diff(endDate) < 0;
           }
-        })
-        .map((tournament: INewTournamentModel) => {
-          return {
-            hostClub: tournament.hostClub,
-            tournamentName: tournament.tournamentName,
-            events: tournament.events,
-            startDate: tournament.startDate,
-            endDate: tournament.endDate,
-            registrationCost: tournament.registrationCost,
-            competitors: tournament.competitors,
-          };
-        });
+        }
+      );
       response.send(futureTournaments);
     });
   }

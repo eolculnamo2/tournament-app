@@ -9,6 +9,7 @@ const routes: Array<string> = [
   '/create-tournament',
   '/judges-table',
   '/upcoming-tournaments',
+  '/view-tournament',
 ];
 
 router.get(routes, (req, res) =>
