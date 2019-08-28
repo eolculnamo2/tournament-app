@@ -7,6 +7,7 @@ import {
   ITournamentService,
 } from '../../constants/interfaces';
 import Tournament from '../models/Tournament';
+import Match from '../models/Match';
 
 export default class TournamentService implements ITournamentService {
   public createTournament(payload: INewTournament, adminUser: string): boolean {
@@ -45,29 +46,43 @@ export default class TournamentService implements ITournamentService {
     Tournament.find({}, (err, allTournaments) => {
       if (err) throw Error(err);
 
-      let futureTournaments: Array<INewTournament> = [];
+      let futureTournaments: Array<INewTournamentModel> = [];
       const today: Moment = moment(new Date());
 
       // Filter tournaments that have not yet ended and format into INewTournament
-      futureTournaments = allTournaments
-        .filter((tournament: INewTournamentModel) => {
+      futureTournaments = allTournaments.filter(
+        (tournament: INewTournamentModel) => {
           if (tournament.endDate) {
             const endDate: Moment = moment(tournament.endDate);
             return today.diff(endDate) < 0;
           }
-        })
-        .map((tournament: INewTournamentModel) => {
-          return {
-            hostClub: tournament.hostClub,
-            tournamentName: tournament.tournamentName,
-            events: tournament.events,
-            startDate: tournament.startDate,
-            endDate: tournament.endDate,
-            registrationCost: tournament.registrationCost,
-            competitors: tournament.competitors,
-          };
-        });
+        }
+      );
       response.send(futureTournaments);
     });
+  }
+
+  public getTournamentDetails(id: string, res: Response) {
+    Tournament.find({ uuid: id }, (err, tournament) => {
+      if (err) throw Error(err);
+      res.send(tournament[0]);
+    });
+  }
+
+  public createMatch(
+    fighter1: string,
+    fighter2: string,
+    event: string,
+    tournamentId: string
+  ) {
+    new Match({
+      round: 1,
+      fighter1,
+      fighter2,
+      event,
+      winner: '',
+      tournamentId,
+      uuid: uuid(),
+    }).save();
   }
 }

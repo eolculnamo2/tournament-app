@@ -5,5 +5,7 @@ export default interface INewTournament {
   startDate: Date | null;
   endDate: Date | null;
   registrationCost: number | null;
-  competitors: Array<string>;
+  competitors: Array<string>; // need more than just string of usernames.. including array of events
+  adminUser?: string;
+  uuid?: string;
 }

@@ -3,11 +3,19 @@ import TournamentService from '../services/TournamentService';
 import { Response } from 'express';
 const router: Router = Router();
 
-const { createTournament, getUpcomingTournaments } = new TournamentService();
+const {
+  createTournament,
+  getUpcomingTournaments,
+  getTournamentDetails,
+} = new TournamentService();
 
 //**** GET REQUESTS ****\\
 router.get('/get-upcoming-tournaments', (req, res: Response) => {
   getUpcomingTournaments(res);
+});
+
+router.get('/tournament-details/:tournamentId', (req, res: Response) => {
+  getTournamentDetails(req.params.tournamentId, res);
 });
 //**** END GET REQUESTS ****\\
 

@@ -14,6 +14,7 @@ import reducer from './contexts/reducer';
 import { Header, Footer } from './components';
 import { postData } from './helpers/api';
 import { ACTION_TYPES } from './contexts/global/GlobalActions';
+import './scss/global.scss';
 
 export const history = createBrowserHistory();
 
