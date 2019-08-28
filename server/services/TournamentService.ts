@@ -62,6 +62,13 @@ export default class TournamentService implements ITournamentService {
     });
   }
 
+  public getTournamentDetails(id: string, res: Response) {
+    Tournament.find({ uuid: id }, (err, tournament) => {
+      if (err) throw Error(err);
+      res.send(tournament[0]);
+    });
+  }
+
   public createMatch(
     fighter1: string,
     fighter2: string,

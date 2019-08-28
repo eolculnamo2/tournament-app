@@ -3,5 +3,14 @@
 $block: '.ViewTournament';
 
 #{$block} {
-  color: green;
+  max-width: 800px;
+  padding: 1em;
+  margin: auto;
+  margin-top: 2em;
 }
+
+#{$block}__heading {
+  text-align: center;
+}
+
+// #{$block}__sub-heading {}

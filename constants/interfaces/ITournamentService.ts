@@ -10,4 +10,5 @@ export default interface ITournamentService {
     event: string,
     tournamentId: string
   ) => void;
+  getTournamentDetails: (id: string, res: Response) => void;
 }

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import moment from 'moment';
 import { INewTournament } from '../../../../constants/interfaces';
+import { formatDate } from '../../helpers/helpers';
 
 const UpcomingTournamentCard: FC<INewTournament> = ({
   tournamentName,
@@ -9,13 +9,6 @@ const UpcomingTournamentCard: FC<INewTournament> = ({
   endDate,
   uuid,
 }): JSX.Element => {
-  const formatDate = (date: Date | null): string => {
-    if (date) {
-      return moment(date).format('MMMM Do YYYY');
-    }
-    return '';
-  };
-
   const goToTournamentView = () => {
     window.location.href = `/view-tournament?tournamentId=${uuid}`;
   };
