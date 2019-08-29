@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Competitor from '../../components/Competitor/Competitor';
+import { postData } from '../../helpers/api';
 import '../../scss/pages/judges-table.scss';
 
 function JudgesTable(): JSX.Element {
@@ -11,6 +12,7 @@ function JudgesTable(): JSX.Element {
   const [competitor2Penalties, setCompetitor2Penalties] = useState(0);
   const [comp2Name, setComp2Name] = useState('');
   const [namesSubmitted, setNamesSubmitted] = useState(false);
+  const [round, setRound] = useState(0);
 
   const handleScoreAdjust = (
     e: React.MouseEvent,
@@ -19,10 +21,14 @@ function JudgesTable(): JSX.Element {
   ) => {
     switch (comp) {
       case 'comp1':
-        setCompetitor1Score(competitor1Score + num);
+        if (competitor1Score + num >= 0) {
+          setCompetitor1Score(competitor1Score + num);
+        }
         break;
       case 'comp2':
-        setCompetitor2Score(competitor2Score + num);
+        if (competitor2Score + num >= 0) {
+          setCompetitor2Score(competitor2Score + num);
+        }
       default:
         break;
     }
@@ -77,8 +83,33 @@ function JudgesTable(): JSX.Element {
     setNamesSubmitted(!namesSubmitted);
   };
 
-  const handleSubmitScore = () => {
-    alert('Scores have been submitted');
+  const handleSubmitScore = async () => {
+    let winner =
+      competitor1Score - competitor2Score > 0
+        ? comp1Name
+        : competitor1Score - competitor2Score < 0
+        ? comp2Name
+        : 'tie';
+
+    let matchResults = {
+      round,
+      fighter1: comp1Name,
+      fighter2: comp2Name,
+      winner,
+    };
+    // const response = await postData(
+    //   'api/save-match-result',
+    //   JSON.stringify(matchResults)
+    // );
+
+    console.log('Scores have been submitted', matchResults);
+    // console.log('response: ', response);
+  };
+
+  const handleRoundChange = (e: React.FormEvent<HTMLInputElement>): void => {
+    if (parseInt(e.currentTarget.value) >= 0) {
+      setRound(parseInt(e.currentTarget.value));
+    }
   };
 
   return (
@@ -151,6 +182,15 @@ function JudgesTable(): JSX.Element {
               >
                 Edit Names
               </button>
+              <div className="JudgesTable__round-container">
+                <h3>Round</h3>
+                <input
+                  className="JudgesTable__round-input"
+                  type="number"
+                  onChange={handleRoundChange}
+                  value={round}
+                />
+              </div>
             </div>
           </div>
         )}
