@@ -105,16 +105,6 @@ function JudgesTable(): JSX.Element {
       'score/save-match-result',
       JSON.stringify(matchResults)
     );
-
-    // if (!response.success) {
-    //     alert('Tournament creation failed.');
-    //   } else {
-    //     alert('Tournament successfully created');
-    //     history.push('/dashboard');
-    //   }
-
-    console.log('Scores have been submitted', matchResults);
-    console.log('response: ', response);
   };
 
   const handleRoundChange = (e: React.FormEvent<HTMLInputElement>): void => {
