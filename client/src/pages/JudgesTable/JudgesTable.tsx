@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Competitor from '../../components/Competitor/Competitor';
+import uuid from 'uuid/v1';
 import { postData } from '../../helpers/api';
+import { history } from '../../App';
 import '../../scss/pages/judges-table.scss';
 
 function JudgesTable(): JSX.Element {
@@ -96,14 +98,23 @@ function JudgesTable(): JSX.Element {
       fighter1: comp1Name,
       fighter2: comp2Name,
       winner,
+      event: 'Fight between 1 and 2.',
+      tournamentId: uuid(),
     };
-    // const response = await postData(
-    //   'api/save-match-result',
-    //   JSON.stringify(matchResults)
-    // );
+    const response = await postData(
+      'score/save-match-result',
+      JSON.stringify(matchResults)
+    );
+
+    // if (!response.success) {
+    //     alert('Tournament creation failed.');
+    //   } else {
+    //     alert('Tournament successfully created');
+    //     history.push('/dashboard');
+    //   }
 
     console.log('Scores have been submitted', matchResults);
-    // console.log('response: ', response);
+    console.log('response: ', response);
   };
 
   const handleRoundChange = (e: React.FormEvent<HTMLInputElement>): void => {

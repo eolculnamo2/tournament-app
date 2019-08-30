@@ -11,6 +11,7 @@ import bodyParser from 'body-parser';
 // Internal Dependencies
 import {
   PageController,
+  JudgesTableController,
   TournamentController,
   PassportController,
 } from './contollers';
@@ -43,6 +44,7 @@ app.use(passport.session());
 app.use(compression());
 app.use('/', PageController);
 app.use('/api', TournamentController);
+app.use('/score', JudgesTableController);
 app.use('/authenticate', PassportController);
 
 mongoose.set('useCreateIndex', true);
