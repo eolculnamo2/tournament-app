@@ -11,4 +11,5 @@ export default interface ITournamentService {
     tournamentId: string
   ) => void;
   getTournamentDetails: (id: string, res: Response) => void;
+  registerForMatch: (uuid: string, username: string, res: Response) => void;
 }

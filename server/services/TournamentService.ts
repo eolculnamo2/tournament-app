@@ -40,9 +40,7 @@ export default class TournamentService implements ITournamentService {
     return true;
   }
 
-  public getUpcomingTournaments(
-    response: Response
-  ): Array<INewTournament> | void {
+  public getUpcomingTournaments(response: Response): Array<INewTournament> | void {
     Tournament.find({}, (err, allTournaments) => {
       if (err) throw Error(err);
 
@@ -50,14 +48,12 @@ export default class TournamentService implements ITournamentService {
       const today: Moment = moment(new Date());
 
       // Filter tournaments that have not yet ended and format into INewTournament
-      futureTournaments = allTournaments.filter(
-        (tournament: INewTournamentModel) => {
-          if (tournament.endDate) {
-            const endDate: Moment = moment(tournament.endDate);
-            return today.diff(endDate) < 0;
-          }
+      futureTournaments = allTournaments.filter((tournament: INewTournamentModel) => {
+        if (tournament.endDate) {
+          const endDate: Moment = moment(tournament.endDate);
+          return today.diff(endDate) < 0;
         }
-      );
+      });
       response.send(futureTournaments);
     });
   }
@@ -69,12 +65,7 @@ export default class TournamentService implements ITournamentService {
     });
   }
 
-  public createMatch(
-    fighter1: string,
-    fighter2: string,
-    event: string,
-    tournamentId: string
-  ) {
+  public createMatch(fighter1: string, fighter2: string, event: string, tournamentId: string) {
     new Match({
       round: 1,
       fighter1,
@@ -84,5 +75,28 @@ export default class TournamentService implements ITournamentService {
       tournamentId,
       uuid: uuid(),
     }).save();
+  }
+
+  public registerForMatch(uuid: string, username: string, res: Response) {
+    Tournament.findOne({ uuid }, (err, tournament) => {
+      if (err) throw Error(err);
+
+      const notInTournament: boolean | null =
+        tournament && !tournament.competitors.find(user => user === username);
+
+      if (tournament && notInTournament) {
+        tournament.competitors.push(username);
+        tournament.save((err, update) => {
+          if (err) {
+            throw err;
+          }
+          res.send(update);
+        });
+      } else if (tournament && !notInTournament) {
+        res.send({ message: 'Already in tournament' });
+      } else {
+        res.send({ message: 'Error occurred' });
+      }
+    });
   }
 }

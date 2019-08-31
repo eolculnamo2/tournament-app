@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getData } from '../../helpers/api';
+import { getData, postData } from '../../helpers/api';
 import { history } from '../../App';
 import { INewTournamentModel } from '../../../../constants/interfaces';
 import '../../scss/pages/ViewTournament.scss';
@@ -27,6 +27,22 @@ function ViewTournament(): JSX.Element {
     }
   };
 
+  const register = async () => {
+    if (tournament) {
+      const response = await postData(
+        `/api/register-for-tournament/${tournament.uuid}`
+      );
+      if (response.notLoggedIn) {
+        history.push('/');
+      }
+      if (response.message) {
+        alert(response.message);
+        return;
+      }
+      alert('Successfully registered');
+    }
+  };
+
   useEffect(() => {
     getTournamentDetails();
   }, []);
@@ -47,9 +63,9 @@ function ViewTournament(): JSX.Element {
           </h3>
           <h3>Events:</h3>
           {tournament.events.map((event: string) => (
-            <div>{event}</div>
+            <div key={event}>{event}</div>
           ))}
-          <button>Register</button>
+          <button onClick={register}>Register</button>
         </div>
       )}
     </>
