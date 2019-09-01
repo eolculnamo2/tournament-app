@@ -14,7 +14,7 @@ function JudgesTable(): JSX.Element {
   const [competitor2Penalties, setCompetitor2Penalties] = useState(0);
   const [comp2Name, setComp2Name] = useState('');
   const [namesSubmitted, setNamesSubmitted] = useState(false);
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(1);
 
   const handleScoreAdjust = (
     e: React.MouseEvent,
@@ -105,6 +105,13 @@ function JudgesTable(): JSX.Element {
       'score/save-match-result',
       JSON.stringify(matchResults)
     );
+
+    if (response.success) {
+      setRound(round + 1);
+      setCompetitor1Score(0);
+      setCompetitor2Score(0);
+      alert(response.status);
+    }
   };
 
   const handleRoundChange = (e: React.FormEvent<HTMLInputElement>): void => {
