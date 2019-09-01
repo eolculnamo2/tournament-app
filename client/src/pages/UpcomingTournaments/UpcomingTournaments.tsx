@@ -26,12 +26,30 @@ function UpcomingTournaments(): JSX.Element {
     return () => abortController.abort();
   }, []);
 
+  const viewUpcomingTournaments = (): JSX.Element => {
+    if (tournaments.length) {
+      return (
+        <>
+          {tournaments.map((tournament: INewTournament, i: number) => (
+            <UpcomingTournamentCard
+              key={`${i}tournamentCard`}
+              {...tournament}
+            />
+          ))}
+        </>
+      );
+    }
+    return (
+      <h3 className="UpcomingTournaments__no-upcoming">
+        No upcoming tournaments.
+      </h3>
+    );
+  };
+
   return (
     <div className="UpcomingTournaments">
       <h3 className="UpcomingTournaments__header">Upcoming Tournaments</h3>
-      {tournaments.map((tournament: INewTournament, i: number) => (
-        <UpcomingTournamentCard key={`${i}tournamentCard`} {...tournament} />
-      ))}
+      {viewUpcomingTournaments()}
     </div>
   );
 }

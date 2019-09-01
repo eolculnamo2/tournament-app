@@ -13,3 +13,8 @@ $block: '.UpcomingTournaments';
   text-align: center;
   margin-top: 2em;
 }
+
+#{$block}__no-upcoming {
+  text-align: center;
+  margin-top: 2em;
+}
