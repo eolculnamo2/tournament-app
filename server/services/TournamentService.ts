@@ -102,8 +102,6 @@ export default class TournamentService implements ITournamentService {
       } else if (tournament && !notInTournament) {
         res.send({ message: 'Already in tournament' });
       } else {
-        console.log(tournament);
-        console.log(notInTournament);
         res.send({ message: 'Error occurred' });
       }
     });
