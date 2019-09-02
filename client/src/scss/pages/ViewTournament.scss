@@ -13,4 +13,21 @@ $block: '.ViewTournament';
   text-align: center;
 }
 
-// #{$block}__sub-heading {}
+#{$block}__sub-heading {
+  margin: 0;
+}
+
+#{$block}__register-btn {
+  @include button($fl-green, $fl-green);
+  color: black;
+  max-width: 250px;
+}
+
+#{$block}__event-lbl {
+  padding: .35em;
+  cursor: pointer;
+
+  &--selected {
+    background-color: $fl-green;
+  }
+}

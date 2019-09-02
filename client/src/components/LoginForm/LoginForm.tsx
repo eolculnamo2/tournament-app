@@ -53,6 +53,7 @@ function LoginForm(props: ILoginForm): JSX.Element {
 
       if (data.success) {
         dispatch({ type: ACTION_TYPES.UPDATE_LOGIN, payload: true });
+        dispatch({ type: ACTION_TYPES.SET_USERNAME, payload: data.user });
         history.push('/dashboard');
       } else {
         setFailedLogin(true);
