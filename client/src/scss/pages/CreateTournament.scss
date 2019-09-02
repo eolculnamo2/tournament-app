@@ -1,4 +1,4 @@
-@import '../sets//global-set';
+@import '../sets/global-set';
 
 $block: '.CreateTournament';
 
@@ -43,7 +43,8 @@ $block: '.CreateTournament';
 }
 
 #{$block}__btn {
-  @include button($secondaryRed, $borderGray1);
+  @include button($primaryBlue, $borderGray1);
+  padding: .5em;
 }
 
 #{$block}__btn-event {

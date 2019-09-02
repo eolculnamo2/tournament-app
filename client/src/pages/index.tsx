@@ -5,6 +5,8 @@ import CreateTournament from './CreateTournament/CreateTournament';
 import JudgesTable from './JudgesTable/JudgesTable';
 import UpcomingTournaments from './UpcomingTournaments/UpcomingTournaments';
 import ViewTournament from './ViewTournament/ViewTournament';
+import ManageEvent from './ManageEvent/ManageEvent';
+import ManageEventList from './ManageEventList/ManageEventList';
 
 const routes: Array<IPathComponent> = [
   { path: '/', component: Home },
@@ -13,5 +15,7 @@ const routes: Array<IPathComponent> = [
   { path: '/judges-table', component: JudgesTable },
   { path: '/upcoming-tournaments', component: UpcomingTournaments },
   { path: '/view-tournament', component: ViewTournament },
+  { path: '/manage-event', component: ManageEvent },
+  { path: '/manage-event-list', component: ManageEventList },
 ];
 export default routes;

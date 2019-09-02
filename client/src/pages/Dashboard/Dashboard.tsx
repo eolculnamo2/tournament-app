@@ -17,7 +17,7 @@ function Dashboard(): JSX.Element {
     },
     {
       text: 'Register for Event',
-      link: '/create-tournament',
+      link: '/upcoming-tournaments',
       color: 'red1',
     },
     {

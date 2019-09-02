@@ -6,12 +6,14 @@ import '../../scss/pages/UpcomingTournaments.scss';
 function UpcomingTournaments(): JSX.Element {
   // local state
   const [tournaments, setTournaments] = useState<Array<INewTournament>>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const getTournaments = async (signal: AbortSignal) => {
     try {
       const response = await fetch('/api/get-upcoming-tournaments', { signal });
       const data = await response.json();
       setTournaments([...data]);
+      setLoading(true);
     } catch (e) {
       throw e;
     }
@@ -27,7 +29,7 @@ function UpcomingTournaments(): JSX.Element {
   }, []);
 
   const viewUpcomingTournaments = (): JSX.Element => {
-    if (tournaments.length) {
+    if (tournaments.length || loading) {
       return (
         <>
           {tournaments.map((tournament: INewTournament, i: number) => (

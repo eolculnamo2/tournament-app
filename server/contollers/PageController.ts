@@ -10,10 +10,10 @@ const routes: Array<string> = [
   '/judges-table',
   '/upcoming-tournaments',
   '/view-tournament',
+  '/manage-event',
+  '/manage-event-list',
 ];
 
-router.get(routes, (req, res) =>
-  res.sendFile(path.join(__dirname, '../..', '/client/index.html'))
-);
+router.get(routes, (req, res) => res.sendFile(path.join(__dirname, '../..', '/client/index.html')));
 
 export default router;
