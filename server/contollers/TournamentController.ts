@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import TournamentService from '../services/TournamentService';
 import { Request, Response } from 'express';
+import { IRegisteredCompetitor } from '../../constants/interfaces';
 const router: Router = Router();
 
 const {
@@ -32,8 +33,7 @@ router.post('/create-tournament', (req: Request, res: Response) => {
 
 router.post('/register-for-tournament/:uuid', (req: Request, res: Response) => {
   if (!req.user.username) res.send({ notLoggedIn: true });
-
-  registerForMatch(req.params.uuid, req.user.username, res);
+  registerForMatch(req.params.uuid, req, res);
 });
 //**** END POST REQUESTS ****\\
 

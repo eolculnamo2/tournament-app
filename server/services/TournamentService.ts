@@ -1,10 +1,11 @@
 import uuid from 'uuid/v1';
 import moment, { Moment } from 'moment';
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import {
   INewTournament,
   INewTournamentModel,
   ITournamentService,
+  IRegisteredCompetitor,
 } from '../../constants/interfaces';
 import Tournament from '../models/Tournament';
 import Match from '../models/Match';
@@ -77,15 +78,21 @@ export default class TournamentService implements ITournamentService {
     }).save();
   }
 
-  public registerForMatch(uuid: string, username: string, res: Response) {
+  public registerForMatch(uuid: string, req: Request, res: Response) {
     Tournament.findOne({ uuid }, (err, tournament) => {
       if (err) throw Error(err);
 
+      const competitorSubmission: IRegisteredCompetitor = {
+        username: req.user.username,
+        events: req.body.events,
+      };
+
       const notInTournament: boolean | null =
-        tournament && !tournament.competitors.find(user => user === username);
+        tournament &&
+        !tournament.competitors.find(user => user.username === competitorSubmission.username);
 
       if (tournament && notInTournament) {
-        tournament.competitors.push(username);
+        tournament.competitors.push(competitorSubmission);
         tournament.save((err, update) => {
           if (err) {
             throw err;
@@ -95,6 +102,8 @@ export default class TournamentService implements ITournamentService {
       } else if (tournament && !notInTournament) {
         res.send({ message: 'Already in tournament' });
       } else {
+        console.log(tournament);
+        console.log(notInTournament);
         res.send({ message: 'Error occurred' });
       }
     });

@@ -30,6 +30,7 @@ function App(): JSX.Element {
     (async () => {
       const response = await postData('/authenticate/checkLogin');
       dispatch({ type: ACTION_TYPES.UPDATE_LOGIN, payload: response.loggedIn });
+      dispatch({ type: ACTION_TYPES.SET_USERNAME, payload: response.user });
     })();
   }, []);
 
