@@ -3,9 +3,6 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import {
-	sass
-} from 'svelte-preprocess-sass';
-import {
 	terser
 } from 'rollup-plugin-terser';
 
@@ -21,11 +18,6 @@ export default {
 	},
 	plugins: [
 		svelte({
-			preprocess: {
-				style: sass({}, {
-					name: 'scss'
-				}),
-			},
 			// enable run-time checks when not in production
 			dev: !production,
 			// we'll extract any component CSS out into

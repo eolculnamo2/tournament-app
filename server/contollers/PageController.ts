@@ -14,6 +14,10 @@ const routes: Array<string> = [
   '/manage-event-list',
 ];
 
-router.get(routes, (req, res) => res.sendFile(path.join(__dirname, '../..', '/client/index.html')));
+// /client/index.html for react
+// /app/public/index.html for svelte
+router.get(routes, (req, res) =>
+  res.sendFile(path.join(__dirname, '../..', '/app/public/index.html'))
+);
 
 export default router;
