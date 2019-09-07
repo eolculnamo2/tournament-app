@@ -32,7 +32,7 @@ function Dashboard(): JSX.Element {
     },
     {
       text: 'Manage Event',
-      link: '/create-tournament',
+      link: '/manage-event-list',
       color: 'red1',
     },
     {
