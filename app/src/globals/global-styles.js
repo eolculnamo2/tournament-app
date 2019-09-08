@@ -1,7 +1,8 @@
 import emotion from 'emotion/dist/emotion.umd.min.js';
 import {
   PRIMARY_BLUE,
-  BORDER_GRAY1
+  BORDER_GRAY1,
+  PRIMARY_RED
 } from './styles-variables';
 const {
   css
@@ -21,6 +22,7 @@ export const globalInput = css `
 
 export const globalLabel = css `
   margin-bottom: .25em;
+  margin-top: .5em;
 `
 
 export const globalErrorTxt = css `
@@ -30,7 +32,7 @@ export const globalErrorTxt = css `
 `
 
 export const globalBtn1 = css `
-  background-color: ${PRIMARY_BLUE};
+  background-color: ${PRIMARY_RED};
   width: 100%;
   margin-top: 1.2em;
   margin-bottom: .4em;
@@ -41,6 +43,7 @@ export const globalBtn1 = css `
   border: 1px solid ${BORDER_GRAY1};
   cursor: pointer;
   outline: none;
+  text-transform: capitalize;
 
   &:hover {
     opacity: .8;

@@ -8,7 +8,14 @@ export async function postRequest(url, payload) {
       },
       credentials: 'same-origin',
     });
-    return await response.json();
+
+    const {
+      status
+    } = response;
+
+    if (status === 200 || status === 304) {
+      return await response.json();
+    }
   } catch {
     alert('A technical error has occurred. Please contact us.');
   }

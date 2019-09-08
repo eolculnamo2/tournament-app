@@ -23,6 +23,8 @@ const app: Application = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static('app/public'));
+
 app.use(cookieParser(process.env.KEY));
 app.use(
   session({
