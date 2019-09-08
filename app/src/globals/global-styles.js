@@ -2,7 +2,8 @@ import emotion from 'emotion/dist/emotion.umd.min.js';
 import {
   PRIMARY_BLUE,
   BORDER_GRAY1,
-  PRIMARY_RED
+  PRIMARY_RED,
+  SECONDARY_RED
 } from './styles-variables';
 const {
   css
@@ -32,7 +33,7 @@ export const globalErrorTxt = css `
 `
 
 export const globalBtn1 = css `
-  background-color: ${PRIMARY_RED};
+  background-color: ${SECONDARY_RED};
   width: 100%;
   margin-top: 1.2em;
   margin-bottom: .4em;
@@ -48,4 +49,9 @@ export const globalBtn1 = css `
   &:hover {
     opacity: .8;
   }
+`
+
+export const footerAtBottom = css `
+  min-height: calc(100vh - 3em);
+  overflow: auto;
 `

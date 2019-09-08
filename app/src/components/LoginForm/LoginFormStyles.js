@@ -11,14 +11,14 @@ const {
 export const loginHeader = css `
   color: white;
   margin: 0;
-
 `
 
 export const formWrap = css `
+  border-radius: 8px;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, .3);
+  max-width: 390px;
   margin: auto;
-  width: 500px;
-  border-radius: 4px;
-  margin-top: 2em;
+  margin-bottom: 1em;
   overflow: hidden;
 `
 export const formBody = css `
@@ -40,7 +40,7 @@ export const smallText = css `
 export const formHead = css `
   border-bottom: 1px solid ${BORDER_GRAY1};
   background-color: ${PRIMARY_BLUE};
-  color: white;
-  margin: 0;
-  padding: 1em .5em;
+  border-bottom: 1px solid $borderGray1;
+  padding: .75em 1em;
+  text-align: center;
 `

@@ -29,8 +29,6 @@
   let dirty = false;
 
   const handleEnterPress = e => e.keyCode === 13 && register();
-  onMount(() => window.addEventListener('keypress', handleEnterPress));
-  onDestroy(() => window.removeEventListener('keypress', handleEnterPress));
 
   async function register() {
     dirty = true;
@@ -50,7 +48,7 @@
 
     if (data && data.success) {
       username.set(loginName);
-      navigate('/dashboard', { replace: true });
+      navigate('/dashboard');
       return;
     }
 
@@ -60,6 +58,7 @@
   }
 </script>
 
+<svelte:window on:keydown={handleEnterPress} />
 <div class={formWrap}>
   <div class={formHead}>
     <h3 class={loginHeader}>Registration Form</h3>

@@ -7,7 +7,7 @@
     },
   ];
 
-  let { text, author } = quotes[Math.floor(Math.random() * quotes.length)];
+  const { text, author } = quotes[Math.floor(Math.random() * quotes.length)];
 </script>
 
 <div class={quoteWrapper}>

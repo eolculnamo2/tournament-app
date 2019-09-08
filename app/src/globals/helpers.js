@@ -1,3 +1,10 @@
+import {
+  navigate
+} from 'svelte-routing';
+import {
+  username
+} from '../store/global-store.js';
+
 export async function postRequest(url, payload) {
   try {
     const response = await fetch(url, {
@@ -28,4 +35,34 @@ export async function getRequest(url) {
   } catch {
     alert('A technical error has occurred. Please contact us.');
   }
+}
+
+export async function authenticationRouteCheck() {
+  const response = await postRequest('/authenticate/checkLogin');
+  const pathName = window.location.pathname;
+  if (response && response.loggedIn) {
+    username.set(response.user);
+
+    if (pathName === '/') {
+      navigate('/dashboard');
+    }
+
+    return;
+  }
+
+  if ((!response || !response.loggedIn) && pathName !== '/') {
+    navigate('/');
+  }
+}
+
+// to be used in <Link to> i.e <Link to={validateRoute('/create-tournament)}
+export function validatedRoute(ifLoggidInRoute) {
+  const pathName = window.location.pathname;
+  if (username && pathName === '/') {
+    return '/dashboard';
+  }
+  if (!username && pathName !== '/') {
+    return '/';
+  }
+  return ifLoggidInRoute;
 }

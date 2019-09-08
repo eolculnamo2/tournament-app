@@ -22,7 +22,7 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@babel/runtime@^7.4.2", "@babel/runtime@^7.5.5":
+"@babel/runtime@^7.4.2":
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.6.0.tgz#4fc1d642a9fd0299754e8b5de62c631cf5568205"
   dependencies:
@@ -36,7 +36,7 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@emotion/cache@^10.0.14", "@emotion/cache@^10.0.17":
+"@emotion/cache@^10.0.14":
   version "10.0.17"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.17.tgz#3491a035f62f276620d586677bfc3d4fad0b8472"
   dependencies:
@@ -44,25 +44,6 @@
     "@emotion/stylis" "0.8.4"
     "@emotion/utils" "0.11.2"
     "@emotion/weak-memoize" "0.2.3"
-
-"@emotion/core@^10.0.17":
-  version "10.0.17"
-  resolved "https://registry.yarnpkg.com/@emotion/core/-/core-10.0.17.tgz#3367376709721f4ee2068cff54ba581d362789d8"
-  dependencies:
-    "@babel/runtime" "^7.5.5"
-    "@emotion/cache" "^10.0.17"
-    "@emotion/css" "^10.0.14"
-    "@emotion/serialize" "^0.11.10"
-    "@emotion/sheet" "0.9.3"
-    "@emotion/utils" "0.11.2"
-
-"@emotion/css@^10.0.14":
-  version "10.0.14"
-  resolved "https://registry.yarnpkg.com/@emotion/css/-/css-10.0.14.tgz#95dacabdd0e22845d1a1b0b5968d9afa34011139"
-  dependencies:
-    "@emotion/serialize" "^0.11.8"
-    "@emotion/utils" "0.11.2"
-    babel-plugin-emotion "^10.0.14"
 
 "@emotion/hash@0.7.2":
   version "0.7.2"
@@ -194,7 +175,7 @@ atob@^2.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
 
-babel-plugin-emotion@^10.0.14, babel-plugin-emotion@^10.0.17:
+babel-plugin-emotion@^10.0.17:
   version "10.0.17"
   resolved "https://registry.yarnpkg.com/babel-plugin-emotion/-/babel-plugin-emotion-10.0.17.tgz#5673fbed7b1ed61b4b98d5530f33c8a4d1b08484"
   dependencies:
@@ -1693,6 +1674,12 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
+svelte-calendar@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/svelte-calendar/-/svelte-calendar-1.0.8.tgz#8a418c94484de03021b12d5bc00e3aae4395edeb"
+  dependencies:
+    timeUtils "^1.1.5"
+
 svelte-routing@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/svelte-routing/-/svelte-routing-1.4.0.tgz#09285f3c7b19f509dfb1289fbc1235b348aa7d80"
@@ -1720,6 +1707,10 @@ terser@^3.14.1:
     commander "^2.19.0"
     source-map "~0.6.1"
     source-map-support "~0.5.10"
+
+timeUtils@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/timeUtils/-/timeUtils-1.1.5.tgz#429e0d962e146392ea451be23691d23a84705887"
 
 tinydate@^1.0.0:
   version "1.2.0"

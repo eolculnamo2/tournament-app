@@ -35,22 +35,6 @@ export const circle = css `
   cursor: pointer;
   margin: 1em 2em;
 
-  &--red1 {
-    background-color: $primaryRed;
-  }
-
-  &--red2 {
-    background-color: $secondaryRed;
-  }
-
-  &--blue1 {
-    background-color: $primaryBlue;
-  }
-
-  &--blue2 {
-    background-color: $secondaryBlue;
-  }
-
   &:hover {
     opacity: .9;
     box-shadow: 0px 6px 12px rgba(0, 0, 0, .7);
