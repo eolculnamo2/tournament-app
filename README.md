@@ -8,7 +8,8 @@
 
 ## Starting local server
 
-1. yarn run dev in root in one terminal and yarn start in client in a second terminal.
+1. yarn run dev in root in one terminal and yarn start in app in a second terminal.
+2. Go to localhost:8080 for development.
 
 ## Dual startup
 
