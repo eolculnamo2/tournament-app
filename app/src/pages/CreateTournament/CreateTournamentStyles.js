@@ -1,6 +1,7 @@
 import emotion from 'emotion/dist/emotion.umd.min.js';
 import {
-  globalBtn1
+  globalBtn1,
+  globalInput
 } from '../../globals/global-styles.js';
 import {
   DARK1,
@@ -30,7 +31,6 @@ export const btnEvent = css `
   color: ${DARK1}
 `
 
-// modifies globalBtn in inline css
 export const deleteBtn = css `
   ${btnEvent};
   margin-right: .25em;
@@ -40,4 +40,10 @@ export const deleteBtn = css `
 export const tournamentSubmit = css `
   ${globalBtn1};
   background-color: ${PRIMARY_BLUE};
+  margin-bottom: 1em;
+`
+
+export const inputMoreMargTop = css `
+  ${globalInput};
+  margin-top: 1em;
 `
