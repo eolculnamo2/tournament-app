@@ -55,3 +55,8 @@ export const footerAtBottom = css `
   min-height: calc(100vh - 3em);
   overflow: auto;
 `
+
+export const lineBreak = css `
+  border-bottom: 1px solid black;
+  margin: .5em 0;
+`
