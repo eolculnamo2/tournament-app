@@ -11,7 +11,7 @@ const routes: Array<string> = [
   '/upcoming-tournaments',
   '/view-tournament',
   '/manage-event',
-  '/manage-event-list',
+  '/manage-events',
 ];
 
 // /client/index.html for react

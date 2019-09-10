@@ -106,4 +106,11 @@ export default class TournamentService implements ITournamentService {
       }
     });
   }
+
+  public getUsersOwnedTournaments(username: string, res: Response) {
+    Tournament.find({ adminUser: username }, (err, tournaments) => {
+      if (err) throw err;
+      res.send(tournaments);
+    });
+  }
 }

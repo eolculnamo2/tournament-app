@@ -7,4 +7,5 @@ export default interface ITournamentService {
   createMatch: (fighter1: string, fighter2: string, event: string, tournamentId: string) => void;
   getTournamentDetails: (id: string, res: Response) => void;
   registerForMatch: (uuid: string, req: Request, res: Response) => void;
+  getUsersOwnedTournaments: (username: string, res: Response) => void;
 }

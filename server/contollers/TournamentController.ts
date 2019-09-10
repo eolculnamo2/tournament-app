@@ -8,6 +8,7 @@ const {
   createTournament,
   getUpcomingTournaments,
   getTournamentDetails,
+  getUsersOwnedTournaments,
   registerForMatch,
 } = new TournamentService();
 
@@ -18,6 +19,10 @@ router.get('/get-upcoming-tournaments', (req: Request, res: Response) => {
 
 router.get('/tournament-details/:tournamentId', (req: Request, res: Response) => {
   getTournamentDetails(req.params.tournamentId, res);
+});
+
+router.get('/get-owned-tournaments', (req: Request, res: Response) => {
+  getUsersOwnedTournaments(req.user.username, res);
 });
 //**** END GET REQUESTS ****\\
 

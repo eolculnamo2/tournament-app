@@ -25,7 +25,7 @@ export default [{
   },
   {
     text: 'Manage Event',
-    link: '/manage-event-list',
+    link: '/manage-events',
     color: 'red1',
   },
   {
