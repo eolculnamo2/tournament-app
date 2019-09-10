@@ -44,10 +44,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(compression());
-app.use('/', PageController);
 app.use('/api', TournamentController);
 app.use('/score', JudgesTableController);
 app.use('/authenticate', PassportController);
+app.use('/', PageController);
 
 mongoose.set('useCreateIndex', true);
 if (process.env.MONGO_URI) {

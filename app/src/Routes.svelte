@@ -6,6 +6,7 @@
   import UpcomingTournaments from './pages/UpcomingTournaments/UpcomingTournaments.svelte';
   import RegisterForTournament from './pages/RegisterForTournament/RegisterForTournament.svelte';
   import ManageEvents from './pages/ManageEvents/ManageEvents.svelte';
+  import NotFound from './pages/NotFound/NotFound.svelte';
 </script>
 
 <Route path="/" component={AuthenticationPage} />
@@ -14,3 +15,4 @@
 <Route path="/upcoming-tournaments" component={UpcomingTournaments} />
 <Route path="/view-tournament" component={RegisterForTournament} />
 <Route path="/manage-events" component={ManageEvents} />
+<Route component={NotFound} />
