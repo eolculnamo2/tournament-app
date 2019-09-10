@@ -57,12 +57,11 @@ export async function authenticationRouteCheck() {
 }
 
 // to be used in <Link to> i.e <Link to={validateRoute('/create-tournament)}
-export function validatedRoute(ifLoggidInRoute) {
-  const pathName = window.location.pathname;
-  if (username && pathName === '/') {
+export function validatedRoute(user, ifLoggidInRoute) {
+  if (user && ifLoggidInRoute === '/') {
     return '/dashboard';
   }
-  if (!username && pathName !== '/') {
+  if (!user && ifLoggidInRoute !== '/') {
     return '/';
   }
   return ifLoggidInRoute;

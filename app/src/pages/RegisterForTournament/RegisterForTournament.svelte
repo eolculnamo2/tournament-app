@@ -1,7 +1,8 @@
 <script>
   import { onMount } from 'svelte';
   import { navigate } from 'svelte-routing';
-  import { formatDate, getRequest } from '../../globals/helpers.js';
+  import { username } from '../../store/global-store.js';
+  import { formatDate, getRequest, postRequest } from '../../globals/helpers.js';
   import {
     wrapper,
     heading,
@@ -25,6 +26,37 @@
     } else {
       alert('Tournament not found');
       navigate('/dashboard');
+    }
+  }
+
+  async function register() {
+    // @todo replace alerts with modals
+    if (!selectedEvents.length) {
+      alert('Must select at least one event');
+      return;
+    }
+
+    if (tournament) {
+      const payload = {
+        username,
+        events: selectedEvents,
+      };
+
+      const response = await postRequest(
+        `/api/register-for-tournament/${tournament.uuid}`,
+        payload
+      );
+
+      if (response.notLoggedIn) {
+        navigate('/');
+      }
+
+      if (response.message) {
+        alert(response.message);
+        return;
+      }
+
+      alert('Successfully registered');
     }
   }
 
@@ -63,6 +95,6 @@
         {event}
       </div>
     {/each}
-    <button class={registerBtn}>Register</button>
+    <button class={registerBtn} on:click={register}>Register</button>
   </div>
 {/if}

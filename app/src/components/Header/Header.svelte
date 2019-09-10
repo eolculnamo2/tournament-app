@@ -1,11 +1,12 @@
 <script>
   import { headerWrap, logoImg, linksWrap } from './HeaderStyles.js';
   import { Link } from 'svelte-routing';
+  import { username } from '../../store/global-store.js';
   import { validatedRoute } from '../../globals/helpers.js';
 </script>
 
 <div class={headerWrap}>
-  <Link to={validatedRoute('/')}>
+  <Link to={validatedRoute($username, '/')}>
     <img class={logoImg} src="/images/logo.png" alt="Sword Point HEMA Tournament Software" />
   </Link>
   <ul class={linksWrap}>
