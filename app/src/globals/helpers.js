@@ -1,6 +1,7 @@
 import {
   navigate
 } from 'svelte-routing';
+import moment from 'moment';
 import {
   username
 } from '../store/global-store.js';
@@ -65,4 +66,11 @@ export function validatedRoute(ifLoggidInRoute) {
     return '/';
   }
   return ifLoggidInRoute;
+}
+
+export function formatDate(dateString) {
+  if (dateString) {
+    return moment(dateString).format('MMMM Do YYYY');
+  }
+  return '';
 }
