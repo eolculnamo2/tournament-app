@@ -10,4 +10,5 @@ export default interface INewTournament {
   competitors: Array<IRegisteredCompetitor>;
   adminUser?: string;
   uuid?: string;
+  upcomingTournament?: boolean;
 }

@@ -110,7 +110,21 @@ export default class TournamentService implements ITournamentService {
   public getUsersOwnedTournaments(username: string, res: Response) {
     Tournament.find({ adminUser: username }, (err, tournaments) => {
       if (err) throw err;
-      res.send(tournaments);
-    });
+
+      const today: Moment = moment(new Date());
+      const payload = tournaments.map((tournament: INewTournament) => {
+        if (tournament.endDate) {
+          const endDate: Moment = moment(tournament.endDate);
+          tournament.upcomingTournament = false;
+
+          if (today.diff(endDate) < 0) {
+            tournament.upcomingTournament = true;
+          }
+        }
+        return tournament;
+      });
+      res.send(payload);
+    }).lean();
+    // lean() =>https://stackoverflow.com/questions/49662843/add-key-value-pair-to-returned-mongoose-object
   }
 }
