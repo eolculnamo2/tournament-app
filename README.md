@@ -11,6 +11,10 @@
 1. yarn run dev in root in one terminal and yarn start in app in a second terminal.
 2. Go to localhost:8080 for development.
 
-## Dual startup
+## Dual startup with React
 
 1. "yarn both" in root to start server and client in one command
+
+## Dual startup with Svelte
+
+1. "yarn sv" in root to start server and app in one command

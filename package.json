@@ -7,8 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
     "client": "yarn --cwd ./client start",
+    "app": "yarn --cwd ./app start",
     "dev": "ts-node-dev --respawn --transpileOnly ./server/server.ts",
     "both": "concurrently \"yarn dev\" \"yarn client\"",
+    "sv": "concurrently \"yarn dev\" \"yarn app\"",
     "prod": "tsc && node ./build/server/server.js"
   },
   "author": "",
