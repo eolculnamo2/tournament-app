@@ -1,18 +1,20 @@
 import emotion from 'emotion/dist/emotion.umd.min.js';
+
 import {
   DARK1,
+  PRIMARY_FONT,
+  BORDER_GRAY1,
   DANGER_RED,
   FL_GREEN,
-  PRIMARY_BLUE,
+  SECONDARY_RED,
 } from '../../globals/styles-variables';
+
 const { css } = emotion;
 
 export const JudgesTableTitle = css`
   text-align: center;
-  //   font-family: $primaryFontFamily;
-  //   color: $textColorDark;
-  font-family: 'Roboto';
-  color: gray;
+  font-family: ${PRIMARY_FONT};
+  color: ${DARK1};
 `;
 
 export const JudgesTableNameInputBlock = css`
@@ -22,8 +24,7 @@ export const JudgesTableNameInputBlock = css`
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-content: center;
-  //   font-family: $primaryFontFamily;
-  font-family: 'Roboto';
+  font-family: ${PRIMARY_FONT};
 
   @media (min-width: 45em) {
     width: 21.875em;
@@ -47,22 +48,18 @@ export const JudgesTableLabel = css`
 `;
 
 export const JudgesTableVSText = css`
-  //   font-family: $primaryFontFamily;
-  font-family: 'Roboto';
+  font-family: ${PRIMARY_FONT};
 `;
 
 export const JudgesTableButton = css`
   outline: none;
   width: 9.375em;
-  //   background-color: $fl-green;
-  background-color: green;
+  background-color: ${FL_GREEN};
   cursor: pointer;
   border-radius: 0.188em;
   padding: 0.313em;
-  //   font-family: $primaryFontFamily;
-  font-family: 'Roboto';
-  //   box-shadow: 1px 1px 2px $borderGray1;
-  box-shadow: 1px 1px 2px gray;
+  font-family: ${PRIMARY_FONT};
+  box-shadow: 1px 1px 2px ${BORDER_GRAY1};
 
   &:active {
     box-shadow: none;
@@ -70,7 +67,9 @@ export const JudgesTableButton = css`
   }
 
   &:focus {
+    background-color: ${FL_GREEN};
     outline: none;
+    border: none;
   }
 `;
 
@@ -78,8 +77,7 @@ export const JudgesTableButtonContainer = css`
   width: 100%;
   margin-top: 1.25em;
   text-align: center;
-  //   font-family: $primaryFontFamily;
-  font-family: 'Roboto';
+  font-family: ${PRIMARY_FONT};
 `;
 
 export const JudgesTableCompetitorsContainer = css`
@@ -100,14 +98,11 @@ export const JudgesTableSubmitButton = css`
   margin: 0.938em auto;
   width: 19.378em;
   cursor: pointer;
-  //   background-color: $secondaryRed;
-  background-color: red;
+  background-color: ${SECONDARY_RED};
   color: white;
-  height: 1.563em;
-  line-height: 1.563em;
   border-radius: 0.188em;
   border: none;
-  box-shadow: 1px 1px 2px gray;
+  box-shadow: 1px 1px 2px ${BORDER_GRAY1};
 
   &:active {
     box-shadow: none;
@@ -115,7 +110,9 @@ export const JudgesTableSubmitButton = css`
   }
 
   &:focus {
+    background-color: ${SECONDARY_RED};
     outline: none;
+    border: none;
   }
 
   @media (min-width: 40.625em) {
@@ -127,15 +124,11 @@ export const JudgesTableEditNamesButton = css`
   margin: 0.938em auto;
   width: 19.375em;
   cursor: pointer;
-  background-color: $borderGray1;
-  //   color: $textColorDark;
-  color: black;
-  height: 1.563em;
-  line-height: 1.563em;
+  background-color: ${BORDER_GRAY1};
+  color: ${DARK1};
   border-radius: 0.188em;
   border: none;
-  //   box-shadow: 1px 1px 2px $borderGray1;
-  box-shadow: 1px 1px 2px gray;
+  box-shadow: 1px 1px 2px ${BORDER_GRAY1};
 
   &:active {
     box-shadow: none;
@@ -157,7 +150,7 @@ export const JudgesTableLineBreak = css`
 `;
 
 export const JudgesTableRoundContainer = css`
-  //   width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

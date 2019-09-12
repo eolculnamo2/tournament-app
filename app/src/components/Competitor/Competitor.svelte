@@ -1,4 +1,20 @@
 <script>
+  import {
+    CompetitorContainer,
+    CompetitorName,
+    CompetitorScore,
+    CompetitorScoreAdjustContainer,
+    CompetitorDeductScore,
+    CompetitorAddScore,
+    CompetitorPenaltyContainer,
+    CompetitorPenaltyImgContainer,
+    CompetitorPenaltyImg,
+    CompetitorPenaltyCountContainer,
+    CompetitorPenaltyDeduct,
+    CompetitorPenaltyCount,
+    CompetitorPenaltyAdd,
+    CompetitorLineBreak,
+  } from './CompetitorStyles.js';
   const penalty_symbol = 'images/penalty_symbol.png';
   export let competitor;
   export let competitorNum;
@@ -12,65 +28,65 @@
 
 </style>
 
-<div class="Competitor__container">
-  <h3 class="Competitor__name">{competitor}</h3>
-  <h4 class="Competitor__score">{competitorScore}</h4>
-  <div class="Competitor__score-adjust-container">
+<div class={CompetitorContainer}>
+  <h3 class={CompetitorName}>{competitor}</h3>
+  <h4 class={CompetitorScore}>{competitorScore}</h4>
+  <div class={CompetitorScoreAdjustContainer}>
     <button
-      class="Competitor__deduct-score"
+      class={CompetitorDeductScore}
       on:click={e => handleScoreAdjust(-1, competitorNum)}>
       -1
     </button>
     <button
-      class="Competitor__add-score"
+      class={CompetitorAddScore}
       on:click={e => handleScoreAdjust(1, competitorNum)}>
       +1
     </button>
   </div>
-  <div class="Competitor__score-adjust-container">
+  <div class={CompetitorScoreAdjustContainer}>
     <button
-      class="Competitor__deduct-score"
+      class={CompetitorDeductScore}
       on:click={e => handleScoreAdjust(-2, competitorNum)}>
       -2
     </button>
     <button
-      class="Competitor__add-score"
+      class={CompetitorAddScore}
       on:click={e => handleScoreAdjust(2, competitorNum)}>
       +2
     </button>
   </div>
-  <div class="Competitor__score-adjust-container">
+  <div class={CompetitorScoreAdjustContainer}>
     <button
-      class="Competitor__deduct-score"
+      class={CompetitorDeductScore}
       on:click={e => handleScoreAdjust(-3, competitorNum)}>
       -3
     </button>
     <button
-      class="Competitor__add-score"
+      class={CompetitorAddScore}
       on:click={e => handleScoreAdjust(3, competitorNum)}>
       +3
     </button>
   </div>
-  <div class="Competitor__penalty-container">
-    <div class="Competitor__penalty-img-container">
+  <div class={CompetitorPenaltyContainer}>
+    <div class={CompetitorPenaltyImgContainer}>
       <img
-        class="Competitor__penalty-img"
+        class={CompetitorPenaltyImg}
         src={penalty_symbol}
         alt="penalty symbol" />
     </div>
-    <div class="Competitor__penalty-count-container">
+    <div class={CompetitorPenaltyCountContainer}>
       <button
         on:click={e => handlePenaltyAdjust(-1, competitorNum)}
-        class="Competitor__penalty-deduct">
+        class={CompetitorPenaltyDeduct}>
         -
       </button>
-      <div class="Competitor__penalty-count">{penaltyCount}</div>
+      <div class={CompetitorPenaltyCount}>{penaltyCount}</div>
       <button
         on:click={e => handlePenaltyAdjust(1, competitorNum)}
-        class="Competitor__penalty-add">
+        class={CompetitorPenaltyAdd}>
         +
       </button>
     </div>
   </div>
-  <div class="Competitor__line-break" />
+  <div class={CompetitorLineBreak} />
 </div>
