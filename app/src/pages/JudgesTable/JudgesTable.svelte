@@ -1,10 +1,12 @@
 <script>
+  import uuid from 'uuid/v1';
+  import { postRequest } from '../../globals/helpers.js';
   import {
     JudgesTableTitle,
     JudgesTableNameInputContainer,
     JudgesTableNameInputBlock,
     JudgesTableLabel,
-    JudgsTableVSText,
+    JudgesTableVSText,
     JudgesTableButtonContainer,
     JudgesTableButton,
     JudgesTableCompetitorsContainer,
@@ -16,16 +18,15 @@
   } from './JudgesTableStyles.js';
   import Competitor from '../../components/Competitor/Competitor.svelte';
   let namesSubmitted = false;
-  let comp1Name;
+  let comp1Name = '';
   let competitor1Score = 0;
   let competitor1Penalties = 0;
-  let comp2Name;
+  let comp2Name = '';
   let competitor2Score = 0;
   let competitor2Penalties = 0;
   let round = 1;
 
   function handleNameChange(e) {
-    console.log('e.target.name: ', e.target.name);
     switch (e.target.name) {
       case 'comp1':
         comp1Name = e.target.value;
@@ -39,11 +40,9 @@
   }
 
   function handleSubmitNames() {
-    console.log('handling submit names');
-    namesSubmitted = comp1Name && comp2Name;
-    // if (comp1Name && comp2Name) {
-    //     namesSubmitted = true;
-    // }
+    if (comp1Name && comp2Name) {
+      namesSubmitted = true;
+    }
   }
 
   async function handleSubmitScore() {
@@ -63,7 +62,7 @@
       event: 'Fight between 1 and 2.',
       tournamentId: uuid(),
     };
-    const response = await postData(
+    const response = await postRequest(
       'score/save-match-result',
       JSON.stringify(matchResults)
     );
@@ -77,7 +76,6 @@
   }
 
   function toggleNamesSubmitted() {
-    console.log('toggleNamesSubmitted');
     namesSubmitted = !namesSubmitted;
   }
 
@@ -88,8 +86,6 @@
   }
 
   function handleScoreAdjust(num, comp) {
-    console.log('handleScoreAdjust: num', num);
-    console.log('handleScoreAdjust comp: ', comp);
     switch (comp) {
       case 'comp1':
         if (competitor1Score + num >= 0) {
@@ -120,7 +116,7 @@
           competitor2Penalties + num >= 0 &&
           competitor2Penalties + num <= 5
         ) {
-          setCompetitor2Penalties(competitor2Penalties + num);
+          competitor2Penalties = competitor2Penalties + num;
         }
       default:
         break;
@@ -135,7 +131,7 @@
 <div>
   <h1 class={JudgesTableTitle}>Judge's Table</h1>
   <div>
-    {#if namesSubmitted}
+    {#if !namesSubmitted}
       <div class={JudgesTableNameInputContainer}>
         <div class={JudgesTableNameInputBlock}>
           <label class={JudgesTableLabel} htmlFor="comp1">Competitor 1</label>
@@ -143,19 +139,21 @@
             name="comp1"
             value={comp1Name}
             type="text"
+            placeholder="fighter 1"
             on:change={handleNameChange} />
         </div>
-        <h3 class={JudgsTableVSText}>VS</h3>
+        <h3 class={JudgesTableVSText}>VS</h3>
         <div class={JudgesTableNameInputBlock}>
           <label class={JudgesTableLabel} htmlFor="comp2">Competitor 2</label>
           <input
             name="comp2"
             value={comp2Name}
             type="text"
+            placeholder="fighter 2"
             on:change={handleNameChange} />
         </div>
         <div class={JudgesTableButtonContainer}>
-          <button class={JudgesTableButton} onClick={handleSubmitNames}>
+          <button class={JudgesTableButton} on:click={handleSubmitNames}>
             Submit Names
           </button>
         </div>
