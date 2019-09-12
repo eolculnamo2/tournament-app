@@ -6,13 +6,11 @@ import Match from '../models/Match';
 const router: Router = Router();
 const { saveMatchResult } = new JudgesTableService();
 
-// router.post('', req => saveMatchResult(req.body as IMatch));
-
 router.post('/save-match-result', async (req, res) => {
   const tournamentIdExists = await Match.findOne({
     tournamentId: req.body.tournamentId,
   });
-  console.log('tournamentIdExists: ', tournamentIdExists);
+
   if (!tournamentIdExists) {
     saveMatchResult(req.body as IMatch);
     res.send({
