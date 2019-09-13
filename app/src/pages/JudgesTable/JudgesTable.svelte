@@ -62,10 +62,7 @@
       event: 'Fight between 1 and 2.',
       tournamentId: uuid(),
     };
-    const response = await postRequest(
-      'score/save-match-result',
-      JSON.stringify(matchResults)
-    );
+    const response = await postRequest('score/save-match-result', matchResults);
 
     if (response.success) {
       round += 1;
