@@ -51,6 +51,11 @@ export const globalBtn1 = css `
   }
 `
 
+export const globalFormWrap1 = css `
+  width: 500px;
+  margin: 2em auto;
+`
+
 export const footerAtBottom = css `
   min-height: calc(100vh - 3em);
   overflow: auto;
