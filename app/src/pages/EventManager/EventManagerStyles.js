@@ -9,4 +9,5 @@ export const fieldTitle = css `
 
 export const fieldItem = css `
   cursor: pointer;
+  outline: none;
 `
