@@ -20,6 +20,8 @@ export default class PassportService implements IPassportService {
     User.register(
       new User({
         username: user.username.trim().toLowerCase(),
+        firstName: user.firstName.trim(),
+        lastName: user.lastName.trim(),
         email: user.email.trim().toLowerCase(),
       }),
       user.password.trim(),
@@ -37,14 +39,18 @@ export default class PassportService implements IPassportService {
   }
 
   public handleLogin(req: Request, res: Response) {
+    console.log(JSON.stringify(req.user, null, 3));
     if (!req.user) {
       res.send({
         success: false,
       });
     } else if (req.user) {
+      const { username, firstName, lastName } = req.user;
       res.send({
         success: true,
-        user: req.user.username.trim(),
+        user: username,
+        firstName,
+        lastName,
       });
     }
   }

@@ -1,8 +1,12 @@
 <script>
   import { onMount } from 'svelte';
   import { navigate } from 'svelte-routing';
-  import { username } from '../../store/global-store.js';
-  import { formatDate, getRequest, postRequest } from '../../globals/helpers.js';
+  import { username, firstName, lastName } from '../../store/global-store.js';
+  import {
+    formatDate,
+    getRequest,
+    postRequest,
+  } from '../../globals/helpers.js';
   import {
     wrapper,
     heading,
@@ -17,12 +21,14 @@
   let selectedEvents = [];
 
   async function getTournamentDetails() {
-    const tournamentUuid = new URLSearchParams(document.location.search.substring(1)).get(
-      'tournamentId'
-    );
+    const tournamentUuid = new URLSearchParams(
+      document.location.search.substring(1)
+    ).get('tournamentId');
 
     if (tournamentUuid) {
-      tournament = await getRequest(`/api/tournament-details/${tournamentUuid}`);
+      tournament = await getRequest(
+        `/api/tournament-details/${tournamentUuid}`
+      );
     } else {
       alert('Tournament not found');
       navigate('/dashboard');
@@ -39,6 +45,8 @@
     if (tournament) {
       const payload = {
         username,
+        firstName,
+        lastName,
         events: selectedEvents,
       };
 

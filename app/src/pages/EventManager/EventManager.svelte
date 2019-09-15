@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import ManageCompetitorCard from '../../components/ManageCompetitorCard/ManageCompetitorCard.svelte';
   import { globalFormWrap1, globalBtn1 } from '../../globals/global-styles.js';
   import { getRequest } from '../../globals/helpers.js';
   import { fieldTitle, fieldItem } from './EventManagerStyles.js';
@@ -69,9 +70,20 @@
       {tournament.registrationCost}
     </div>
   {/if}
-  <h3 class={fieldTitle}>Events</h3>
-  <div class={fieldItem}>{tournament && tournament.events}</div>
-  <h3 class={fieldTitle}>Competitors</h3>
-  <div class={fieldItem}>{tournament && tournament.competitors}</div>
+  {#if tournament && tournament.events}
+    <h3 class={fieldTitle}>Events</h3>
+    {#each tournament.events as event (event)}
+      <div class={fieldItem}>{event}</div>
+    {/each}
+  {/if}
+  {#if tournament && tournament.competitors}
+    <h3 class={fieldTitle}>Competitors</h3>
+    {#each tournament.competitors as competitor (competitor.username)}
+      <ManageCompetitorCard
+        firstName={competitor.firstName}
+        lastName={competitor.lastName}
+        events={competitor.events} />
+    {/each}
+  {/if}
   <button on:click={saveChanges} class={globalBtn1}>Save Changes</button>
 </div>

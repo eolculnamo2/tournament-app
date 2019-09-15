@@ -8,8 +8,14 @@
     globalLabel,
   } from '../../globals/global-styles.js';
   import { noneAreBlank } from '../../globals/validations.js';
-  import { formHead, formBody, formWrap, loginHeader, smallText } from './LoginFormStyles.js';
-  import { username } from '../../store/global-store.js';
+  import {
+    formHead,
+    formBody,
+    formWrap,
+    loginHeader,
+    smallText,
+  } from './LoginFormStyles.js';
+  import * as store from '../../store/global-store.js';
   import { postRequest } from '../../globals/helpers.js';
 
   // props
@@ -30,9 +36,14 @@
       return;
     }
 
-    const data = await postRequest('/authenticate/login', { username: loginName, password });
+    const data = await postRequest('/authenticate/login', {
+      username: loginName,
+      password,
+    });
     if (data && data.success) {
-      username.set(loginName);
+      store.username.set(loginName);
+      store.firstName.set(data.firstName);
+      store.lastName.set(data.lastName);
       navigate('/dashboard');
       return;
     }
@@ -61,6 +72,8 @@
       <div class={globalErrorTxt}>Login Failed. Please try again.</div>
     {/if}
     <button class={globalBtn1} on:click={login}>LOGIN</button>
-    <div class={smallText} on:click={() => goToRegistration(false)}>Create New Account</div>
+    <div class={smallText} on:click={() => goToRegistration(false)}>
+      Create New Account
+    </div>
   </div>
 </div>

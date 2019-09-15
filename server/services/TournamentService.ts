@@ -82,8 +82,12 @@ export default class TournamentService implements ITournamentService {
     Tournament.findOne({ uuid }, (err, tournament) => {
       if (err) throw Error(err);
 
+      const { username, firstName, lastName } = req.user;
+
       const competitorSubmission: IRegisteredCompetitor = {
-        username: req.user.username,
+        username,
+        firstName,
+        lastName,
         events: req.body.events,
       };
 

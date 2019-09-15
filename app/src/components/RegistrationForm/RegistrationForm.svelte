@@ -16,7 +16,7 @@
     smallText,
   } from '../LoginForm/LoginFormStyles.js';
   import { postRequest } from '../../globals/helpers.js';
-  import { username } from '../../store/global-store.js';
+  import * as store from '../../store/global-store.js';
 
   // props
   export let goToLogin;
@@ -25,6 +25,8 @@
   let loginName = '';
   let password = '';
   let confirmPassword = '';
+  let firstName = '';
+  let lastName = '';
   let email = '';
   let dirty = false;
 
@@ -36,18 +38,31 @@
     const registerPayload = {
       username: loginName,
       password,
+      firstName,
+      lastName,
       confirmPassword,
       email,
     };
 
-    if (!noneAreBlank(loginName, password, confirmPassword, email)) {
+    if (
+      !noneAreBlank(
+        loginName,
+        password,
+        confirmPassword,
+        firstName,
+        lastName,
+        email
+      )
+    ) {
       return;
     }
 
     const data = await postRequest('/authenticate/register', registerPayload);
 
     if (data && data.success) {
-      username.set(loginName);
+      store.username.set(loginName);
+      store.firstName.set(firstName);
+      store.lastName.set(lastName);
       navigate('/dashboard');
       return;
     }
@@ -79,12 +94,24 @@
     {#if dirty && !confirmPassword}
       <div class={globalErrorTxt}>Confirm password is required.</div>
     {/if}
+    <div class={globalLabel}>First Name</div>
+    <input bind:value={firstName} class={globalInput} />
+    {#if dirty && !firstName}
+      <div class={globalErrorTxt}>First name is required.</div>
+    {/if}
+    <div class={globalLabel}>Last Name</div>
+    <input bind:value={lastName} class={globalInput} />
+    {#if dirty && !lastName}
+      <div class={globalErrorTxt}>Last name is required.</div>
+    {/if}
     <div class={globalLabel}>Email</div>
     <input bind:value={email} class={globalInput} />
     {#if dirty && !email}
       <div class={globalErrorTxt}>Email is required.</div>
     {/if}
     <button on:click={register} class={globalBtn1}>REGISTER</button>
-    <div on:click={() => goToLogin(true)} class={smallText}>Already have an account?</div>
+    <div on:click={() => goToLogin(true)} class={smallText}>
+      Already have an account?
+    </div>
   </div>
 </div>

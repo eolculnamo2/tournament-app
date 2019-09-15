@@ -1,6 +1,5 @@
-export default interface INewUser {
-  username: string;
-  password: string;
+import { IUser } from '.';
+
+export default interface INewUser extends IUser {
   confirmPassword: string;
-  email: string;
 }
