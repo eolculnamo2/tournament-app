@@ -46,7 +46,6 @@
   }
 
   async function handleSubmitScore() {
-    console.log('handleSubmitScore');
     let winner =
       competitor1Score - competitor2Score > 0
         ? comp1Name

@@ -39,7 +39,6 @@ export default class PassportService implements IPassportService {
   }
 
   public handleLogin(req: Request, res: Response) {
-    console.log(JSON.stringify(req.user, null, 3));
     if (!req.user) {
       res.send({
         success: false,
