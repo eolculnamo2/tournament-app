@@ -18,3 +18,4 @@ export { default as IMatch } from './IMatch';
 export { default as IMatchModel } from './IMatchModel';
 export { default as IJudgesTableService } from './IJudgesTableService';
 export { default as IRegisteredCompetitor } from './IRegisteredCompetitor';
+export { default as IEditTournamentDetails } from './IEditTournamentDetails';

@@ -6,6 +6,7 @@ import {
   INewTournamentModel,
   ITournamentService,
   IRegisteredCompetitor,
+  IEditTournamentDetails,
 } from '../../constants/interfaces';
 import Tournament from '../models/Tournament';
 import Match from '../models/Match';
@@ -130,5 +131,32 @@ export default class TournamentService implements ITournamentService {
       res.send(payload);
     }).lean();
     // lean() =>https://stackoverflow.com/questions/49662843/add-key-value-pair-to-returned-mongoose-object
+  }
+
+  public editTournamentDetails(uuid: string, updateBody: IEditTournamentDetails, res: Response) {
+    const {
+      hostClub,
+      tournamentName,
+      startDate,
+      endDate,
+      registrationCost,
+      events,
+      competitors,
+    } = updateBody;
+
+    const update = {
+      hostClub,
+      tournamentName,
+      startDate,
+      endDate,
+      registrationCost,
+      events,
+      competitors,
+    };
+
+    Tournament.findOneAndUpdate({ uuid }, update, (err, response) => {
+      if (err) throw err;
+      res.send({ ...response });
+    });
   }
 }

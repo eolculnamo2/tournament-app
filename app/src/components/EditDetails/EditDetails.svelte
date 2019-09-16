@@ -6,9 +6,11 @@
 
   export let tournament;
 
-  function saveChanges() {
-    // UPDATE ROUTE GOES HERE
-    alert(JSON.stringify(tournament, null, 3));
+  async function saveChanges() {
+    const response = await postRequest(
+      '/api/edit-tournament-details',
+      tournament
+    );
   }
 </script>
 

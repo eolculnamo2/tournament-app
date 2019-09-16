@@ -10,6 +10,7 @@ const {
   getTournamentDetails,
   getUsersOwnedTournaments,
   registerForMatch,
+  editTournamentDetails,
 } = new TournamentService();
 
 //**** GET REQUESTS ****\\
@@ -39,6 +40,11 @@ router.post('/create-tournament', (req: Request, res: Response) => {
 router.post('/register-for-tournament/:uuid', (req: Request, res: Response) => {
   if (!req.user.username) res.send({ notLoggedIn: true });
   registerForMatch(req.params.uuid, req, res);
+});
+
+router.post('/edit-tournament-details', (req: Request, res: Response) => {
+  if (!req.user.username) res.send({ notLoggedIn: true });
+  editTournamentDetails(req.body.uuid, req.body, res);
 });
 //**** END POST REQUESTS ****\\
 
