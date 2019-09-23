@@ -7,7 +7,6 @@ import {
   ITournamentService,
   IRegisteredCompetitor,
   IEditTournamentDetails,
-  IMatch,
 } from '../../constants/interfaces';
 import Tournament from '../models/Tournament';
 import Match from '../models/Match';
@@ -69,8 +68,13 @@ export default class TournamentService implements ITournamentService {
     });
   }
 
-  public createMatch(fighter1: string, fighter2: string, event: string, tournamentId: string) {
-    new Match({
+  public async createMatch(
+    fighter1: string,
+    fighter2: string,
+    event: string,
+    tournamentId: string
+  ) {
+    await new Match({
       round: 1,
       fighter1,
       fighter2,
@@ -162,54 +166,50 @@ export default class TournamentService implements ITournamentService {
     });
   }
 
-  public generateMatches(uuid: string, res: Response) {
-    Tournament.findOne({ uuid }, (err, response: INewTournament) => {
+  public generateMatches(tournamentId: string, res: Response) {
+    Tournament.findOne({ uuid: tournamentId }, (err, response: INewTournament) => {
       if (err) throw err;
-
-      const responseData: Array<IMatch> = [];
-
       // get rid of existing matches by tournamentId
+      // deleteMany is an option if we decide to add conditional removal (i.e. by event)
+      Match.deleteMany({ tournamentId }, async err => {
+        if (err) throw err;
 
-      // Iterate each event in tournament and splice event users event list from competitors copy and save new Match
-      for (const event of response.events) {
-        // randomize competitors array
-        const randomizedCompetitors: Array<IRegisteredCompetitor> = Utilities.shuffle(
-          response.competitors
-        );
-        let stopLoop: boolean = false;
+        // Iterate each event in tournament and splice event users event list from competitors copy and save new Match
+        for (const event of response.events) {
+          // filter and randomize competitors array
 
-        while (randomizedCompetitors.length || stopLoop) {
-          if (randomizedCompetitors.length < 2) {
-            stopLoop = true;
+          const randomizedCompetitors: Array<IRegisteredCompetitor> = Utilities.shuffle(
+            response.competitors.filter((c: IRegisteredCompetitor) => c.events.indexOf(event) > -1)
+          );
+          let forceStop = false;
+
+          while (randomizedCompetitors.length || forceStop) {
+            // no match. Create a bye round and kill loop
+            if (randomizedCompetitors.length < 2) {
+              await this.createMatch(randomizedCompetitors[0].username, '', event, tournamentId);
+              forceStop = true;
+              break;
+            }
+
+            // get random two competitors
+            const fighterIndex1: number = Math.floor(Math.random() * randomizedCompetitors.length);
+            const fighterIndex2: number =
+              fighterIndex1 + 1 < randomizedCompetitors.length
+                ? fighterIndex1 + 1
+                : fighterIndex1 - 1;
+            const fighter1 = randomizedCompetitors[fighterIndex1];
+            const fighter2 = randomizedCompetitors[fighterIndex2];
+
+            await this.createMatch(fighter1.username, fighter2.username, event, tournamentId);
+
+            // splice their index from randomizedCompetitors'
+            randomizedCompetitors.splice(fighterIndex1, 1);
+            randomizedCompetitors.splice(fighterIndex2 - 1, 1);
           }
-          // get random two competitors
-          const fighterIndex1: number = Math.floor(Math.random() * randomizedCompetitors.length);
-          const fighterIndex2: number =
-            fighterIndex1 < randomizedCompetitors.length ? fighterIndex1 + 1 : fighterIndex1 - 1;
-          const fighter1 = randomizedCompetitors[fighterIndex1];
-          const fighter2 = randomizedCompetitors[fighterIndex2];
-
-          // Separate newMatch object for type safety
-          const newMatch: IMatch = {
-            round: 1,
-            fighter1: fighter1.username,
-            fighter2: fighter2.username,
-            event,
-            tournamentId: uuid,
-            winner: '',
-          };
-
-          // create match
-          responseData.push(newMatch);
-          //new Match(newMatch);
-
-          // splice their index from randomizedCompetitors'
-          randomizedCompetitors.splice(fighterIndex1, 1);
-          randomizedCompetitors.splice(fighterIndex2, 1);
         }
-      }
 
-      res.send({ responseData });
+        res.send({ success: true });
+      });
     });
   }
 }

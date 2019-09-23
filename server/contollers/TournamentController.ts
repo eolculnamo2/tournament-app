@@ -13,6 +13,7 @@ const {
   generateMatches,
 } = new TournamentService();
 
+const tournamentService = new TournamentService();
 //**** GET REQUESTS ****\\
 router.get('/get-upcoming-tournaments', (req: Request, res: Response) => {
   getUpcomingTournaments(res);
@@ -49,7 +50,7 @@ router.post('/edit-tournament-details', (req: Request, res: Response) => {
 
 router.post('/generate-matches', (req: Request, res: Response) => {
   if (!req.user.username) res.send({ notLoggedIn: true });
-  generateMatches(req.body.uuid, res);
+  tournamentService.generateMatches(req.body.uuid, res);
 });
 //**** END POST REQUESTS ****\\
 
