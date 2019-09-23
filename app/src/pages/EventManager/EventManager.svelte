@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import EditDetails from '../../components/EditDetails/EditDetails.svelte';
+  import Roster from '../../components/Roster/Roster.svelte';
   import { globalFormWrap1 } from '../../globals/global-styles.js';
   import { getRequest } from '../../globals/helpers.js';
   import { activeTab, tab, tabWrap } from './EventManagerStyles.js';
@@ -50,5 +51,7 @@
   </div>
   {#if tabView === tabNames.editDetails}
     <EditDetails {tournament} />
+  {:else if tabView === tabNames.roster}
+    <Roster tournamentId={tournament.uuid} />
   {/if}
 </div>

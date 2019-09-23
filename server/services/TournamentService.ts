@@ -7,9 +7,11 @@ import {
   ITournamentService,
   IRegisteredCompetitor,
   IEditTournamentDetails,
+  IMatch,
 } from '../../constants/interfaces';
 import Tournament from '../models/Tournament';
 import Match from '../models/Match';
+import Utilities from '../Utils/Utilities';
 
 export default class TournamentService implements ITournamentService {
   public createTournament(payload: INewTournament, adminUser: string): boolean {
@@ -157,6 +159,57 @@ export default class TournamentService implements ITournamentService {
     Tournament.findOneAndUpdate({ uuid }, update, (err, response) => {
       if (err) throw err;
       res.send({ ...response });
+    });
+  }
+
+  public generateMatches(uuid: string, res: Response) {
+    Tournament.findOne({ uuid }, (err, response: INewTournament) => {
+      if (err) throw err;
+
+      const responseData: Array<IMatch> = [];
+
+      // get rid of existing matches by tournamentId
+
+      // Iterate each event in tournament and splice event users event list from competitors copy and save new Match
+      for (const event of response.events) {
+        // randomize competitors array
+        const randomizedCompetitors: Array<IRegisteredCompetitor> = Utilities.shuffle(
+          response.competitors
+        );
+        let stopLoop: boolean = false;
+
+        while (randomizedCompetitors.length || stopLoop) {
+          if (randomizedCompetitors.length < 2) {
+            stopLoop = true;
+          }
+          // get random two competitors
+          const fighterIndex1: number = Math.floor(Math.random() * randomizedCompetitors.length);
+          const fighterIndex2: number =
+            fighterIndex1 < randomizedCompetitors.length ? fighterIndex1 + 1 : fighterIndex1 - 1;
+          const fighter1 = randomizedCompetitors[fighterIndex1];
+          const fighter2 = randomizedCompetitors[fighterIndex2];
+
+          // Separate newMatch object for type safety
+          const newMatch: IMatch = {
+            round: 1,
+            fighter1: fighter1.username,
+            fighter2: fighter2.username,
+            event,
+            tournamentId: uuid,
+            winner: '',
+          };
+
+          // create match
+          responseData.push(newMatch);
+          //new Match(newMatch);
+
+          // splice their index from randomizedCompetitors'
+          randomizedCompetitors.splice(fighterIndex1, 1);
+          randomizedCompetitors.splice(fighterIndex2, 1);
+        }
+      }
+
+      res.send({ responseData });
     });
   }
 }

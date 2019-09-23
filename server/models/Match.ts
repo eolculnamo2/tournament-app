@@ -4,6 +4,7 @@ import mongoose, { Schema } from 'mongoose';
 import { IMatchModel } from '../../constants/interfaces';
 
 const Match: Schema = new Schema({
+  event: { type: String, required: true },
   round: { type: Number, required: true }, // round starting with 1
   fighter1: { type: String, required: true }, // username 1
   fighter2: { type: String, required: true }, // username 2
