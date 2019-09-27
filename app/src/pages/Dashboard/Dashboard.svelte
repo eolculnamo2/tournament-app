@@ -5,6 +5,7 @@
     SECONDARY_RED,
     PRIMARY_BLUE,
     SECONDARY_BLUE,
+    BORDER_GRAY1,
   } from '../../globals/styles-variables.js';
   import { circle, circleTxt, circleWrap, title } from './DashboardStyles.js';
   import { Link } from 'svelte-routing';
@@ -19,8 +20,10 @@
         return SECONDARY_RED;
       case 'blue1':
         return PRIMARY_BLUE;
-      default:
+      case 'blue2':
         return SECONDARY_BLUE;
+      default:
+        return BORDER_GRAY1;
     }
   }
 </script>

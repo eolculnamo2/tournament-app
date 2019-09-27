@@ -1,12 +1,12 @@
 export default [{
     text: 'My HEMA Profile',
-    link: '/create-tournament',
-    color: 'red2',
+    link: '/dashboard',
+    color: '', //red2
   },
   {
     text: 'Tournament Stats',
-    link: '/create-tournament',
-    color: 'blue1',
+    link: '/dashboard',
+    color: '', //blue1
   },
   {
     text: 'Register for Event',
@@ -20,8 +20,8 @@ export default [{
   },
   {
     text: 'Discuss',
-    link: '/create-tournament',
-    color: 'blue2',
+    link: '/dashboard',
+    color: '', // blue2
   },
   {
     text: 'Manage Event',

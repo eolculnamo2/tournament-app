@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import TournamentService from '../services/TournamentService';
 import { Request, Response } from 'express';
+import { IMatch } from '../../constants/interfaces';
 const router: Router = Router();
 
 const {
@@ -10,7 +11,7 @@ const {
   getUsersOwnedTournaments,
   registerForMatch,
   editTournamentDetails,
-  generateMatches,
+  getMatchesByTournamentId,
 } = new TournamentService();
 
 const tournamentService = new TournamentService();
@@ -25,6 +26,11 @@ router.get('/tournament-details/:tournamentId', (req: Request, res: Response) =>
 
 router.get('/get-owned-tournaments', (req: Request, res: Response) => {
   getUsersOwnedTournaments(req.user.username, res);
+});
+
+router.get('/get-matches/:tournamentId', async (req: Request, res: Response) => {
+  const matches: Array<IMatch> = await getMatchesByTournamentId(req.params.tournamentId);
+  res.send(matches);
 });
 //**** END GET REQUESTS ****\\
 

@@ -1,12 +1,13 @@
 import uuid from 'uuid/v1';
 import moment, { Moment } from 'moment';
-import { Request, Response } from 'express';
+import { Request, Response, response } from 'express';
 import {
   INewTournament,
   INewTournamentModel,
   ITournamentService,
   IRegisteredCompetitor,
   IEditTournamentDetails,
+  IMatch,
 } from '../../constants/interfaces';
 import Tournament from '../models/Tournament';
 import Match from '../models/Match';
@@ -170,7 +171,6 @@ export default class TournamentService implements ITournamentService {
     Tournament.findOne({ uuid: tournamentId }, (err, response: INewTournament) => {
       if (err) throw err;
       // get rid of existing matches by tournamentId
-      // deleteMany is an option if we decide to add conditional removal (i.e. by event)
       Match.deleteMany({ tournamentId }, async err => {
         if (err) throw err;
 
@@ -211,5 +211,15 @@ export default class TournamentService implements ITournamentService {
         res.send({ success: true });
       });
     });
+  }
+
+  public async getMatchesByTournamentId(tournamentId: string): Promise<Array<IMatch>> {
+    let matches: Array<IMatch> = [];
+    await Match.find({ tournamentId }, (err, response) => {
+      console.log('res', response);
+      matches = response;
+    });
+
+    return matches;
   }
 }

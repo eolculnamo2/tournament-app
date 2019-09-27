@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { INewTournament, IEditTournamentDetails } from '.';
+import { INewTournament, IEditTournamentDetails, IMatch } from '.';
 
 export default interface ITournamentService {
   createTournament: (payload: INewTournament, adminUser: string) => boolean;
@@ -10,4 +10,5 @@ export default interface ITournamentService {
   getUsersOwnedTournaments: (username: string, res: Response) => void;
   editTournamentDetails: (uuid: string, updateBody: IEditTournamentDetails, res: Response) => void;
   generateMatches: (uuid: string, res: Response) => void;
+  getMatchesByTournamentId: (tournamentId: string) => Promise<Array<IMatch>>;
 }
