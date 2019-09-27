@@ -10,6 +10,8 @@ export const FL_GREEN = '#c0e8b2';
 
 export const BORDER_GRAY1 = '#cecece';
 export const DARK1 = '#333';
+export const DARK2 = '#777';
+export const DARK3 = '#999';
 
 // FONTS
 export const PRIMARY_FONT = 'Roboto';

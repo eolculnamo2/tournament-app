@@ -3,11 +3,7 @@ const {
   css
 } = emotion;
 
-export const title = css `
-  text-align: center;
-  font-size: 2.5em;
-  margin: 2em 0 1em 0;
-`
+
 export const circleWrap = css `
   max-width: 1000px;
   margin: auto;
@@ -48,4 +44,12 @@ export const circleTxt = css `
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
+`
+
+export const logo = css `
+display: block;
+margin: auto;
+margin-top: 2em;
+margin-bottom: 2em;
+max-width: 450px;
 `

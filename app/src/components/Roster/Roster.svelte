@@ -10,6 +10,7 @@
     await postRequest('/api/generate-matches', { uuid: tournamentId });
   }
 
+  // may move this to page level to avoid api delay and pass down as prop
   async function getMatches() {
     const payload = await getRequest(`/api/get-matches/${tournamentId}`);
     matches = [...payload];

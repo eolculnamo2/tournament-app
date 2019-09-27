@@ -5,9 +5,9 @@
     SECONDARY_RED,
     PRIMARY_BLUE,
     SECONDARY_BLUE,
-    BORDER_GRAY1,
+    DARK3,
   } from '../../globals/styles-variables.js';
-  import { circle, circleTxt, circleWrap, title } from './DashboardStyles.js';
+  import { circle, circleTxt, circleWrap, logo } from './DashboardStyles.js';
   import { Link } from 'svelte-routing';
   import emotion from 'emotion/dist/emotion.umd.min.js';
   const { css } = emotion;
@@ -23,12 +23,15 @@
       case 'blue2':
         return SECONDARY_BLUE;
       default:
-        return BORDER_GRAY1;
+        return DARK3;
     }
   }
 </script>
 
-<h1 class={title}>Sword Point Tournaments</h1>
+<img
+  class={logo}
+  src="/images/sword-point-full-color.svg"
+  alt="Sword Point Tournaments" />
 <div class={circleWrap}>
   {#each circleLinks as circleLink (JSON.stringify(circleLinks))}
     <Link to={circleLink.link}>

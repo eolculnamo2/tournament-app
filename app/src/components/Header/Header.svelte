@@ -7,7 +7,10 @@
 
 <div class={headerWrap}>
   <Link to={validatedRoute($username, '/')}>
-    <img class={logoImg} src="/images/logo.png" alt="Sword Point HEMA Tournament Software" />
+    <img
+      class={logoImg}
+      src="/images/sword-point-white.svg"
+      alt="Sword Point HEMA Tournament Software" />
   </Link>
   <ul class={linksWrap}>
     <li>HOME</li>
