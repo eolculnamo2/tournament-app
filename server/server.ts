@@ -55,7 +55,7 @@ if (process.env.MONGO_URI) {
     useNewUrlParser: true,
   });
 } else {
-  throw Error('process.env.MONGO_URL is undefined!');
+  throw Error('process.env.MONGO_URI is undefined!');
 }
 
 mongoose.connection
