@@ -36,7 +36,7 @@
       return;
     }
 
-    const data = await postRequest('/authenticate/login', {
+    const data = await postRequest('/api/auth/login', {
       username: loginName,
       password,
     });

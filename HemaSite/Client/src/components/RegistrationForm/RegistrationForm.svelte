@@ -40,7 +40,6 @@
       password,
       firstName,
       lastName,
-      confirmPassword,
       email,
     };
 
@@ -57,9 +56,9 @@
       return;
     }
 
-    const data = await postRequest('/authenticate/register', registerPayload);
+    const data = await postRequest('/api/auth/register', registerPayload);
 
-    if (data && data.success) {
+    if (data) {
       store.username.set(loginName);
       store.firstName.set(firstName);
       store.lastName.set(lastName);
