@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HemaSite.Data;
 using HemaSite.DTO;
+using HemaSite.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -37,9 +38,12 @@ namespace HemaSite.Controllers
         return BadRequest("Username is not available");
       }
 
-      var userToCreate = new Models.User
+      var userToCreate = new User
       {
-        Username = userRegister.Username
+        Username = userRegister.Username,
+        FirstName = userRegister.FirstName,
+        LastName = userRegister.LastName,
+        Email = userRegister.Email
       };
 
       var createdUser = repository.Register(userToCreate, userRegister.Password);
@@ -86,7 +90,9 @@ namespace HemaSite.Controllers
 
       return Ok(new
       {
-        token = tokenHandler.WriteToken(token)
+        token = tokenHandler.WriteToken(token),
+        firstName = user.FirstName,
+        lastName = user.LastName
       });
     }
   }

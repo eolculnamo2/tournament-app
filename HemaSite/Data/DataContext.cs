@@ -11,5 +11,8 @@ namespace HemaSite.Data
   {
     public DataContext(DbContextOptions<DataContext> options) : base(options) { }
     public DbSet<User> Users { get; set; }
+    public DbSet<Tournament> Tournaments { get; set; }
+    public DbSet<Event> Events { get; set; }
+    public DbSet<Competitor> Competitors { get; set; }
   }
 }

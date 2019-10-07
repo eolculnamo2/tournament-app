@@ -40,10 +40,12 @@
       username: loginName,
       password,
     });
-    if (data && data.success) {
+    if (data && data.token) {
       store.username.set(loginName);
       store.firstName.set(data.firstName);
       store.lastName.set(data.lastName);
+
+      localStorage.setItem('token', data.token);
       navigate('/dashboard');
       return;
     }

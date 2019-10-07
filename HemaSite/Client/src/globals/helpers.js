@@ -7,12 +7,14 @@ import {
 } from '../store/global-store.js';
 
 export async function postRequest(url, payload) {
+  const token = localStorage.getItem('token');
   try {
     const response = await fetch(url, {
       method: 'POST',
       body: JSON.stringify(payload),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token || ''}`
       },
       credentials: 'same-origin',
     });
@@ -39,19 +41,17 @@ export async function getRequest(url) {
 }
 
 export async function authenticationRouteCheck() {
-  const response = await postRequest('/authenticate/checkLogin');
+  const token = localStorage.getItem('token');
   const pathName = window.location.pathname;
-  if (response && response.loggedIn) {
-    username.set(response.user);
 
-    if (pathName === '/') {
-      navigate('/dashboard');
-    }
-
+  // will need to make call to back end...
+  if (token) {
+    // navigate('/dashboard');
+    // username.set(response.user);
     return;
   }
 
-  if ((!response || !response.loggedIn) && pathName !== '/') {
+  if (!token && pathName !== '/') {
     navigate('/');
   }
 }

@@ -41,7 +41,14 @@
 
     // @TODO create validation library
     const failingConditions = [
-      !noneAreBlank(hostClub, tournamentName, startDate, endDate, registrationCost, events),
+      !noneAreBlank(
+        hostClub,
+        tournamentName,
+        startDate,
+        endDate,
+        registrationCost,
+        events
+      ),
       !events.find(x => x.length > 0),
       registrationCost < 0,
       registrationCost !== 0 && !registrationCost,
@@ -51,9 +58,12 @@
       return;
     }
 
-    const response = await postRequest('/api/create-tournament', payload);
+    const response = await postRequest(
+      '/api/tournament/create-tournament',
+      payload
+    );
     // @todo Replace with custom modals
-    if (!response || !response.success) {
+    if (!response) {
       alert('Tournament creation failed.');
     } else {
       alert('Tournament successfully created');
@@ -88,7 +98,10 @@
   </div>
   <!-- Each goes here -->
   {#each events as event, i ('event' + i)}
-    <input class={inputMoreMargTop} bind:value={events[i]} placeholder={`Event #${i + 1}`} />
+    <input
+      class={inputMoreMargTop}
+      bind:value={events[i]}
+      placeholder={`Event #${i + 1}`} />
   {/each}
   <button class={deleteBtn} on:click={deleteEvt}>Delete Event</button>
   <button class={btnEvent} on:click={addEvt}>Add Event</button>
@@ -104,7 +117,11 @@
   <div class={globalErrorTxt}>
     {#if dirty && !registrationCost && registrationCost !== 0}
       Registration Cost is Required
-    {:else if dirty && registrationCost < 0}Registration Cost cannot be Negative{/if}
+    {:else if dirty && registrationCost < 0}
+      Registration Cost cannot be Negative
+    {/if}
   </div>
-  <button class={tournamentSubmit} on:click={submitForm} type="button">Create Event</button>
+  <button class={tournamentSubmit} on:click={submitForm} type="button">
+    Create Event
+  </button>
 </div>

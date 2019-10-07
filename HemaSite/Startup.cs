@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using HemaSite.Services;
 
 namespace HemaSite
 {
@@ -34,6 +35,8 @@ namespace HemaSite
       services.AddControllers();
       // services.AddSingleton, Transient, or scoped.
       services.AddScoped<IAuthRepository, AuthRepository>();
+      services.AddScoped<ITournamentService, TournamentService>();
+      services.AddScoped<ITournamentRepository, TournamentRepository>();
 
       // Add authentication configurations here and also add.Authentication() below
       services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -62,12 +65,12 @@ namespace HemaSite
       {
         app.UseDeveloperExceptionPage();
       }
+      app.UseAuthentication();
       app.UseStaticFiles();
       app.UseSpaStaticFiles();
       app.UseHttpsRedirection();
       app.UseRouting();
       app.UseAuthorization();
-      app.UseAuthentication();
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();
