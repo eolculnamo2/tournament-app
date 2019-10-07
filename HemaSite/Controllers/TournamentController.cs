@@ -25,7 +25,8 @@ namespace HemaSite.Controllers
     [HttpPost("create-tournament")]
     public async Task<IActionResult> CreateTournament(TournamentDTO tournamentDto)
     {
-      var tournament = await tournamentService.CreateTournament(tournamentDto);
+      var username = User.FindFirst(System.Security.Claims.ClaimTypes.Name)?.Value;
+      var tournament = await tournamentService.CreateTournament(tournamentDto, username);
       return Ok(tournament);
     }
   }

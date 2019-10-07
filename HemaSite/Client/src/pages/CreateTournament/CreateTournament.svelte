@@ -24,7 +24,7 @@
   let startDate = new Date();
   let endDate = new Date();
   let registrationCost = 0;
-  let events = [''];
+  let events = [{ eventName: '' }];
   let dirty = false;
 
   async function submitForm() {
@@ -49,7 +49,7 @@
         registrationCost,
         events
       ),
-      !events.find(x => x.length > 0),
+      !events.find(x => x.eventName.length > 0),
       registrationCost < 0,
       registrationCost !== 0 && !registrationCost,
     ];
@@ -77,7 +77,7 @@
     }
   };
 
-  const addEvt = () => (events = [...events, '']);
+  const addEvt = () => (events = [...events, { eventName: '' }]);
 </script>
 
 <div class={tournamentFormWrap}>
@@ -100,12 +100,12 @@
   {#each events as event, i ('event' + i)}
     <input
       class={inputMoreMargTop}
-      bind:value={events[i]}
+      bind:value={events[i].eventName}
       placeholder={`Event #${i + 1}`} />
   {/each}
   <button class={deleteBtn} on:click={deleteEvt}>Delete Event</button>
   <button class={btnEvent} on:click={addEvt}>Add Event</button>
-  {#if dirty && !events.find(x => x.length > 0)}
+  {#if dirty && !events.find(x => x.eventName.length > 0)}
     <div class={globalErrorTxt}>Tournaments must have at least one event.</div>
   {/if}
   <div class={globalLabel}>Event Start Date</div>

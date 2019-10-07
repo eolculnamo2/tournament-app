@@ -7,7 +7,7 @@ namespace HemaSite.Services
 {
   public interface ITournamentService
   {
-    Task<Tournament> CreateTournament(TournamentDTO tournamentDto);
+    Task<Tournament> CreateTournament(TournamentDTO tournamentDto, string adminUser);
   }
   public class TournamentService : ITournamentService
   {
@@ -17,12 +17,12 @@ namespace HemaSite.Services
       this.repository = repository;
     }
 
-    public async Task<Tournament> CreateTournament(TournamentDTO tournamentDto)
+    public async Task<Tournament> CreateTournament(TournamentDTO tournamentDto, string adminUser)
     {
 
       var tournament = new Tournament
       {
-        AdminUser = tournamentDto.AdminUser,
+        AdminUser = adminUser,
         HostClub = tournamentDto.HostClub,
         TournamentName = tournamentDto.TournamentName,
         Events = tournamentDto.Events,
