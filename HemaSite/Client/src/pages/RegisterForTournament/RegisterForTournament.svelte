@@ -27,7 +27,7 @@
 
     if (tournamentUuid) {
       tournament = await getRequest(
-        `/api/tournament-details/${tournamentUuid}`
+        `/api/tournament/tournament-details/${tournamentUuid}`
       );
     } else {
       alert('Tournament not found');
@@ -94,13 +94,13 @@
     <h3>Events:</h3>
     {#each tournament.events as event, i (event)}
       <div
-        class={selectedEvents.find(evt => evt === event) !== undefined ? eventLblSelected : eventLbl}
+        class={selectedEvents.find(evt => evt.eventName === event.eventName) !== undefined ? eventLblSelected : eventLbl}
         on:click={() => handleEventClick(event)}>
         <input
           type="checkbox"
-          checked={selectedEvents.find(evt => evt === event) !== undefined}
+          checked={selectedEvents.find(evt => evt.eventName === event.eventName) !== undefined}
           readOnly />
-        {event}
+        {event.eventName}
       </div>
     {/each}
     <button class={registerBtn} on:click={register}>Register</button>

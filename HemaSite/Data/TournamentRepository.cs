@@ -11,6 +11,7 @@ namespace HemaSite.Data
   {
     Task<bool> SaveTournament(Tournament tournament);
     Task<List<Tournament>> GetFutureTournaments();
+    Task<Tournament> GetTournamentById(int id);
   }
   public class TournamentRepository : ITournamentRepository
   {
@@ -44,6 +45,13 @@ namespace HemaSite.Data
         Console.WriteLine(ex);
         return null;
       }
+    }
+
+    public async Task<Tournament> GetTournamentById(int id)
+    {
+      return await context.Tournaments
+                          .Include(x => x.Events)
+                          .FirstOrDefaultAsync(x => x.Id == id);
     }
   }
 }

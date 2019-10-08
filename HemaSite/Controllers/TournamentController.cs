@@ -39,5 +39,12 @@ namespace HemaSite.Controllers
       var upcomingTournaments = await tournamentRepository.GetFutureTournaments();
       return Ok(upcomingTournaments);
     }
+
+    [HttpGet("tournament-details/{tournamentId}")]
+    public async Task<IActionResult> TournamentDetails(int tournamentId)
+    {
+      var tournament = await tournamentRepository.GetTournamentById(tournamentId);
+      return Ok(tournament);
+    }
   }
 }

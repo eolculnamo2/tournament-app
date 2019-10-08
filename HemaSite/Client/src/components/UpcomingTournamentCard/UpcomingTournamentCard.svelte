@@ -5,10 +5,10 @@
   export let hostClub = '';
   export let startDate = '';
   export let endDate = '';
-  export let uuid;
+  export let id;
 
   const goToTournamentView = () => {
-    window.location.href = `/view-tournament?tournamentId=${uuid}`;
+    window.location.href = `/view-tournament?tournamentId=${id}`;
   };
 </script>
 
