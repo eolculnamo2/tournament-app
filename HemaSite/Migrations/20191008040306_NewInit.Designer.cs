@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HemaSite.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20191007054057_ConvertRegToDouble")]
-    partial class ConvertRegToDouble
+    [Migration("20191008040306_NewInit")]
+    partial class NewInit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -76,7 +76,7 @@ namespace HemaSite.Migrations
                     b.Property<string>("AdminUser")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("EndDate")
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("HostClub")
@@ -85,7 +85,7 @@ namespace HemaSite.Migrations
                     b.Property<double>("RegistrationCost")
                         .HasColumnType("REAL");
 
-                    b.Property<string>("StartDate")
+                    b.Property<DateTime>("StartDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("TournamentName")

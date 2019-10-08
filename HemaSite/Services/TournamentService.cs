@@ -35,6 +35,5 @@ namespace HemaSite.Services
 
       return tournament;
     }
-
   }
 }

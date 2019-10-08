@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HemaSite.Migrations
 {
-    public partial class ConvertRegToDouble : Migration
+    public partial class NewInit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,8 +16,8 @@ namespace HemaSite.Migrations
                     AdminUser = table.Column<string>(nullable: true),
                     HostClub = table.Column<string>(nullable: true),
                     TournamentName = table.Column<string>(nullable: true),
-                    StartDate = table.Column<string>(nullable: true),
-                    EndDate = table.Column<string>(nullable: true),
+                    StartDate = table.Column<DateTime>(nullable: false),
+                    EndDate = table.Column<DateTime>(nullable: false),
                     RegistrationCost = table.Column<double>(nullable: false)
                 },
                 constraints: table =>

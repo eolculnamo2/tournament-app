@@ -74,7 +74,7 @@ namespace HemaSite.Migrations
                     b.Property<string>("AdminUser")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("EndDate")
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("HostClub")
@@ -83,7 +83,7 @@ namespace HemaSite.Migrations
                     b.Property<double>("RegistrationCost")
                         .HasColumnType("REAL");
 
-                    b.Property<string>("StartDate")
+                    b.Property<DateTime>("StartDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("TournamentName")

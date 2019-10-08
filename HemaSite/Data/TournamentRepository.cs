@@ -1,12 +1,16 @@
 using System;
 using System.Threading.Tasks;
+using System.Linq;
 using HemaSite.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace HemaSite.Data
 {
   public interface ITournamentRepository
   {
     Task<bool> SaveTournament(Tournament tournament);
+    Task<List<Tournament>> GetFutureTournaments();
   }
   public class TournamentRepository : ITournamentRepository
   {
@@ -14,7 +18,6 @@ namespace HemaSite.Data
     public TournamentRepository(DataContext context)
     {
       this.context = context;
-
     }
     public async Task<bool> SaveTournament(Tournament tournament)
     {
@@ -28,6 +31,18 @@ namespace HemaSite.Data
       {
         Console.WriteLine(e);
         return false;
+      }
+    }
+    public async Task<List<Tournament>> GetFutureTournaments()
+    {
+      try
+      {
+        return await context.Tournaments.Where(x => x.StartDate > DateTime.Now).ToListAsync();
+      }
+      catch (Exception ex)
+      {
+        Console.WriteLine(ex);
+        return null;
       }
     }
   }

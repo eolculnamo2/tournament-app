@@ -5,7 +5,7 @@
   let tournaments = [];
 
   (async () => {
-    tournaments = await getRequest('/api/get-upcoming-tournaments');
+    tournaments = await getRequest('/api/tournament/upcoming-tournaments');
   })();
 </script>
 

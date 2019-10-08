@@ -32,8 +32,13 @@ export async function postRequest(url, payload) {
 }
 
 export async function getRequest(url) {
+  const token = localStorage.getItem('token');
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${token || ''}`
+      }
+    });
     return await response.json();
   } catch {
     alert('A technical error has occurred. Please contact us.');

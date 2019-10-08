@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HemaSite.Data;
 using HemaSite.DTO;
 using HemaSite.Models;
 using HemaSite.Services;
@@ -16,10 +17,12 @@ namespace HemaSite.Controllers
   [ApiController]
   public class TournamentController : ControllerBase
   {
-    public ITournamentService tournamentService { get; }
-    public TournamentController(ITournamentService tournamentService)
+    private ITournamentService tournamentService { get; }
+    private ITournamentRepository tournamentRepository { get; }
+    public TournamentController(ITournamentService tournamentService, ITournamentRepository tournamentRepository)
     {
       this.tournamentService = tournamentService;
+      this.tournamentRepository = tournamentRepository;
     }
 
     [HttpPost("create-tournament")]
@@ -28,6 +31,13 @@ namespace HemaSite.Controllers
       var username = User.FindFirst(System.Security.Claims.ClaimTypes.Name)?.Value;
       var tournament = await tournamentService.CreateTournament(tournamentDto, username);
       return Ok(tournament);
+    }
+
+    [HttpGet("upcoming-tournaments")]
+    public async Task<IActionResult> GetFutureTournaments()
+    {
+      var upcomingTournaments = await tournamentRepository.GetFutureTournaments();
+      return Ok(upcomingTournaments);
     }
   }
 }
