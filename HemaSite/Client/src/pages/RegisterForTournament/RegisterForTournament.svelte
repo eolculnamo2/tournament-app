@@ -44,7 +44,7 @@
 
     if (tournament) {
       const payload = {
-        events: selectedEvents,
+        events: selectedEvents.map(x => x.eventName),
       };
 
       const response = await postRequest(

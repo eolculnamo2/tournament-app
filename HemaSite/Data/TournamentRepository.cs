@@ -13,6 +13,7 @@ namespace HemaSite.Data
     Task<List<Tournament>> GetFutureTournaments();
     Task<Tournament> GetTournamentById(int id);
     Task<Tournament> AddCompetitorToEvent(Competitor competitor, int tournamentId);
+    Task<bool> UserInTournament(string username, int tournamentId);
   }
   public class TournamentRepository : ITournamentRepository
   {
@@ -67,8 +68,7 @@ namespace HemaSite.Data
     public async Task<bool> UserInTournament(string username, int tournamentId)
     {
       var tournament = await GetTournamentById(tournamentId);
-      // TODO make this work...
-      var registered = await context.Tournaments.FirstOrDefaultAsync(x => x.Competitors != null) != null;
+      bool registered = tournament.Competitors.FirstOrDefault(c => c.Username == username) != null;
       return registered;
     }
 

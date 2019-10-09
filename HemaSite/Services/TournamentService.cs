@@ -42,6 +42,8 @@ namespace HemaSite.Services
 
     public async Task<Tournament> RegisterForTournament(string username, RegisterDTO registerDTO, int tournamentId)
     {
+      if (await repository.UserInTournament(username, tournamentId)) return null;
+
       User user = await authRepository.GetUserByUsername(username);
       List<Event> events = new List<Event>();
 
