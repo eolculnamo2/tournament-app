@@ -52,6 +52,7 @@ namespace HemaSite.Data
     public async Task<Tournament> GetTournamentById(int id)
     {
       return await context.Tournaments
+                          .Include(x => x.Matches)
                           .Include(x => x.Competitors)
                           .Include(x => x.Events)
                           .FirstOrDefaultAsync(x => x.Id == id);

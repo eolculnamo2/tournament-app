@@ -14,5 +14,6 @@ namespace HemaSite.Models
     public DateTime EndDate { get; set; }
     public double RegistrationCost { get; set; }
     public ICollection<Competitor> Competitors { get; set; }
+    public ICollection<Match> Matches { get; set; }
   }
 }

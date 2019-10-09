@@ -14,5 +14,6 @@ namespace HemaSite.Data
     public DbSet<Tournament> Tournaments { get; set; }
     public DbSet<Event> Events { get; set; }
     public DbSet<Competitor> Competitors { get; set; }
+    public DbSet<Match> Matches { get; set; }
   }
 }

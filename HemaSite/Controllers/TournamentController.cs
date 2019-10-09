@@ -13,8 +13,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace HemaSite.Controllers
 {
   [Authorize]
-  [Route("api/[controller]")]
   [ApiController]
+  [Route("api/[controller]")]
   public class TournamentController : ControllerBase
   {
     private ITournamentService tournamentService { get; }

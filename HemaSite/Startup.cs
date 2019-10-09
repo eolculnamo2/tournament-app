@@ -37,6 +37,7 @@ namespace HemaSite
       services.AddScoped<IAuthRepository, AuthRepository>();
       services.AddScoped<ITournamentService, TournamentService>();
       services.AddScoped<ITournamentRepository, TournamentRepository>();
+      services.AddScoped<IJudgesRepository, JudgesRepository>();
 
       // Add authentication configurations here and also add.Authentication() below
       services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

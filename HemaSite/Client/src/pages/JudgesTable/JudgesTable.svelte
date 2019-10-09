@@ -59,9 +59,9 @@
       fighter2: comp2Name,
       winner,
       event: 'Fight between 1 and 2.',
-      tournamentId: uuid(),
+      tournamentId: uuid(), // needs replaced with exist tournament ID for API to work
     };
-    const response = await postRequest('score/save-match-result', matchResults);
+    const response = await postRequest('api/judges/save-results', matchResults);
 
     if (response.success) {
       round += 1;
