@@ -46,5 +46,13 @@ namespace HemaSite.Controllers
       var tournament = await tournamentRepository.GetTournamentById(tournamentId);
       return Ok(tournament);
     }
+
+    [HttpPost("register/{tournamentId}")]
+    public async Task<IActionResult> Register(RegisterDTO registerDto, int tournamentId)
+    {
+      var username = User.FindFirst(System.Security.Claims.ClaimTypes.Name)?.Value;
+      var tournament = await tournamentService.RegisterForTournament(username, registerDto, tournamentId);
+      return Ok(tournament);
+    }
   }
 }

@@ -11,6 +11,7 @@ namespace HemaSite.Data
     Task<User> Register(User user, string password);
     Task<User> Login(string username, string password);
     Task<bool> UserExists(string username);
+    Task<User> GetUserByUsername(string username);
   }
 
   public class AuthRepository : IAuthRepository
@@ -79,6 +80,11 @@ namespace HemaSite.Data
         return true;
       }
       return false;
+    }
+
+    public async Task<User> GetUserByUsername(string username)
+    {
+      return await context.Users.FirstOrDefaultAsync(x => x.Username == username);
     }
   }
 }

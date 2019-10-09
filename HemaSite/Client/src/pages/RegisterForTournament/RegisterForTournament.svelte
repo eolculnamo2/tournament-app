@@ -21,13 +21,13 @@
   let selectedEvents = [];
 
   async function getTournamentDetails() {
-    const tournamentUuid = new URLSearchParams(
+    const tournamentId = new URLSearchParams(
       document.location.search.substring(1)
     ).get('tournamentId');
 
-    if (tournamentUuid) {
+    if (tournamentId) {
       tournament = await getRequest(
-        `/api/tournament/tournament-details/${tournamentUuid}`
+        `/api/tournament/tournament-details/${tournamentId}`
       );
     } else {
       alert('Tournament not found');
@@ -44,14 +44,11 @@
 
     if (tournament) {
       const payload = {
-        username,
-        firstName,
-        lastName,
         events: selectedEvents,
       };
 
       const response = await postRequest(
-        `/api/register-for-tournament/${tournament.uuid}`,
+        `/api/tournament/register/${tournament.id}`,
         payload
       );
 
