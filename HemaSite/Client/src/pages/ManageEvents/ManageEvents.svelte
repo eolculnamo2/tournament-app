@@ -6,7 +6,7 @@
   let tournaments = [];
 
   onMount(async () => {
-    tournaments = await getRequest('api/get-owned-tournaments');
+    tournaments = await getRequest('api/tournament/get-my-tournaments');
   });
 </script>
 
@@ -14,15 +14,15 @@
   <h3 class={header}>Manage Tournaments</h3>
   <div class={subheading}>Select a Tournament to View/Edit</div>
   <h3>Current/Future Tournaments</h3>
-  {#each tournaments as tournament (tournament.uuid)}
+  {#each tournaments as tournament (tournament.id)}
     {#if tournament.upcomingTournament}
       <ManageEventCard
         {...tournament}
-        linkTo={`/event-manager?tournamentId=${tournament.uuid}`} />
+        linkTo={`/event-manager?tournamentId=${tournament.id}`} />
     {/if}
   {/each}
   <h3>Past Tournaments</h3>
-  <em>Will link to Tournament Stats</em>
+  <em>WIP Will link to Tournament Stats</em>
   {#each tournaments as tournament (tournament.uuid)}
     {#if !tournament.upcomingTournament}
       <ManageEventCard {...tournament} />

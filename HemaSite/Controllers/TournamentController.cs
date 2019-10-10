@@ -28,7 +28,7 @@ namespace HemaSite.Controllers
     [HttpPost("create-tournament")]
     public async Task<IActionResult> CreateTournament(TournamentDTO tournamentDto)
     {
-      var username = User.FindFirst(System.Security.Claims.ClaimTypes.Name)?.Value;
+      var username = GetUsername();
       var tournament = await tournamentService.CreateTournament(tournamentDto, username);
       return Ok(tournament);
     }
@@ -50,9 +50,28 @@ namespace HemaSite.Controllers
     [HttpPost("register/{tournamentId}")]
     public async Task<IActionResult> Register(RegisterDTO registerDto, int tournamentId)
     {
-      var username = User.FindFirst(System.Security.Claims.ClaimTypes.Name)?.Value;
+      var username = GetUsername();
       var tournament = await tournamentService.RegisterForTournament(username, registerDto, tournamentId);
       return Ok(tournament);
+    }
+
+    [HttpGet("get-my-tournaments")]
+    public IActionResult GetUsersOwnedTournaments()
+    {
+      string username = GetUsername();
+      return Ok(tournamentService.GetAdminUsersTournaments(username));
+    }
+
+    [HttpPost("update-tournament")]
+    public async Task<IActionResult> UpdateTournament(Tournament tournament)
+    {
+      var t = await tournamentRepository.UpdateTournament(tournament);
+      return Ok(t);
+    }
+
+    private string GetUsername()
+    {
+      return User.FindFirst(System.Security.Claims.ClaimTypes.Name)?.Value;
     }
   }
 }

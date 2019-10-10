@@ -8,7 +8,7 @@
 
   async function saveChanges() {
     const response = await postRequest(
-      '/api/edit-tournament-details',
+      '/api/tournament/update-tournament',
       tournament
     );
   }
@@ -54,7 +54,7 @@
 {#if tournament && tournament.events}
   <h3 class={fieldTitle}>Events</h3>
   {#each tournament.events as event (event)}
-    <div class={fieldItem}>{event}</div>
+    <div class={fieldItem}>{event.eventName}</div>
   {/each}
 {/if}
 {#if tournament && tournament.competitors}

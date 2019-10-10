@@ -16,13 +16,13 @@
   let tabView = tabNames.editDetails;
 
   async function getTournamentDetails() {
-    const tournamentUuid = new URLSearchParams(
+    const tournamentId = new URLSearchParams(
       document.location.search.substring(1)
     ).get('tournamentId');
 
-    if (tournamentUuid) {
+    if (tournamentId) {
       tournament = await getRequest(
-        `/api/tournament-details/${tournamentUuid}`
+        `/api/tournament/tournament-details/${tournamentId}`
       );
     } else {
       alert('Tournament not found');

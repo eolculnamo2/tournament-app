@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using HemaSite.Data;
 using HemaSite.DTO;
 using HemaSite.Models;
+using AutoMapper;
+using System;
 
 namespace HemaSite.Services
 {
@@ -10,6 +12,7 @@ namespace HemaSite.Services
   {
     Task<Tournament> CreateTournament(TournamentDTO tournamentDto, string adminUser);
     Task<Tournament> RegisterForTournament(string username, RegisterDTO registerDTO, int tournamentId);
+    List<AdminUsersTournamentsDTO> GetAdminUsersTournaments(string username);
   }
   public class TournamentService : ITournamentService
   {
@@ -64,6 +67,36 @@ namespace HemaSite.Services
 
       var tournament = await repository.AddCompetitorToEvent(competitor, tournamentId);
       return tournament;
+    }
+
+    public List<AdminUsersTournamentsDTO> GetAdminUsersTournaments(string username)
+    {
+      var tournaments = repository.GetTournamentsManagedByUser(username);
+      var config = new MapperConfiguration(cfg =>
+      {
+        cfg.CreateMap<Tournament, AdminUsersTournamentsDTO>();
+      });
+      IMapper mapper = config.CreateMapper();
+
+      var tournamentsList = new List<AdminUsersTournamentsDTO>();
+
+      foreach (Tournament tournament in tournaments)
+      {
+        var mappedTournament = mapper.Map<Tournament, AdminUsersTournamentsDTO>(tournament);
+
+        if (mappedTournament.StartDate > DateTime.Now)
+        {
+          mappedTournament.UpcomingTournament = true;
+        }
+        else
+        {
+          mappedTournament.UpcomingTournament = false;
+        }
+
+        tournamentsList.Add(mappedTournament);
+      }
+
+      return tournamentsList;
     }
   }
 }

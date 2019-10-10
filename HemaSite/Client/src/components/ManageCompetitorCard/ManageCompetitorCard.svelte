@@ -10,6 +10,6 @@
   <div class={indent}>{`${firstName} ${lastName}`}</div>
   <div class={label}>Events:</div>
   {#each events as event}
-    <div class={indent}>{event}</div>
+    <div class={indent}>{event.eventName}</div>
   {/each}
 </div>

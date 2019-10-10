@@ -14,6 +14,8 @@ namespace HemaSite.Data
     Task<Tournament> GetTournamentById(int id);
     Task<Tournament> AddCompetitorToEvent(Competitor competitor, int tournamentId);
     Task<bool> UserInTournament(string username, int tournamentId);
+    List<Tournament> GetTournamentsManagedByUser(string username);
+    Task<Tournament> UpdateTournament(Tournament tournament);
   }
   public class TournamentRepository : ITournamentRepository
   {
@@ -71,6 +73,22 @@ namespace HemaSite.Data
       var tournament = await GetTournamentById(tournamentId);
       bool registered = tournament.Competitors.FirstOrDefault(c => c.Username == username) != null;
       return registered;
+    }
+
+    public List<Tournament> GetTournamentsManagedByUser(string username)
+    {
+      return context.Tournaments.Include(x => x.Competitors)
+                                .Include(x => x.Matches)
+                                .Include(x => x.Events)
+                                .Where(x => x.AdminUser == username).ToList();
+    }
+
+    public async Task<Tournament> UpdateTournament(Tournament tournament)
+    {
+      var t = await context.Tournaments.FindAsync(tournament.Id);
+      context.Entry(t).CurrentValues.SetValues(tournament);
+      await context.SaveChangesAsync();
+      return t;
     }
 
   }
