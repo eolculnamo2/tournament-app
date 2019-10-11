@@ -783,6 +783,16 @@
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
         }
+      },
+      "HemaSite.MatchManager/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/HemaSite.MatchManager.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HemaSite.MatchManager.dll": {}
+        }
       }
     }
   },
@@ -2372,11 +2382,17 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "HemaSite.MatchManager/1.0.0": {
+      "type": "project",
+      "path": "../HemaSite.MatchManager/HemaSite.MatchManager.csproj",
+      "msbuildProject": "../HemaSite.MatchManager/HemaSite.MatchManager.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
       "AutoMapper >= 9.0.0",
+      "HemaSite.MatchManager >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.0.0",
       "Microsoft.AspNetCore.SpaServices.Extensions >= 3.0.0",
       "Microsoft.EntityFrameworkCore >= 3.0.0",
@@ -2413,7 +2429,11 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.MatchManager/HemaSite.MatchManager.csproj": {
+              "projectPath": "/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.MatchManager/HemaSite.MatchManager.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

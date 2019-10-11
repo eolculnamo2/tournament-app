@@ -55,3 +55,5 @@
 /Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.AspNetCore.SpaServices.Extensions.dll
 /Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.MvcApplicationPartsAssemblyInfo.cs
 /Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/AutoMapper.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.MatchManager.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.MatchManager.pdb

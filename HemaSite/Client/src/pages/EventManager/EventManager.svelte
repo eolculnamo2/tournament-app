@@ -52,6 +52,6 @@
   {#if tabView === tabNames.editDetails}
     <EditDetails {tournament} />
   {:else if tabView === tabNames.roster}
-    <Roster tournamentId={tournament.uuid} />
+    <Roster matches={tournament.matches} tournamentId={tournament.uuid} />
   {/if}
 </div>

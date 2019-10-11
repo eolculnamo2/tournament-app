@@ -56,6 +56,7 @@ namespace HemaSite.Data
       return await context.Tournaments
                           .Include(x => x.Matches)
                           .Include(x => x.Competitors)
+                            .ThenInclude(x => x.Events)
                           .Include(x => x.Events)
                           .FirstOrDefaultAsync(x => x.Id == id);
     }
@@ -77,10 +78,12 @@ namespace HemaSite.Data
 
     public List<Tournament> GetTournamentsManagedByUser(string username)
     {
-      return context.Tournaments.Include(x => x.Competitors)
+      return context.Tournaments.Where(x => x.AdminUser == username)
+                                .Include(x => x.Competitors)
+                                  .ThenInclude(x => x.Events)
                                 .Include(x => x.Matches)
                                 .Include(x => x.Events)
-                                .Where(x => x.AdminUser == username).ToList();
+                                .ToList();
     }
 
     public async Task<Tournament> UpdateTournament(Tournament tournament)
