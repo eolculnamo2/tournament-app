@@ -8,7 +8,6 @@ namespace HemaSite.MatchManager
   }
   public class MatchManager : IMatchManager
   {
-    public IMatch MyProperty { get; set; }
     public MatchManager()
     {
 

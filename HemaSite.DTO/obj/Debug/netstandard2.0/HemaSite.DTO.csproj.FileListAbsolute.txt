@@ -1,0 +1,3 @@
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.DTO/obj/Debug/netstandard2.0/HemaSite.DTO.csprojAssemblyReference.cache
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.DTO/obj/Debug/netstandard2.0/HemaSite.DTO.AssemblyInfoInputs.cache
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.DTO/obj/Debug/netstandard2.0/HemaSite.DTO.AssemblyInfo.cs

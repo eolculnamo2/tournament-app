@@ -784,6 +784,19 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
+      "HemaSite.DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "HemaSite.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/HemaSite.DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HemaSite.DTO.dll": {}
+        }
+      },
       "HemaSite.MatchManager/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -792,6 +805,16 @@
         },
         "runtime": {
           "bin/placeholder/HemaSite.MatchManager.dll": {}
+        }
+      },
+      "HemaSite.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/HemaSite.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HemaSite.Models.dll": {}
         }
       }
     }
@@ -2383,16 +2406,28 @@
         "version.txt"
       ]
     },
+    "HemaSite.DTO/1.0.0": {
+      "type": "project",
+      "path": "../HemaSite.DTO/HemaSite.DTO.csproj",
+      "msbuildProject": "../HemaSite.DTO/HemaSite.DTO.csproj"
+    },
     "HemaSite.MatchManager/1.0.0": {
       "type": "project",
       "path": "../HemaSite.MatchManager/HemaSite.MatchManager.csproj",
       "msbuildProject": "../HemaSite.MatchManager/HemaSite.MatchManager.csproj"
+    },
+    "HemaSite.Models/1.0.0": {
+      "type": "project",
+      "path": "../HemaSite.Models/HemaSite.Models.csproj",
+      "msbuildProject": "../HemaSite.Models/HemaSite.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
       "AutoMapper >= 9.0.0",
+      "HemaSite.DTO >= 1.0.0",
       "HemaSite.MatchManager >= 1.0.0",
+      "HemaSite.Models >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.0.0",
       "Microsoft.AspNetCore.SpaServices.Extensions >= 3.0.0",
       "Microsoft.EntityFrameworkCore >= 3.0.0",
@@ -2430,8 +2465,14 @@
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
+            "/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.DTO/HemaSite.DTO.csproj": {
+              "projectPath": "/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.DTO/HemaSite.DTO.csproj"
+            },
             "/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.MatchManager/HemaSite.MatchManager.csproj": {
               "projectPath": "/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.MatchManager/HemaSite.MatchManager.csproj"
+            },
+            "/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.Models/HemaSite.Models.csproj": {
+              "projectPath": "/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.Models/HemaSite.Models.csproj"
             }
           }
         }

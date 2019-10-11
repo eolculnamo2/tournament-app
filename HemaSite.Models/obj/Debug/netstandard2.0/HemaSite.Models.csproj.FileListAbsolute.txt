@@ -1,0 +1,8 @@
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.Models/bin/Debug/netstandard2.0/HemaSite.Models.deps.json
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.Models/bin/Debug/netstandard2.0/HemaSite.Models.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.Models/bin/Debug/netstandard2.0/HemaSite.Models.pdb
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.Models/obj/Debug/netstandard2.0/HemaSite.Models.csprojAssemblyReference.cache
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.Models/obj/Debug/netstandard2.0/HemaSite.Models.AssemblyInfoInputs.cache
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.Models/obj/Debug/netstandard2.0/HemaSite.Models.AssemblyInfo.cs
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.Models/obj/Debug/netstandard2.0/HemaSite.Models.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.Models/obj/Debug/netstandard2.0/HemaSite.Models.pdb
