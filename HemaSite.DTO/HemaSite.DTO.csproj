@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
-    <ProjectReference Include="../HemaSite.Models/HemaSite.Models.csproj" />
+    <ProjectReference Include="../HemaSite.Models/HemaSite.Models.csproj"/>
   </ItemGroup>
-
+  <ItemGroup>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.6.0"/>
+  </ItemGroup>
 </Project>

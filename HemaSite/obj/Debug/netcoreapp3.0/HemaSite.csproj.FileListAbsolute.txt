@@ -57,3 +57,7 @@
 /Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/AutoMapper.dll
 /Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.MatchManager.dll
 /Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.MatchManager.pdb
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.DTO.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.Models.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.Models.pdb
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.DTO.pdb

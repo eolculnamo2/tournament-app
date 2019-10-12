@@ -788,7 +788,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "HemaSite.Models": "1.0.0"
+          "HemaSite.Models": "1.0.0",
+          "System.ComponentModel.Annotations": "4.6.0"
         },
         "compile": {
           "bin/placeholder/HemaSite.DTO.dll": {}

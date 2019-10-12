@@ -1,4 +1,28 @@
 ﻿<Properties StartupConfiguration="{AF26D5C8-8451-46BD-889B-54110E87E8FC}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HemaSite.DTO/TournamentDTO.cs">
+    <Files>
+      <File FileName="HemaSite.DTO/TournamentDTO.cs" Line="25" Column="2" />
+      <File FileName="HemaSite.DTO/RegisterDTO.cs" Line="1" Column="1" />
+      <File FileName="HemaSite.DTO/MatchDTO.cs" Line="1" Column="1" />
+      <File FileName="HemaSite.DTO/AdminUsersTournamentsDTO.cs" Line="1" Column="1" />
+      <File FileName="HemaSite.DTO/UserRegister.cs" Line="1" Column="1" />
+      <File FileName="HemaSite.DTO/UserLogin.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="hema-site2" expanded="True">
+            <Node name="HemaSite.DTO" expanded="True" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.HemaSite PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
