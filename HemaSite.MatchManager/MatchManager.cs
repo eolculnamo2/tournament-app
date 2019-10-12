@@ -1,29 +1,32 @@
 ﻿using System;
+using System.Collections.Generic;
+using HemaSite.DTO;
 using HemaSite.MatchManager.Core;
 using HemaSite.MatchManager.Data;
 using HemaSite.MatchManager.Enum;
 
 namespace HemaSite.MatchManager
 {
-  public interface IMatchManager
+  public interface IMatchManagerFactory
   {
 
   }
-  public class MatchManager : IMatchManager
+  public class MatchManager : IMatchManagerFactory
   {
     public MatchManager(MatchOptions options)
     {
-      SelectAction(options.Action);
+      SelectAction(options.Action, options.SubmittedMatches);
     }
 
-    public MatchAction SelectAction(int actionType)
+    public MatchAction SelectAction(int actionType, List<MatchDTO> submittedMatches)
     {
-      if (actionType.Equals(ActionsEnum.GenerateRandomMatches))
+      switch (actionType)
       {
-        return new GenerateRandomMatch();
+        case (int)ActionsEnum.GenerateRandomMatches:
+          return new GenerateRandomMatches(submittedMatches);
+        default:
+          return null;
       }
-
-      return null;
     }
   }
 }
