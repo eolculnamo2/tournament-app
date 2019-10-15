@@ -91,7 +91,11 @@
         },
         "frameworks": {
           "netstandard2.0": {
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.DTO/HemaSite.DTO.csproj": {
+                "projectPath": "/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite.DTO/HemaSite.DTO.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

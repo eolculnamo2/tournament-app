@@ -95,6 +95,13 @@ namespace HemaSite.Controllers
         lastName = user.LastName
       });
     }
+    [HttpGet("check-login")]
+    public CheckLoginDTO CheckLogin()
+    {
+      var payload = new CheckLoginDTO();
+      payload.Username = User.FindFirst(System.Security.Claims.ClaimTypes.Name)?.Value;
+      return payload;
+    }
   }
 
 }

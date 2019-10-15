@@ -919,6 +919,9 @@
         }
       },
       "HemaSite.MatchManager/1.0.0": {
+        "dependencies": {
+          "HemaSite.DTO": "1.0.0"
+        },
         "runtime": {
           "HemaSite.MatchManager.dll": {}
         },

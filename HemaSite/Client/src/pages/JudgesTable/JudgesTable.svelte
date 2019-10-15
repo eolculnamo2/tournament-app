@@ -1,5 +1,4 @@
 <script>
-  import uuid from 'uuid/v1';
   import { postRequest } from '../../globals/helpers.js';
   import {
     JudgesTableTitle,
@@ -59,7 +58,7 @@
       fighter2: comp2Name,
       winner,
       event: 'Fight between 1 and 2.',
-      tournamentId: uuid(), // needs replaced with exist tournament ID for API to work
+      tournamentId: '', // needs replaced with exist tournament ID for API to work
     };
     const response = await postRequest('api/judges/save-results', matchResults);
 

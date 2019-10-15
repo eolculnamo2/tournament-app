@@ -48,11 +48,13 @@ export async function getRequest(url) {
 export async function authenticationRouteCheck() {
   const token = localStorage.getItem('token');
   const pathName = window.location.pathname;
+  const response = await getRequest('/api/auth/check-login');
 
-  // will need to make call to back end...
-  if (token) {
-    // navigate('/dashboard');
-    // username.set(response.user);
+  if (token && response.username) {
+    username.set(response.username);
+    if (pathName === '/') {
+      navigate('/dashboard');
+    }
     return;
   }
 
