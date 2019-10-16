@@ -7,6 +7,7 @@ namespace HemaSite.DTO
 {
   public class TournamentDTO
   {
+    public int Id { get; }
     [Required]
     public string HostClub { get; set; }
     [Required]

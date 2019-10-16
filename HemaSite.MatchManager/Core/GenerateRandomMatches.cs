@@ -1,37 +1,58 @@
 using System;
 using System.Collections.Generic;
 using HemaSite.DTO;
+using HemaSite.Models;
 
 namespace HemaSite.MatchManager.Core
 {
   public class GenerateRandomMatches : MatchAction
   {
-    public GenerateRandomMatches(List<MatchDTO> SubmittedMatches)
+    private TournamentDTO tournament { get; set; }
+    private List<Competitor> competitors { get; set; }
+    public GenerateRandomMatches(TournamentDTO tournament)
     {
-      Matches = ShuffleMatches(SubmittedMatches);
+      this.tournament = tournament;
+      competitors = RandomizeCompetitors(tournament.Competitors);
     }
 
-    private List<MatchDTO> ShuffleMatches(List<MatchDTO> matches)
+    private List<Competitor> RandomizeCompetitors(List<Competitor> competitors)
     {
-      MatchDTO tempValue;
+      Competitor tempValue;
       Random random = new Random();
       int index = 0;
       int randomIndex;
 
       while (0 != index)
       {
-        randomIndex = random.Next(0, matches.Count);
-        tempValue = matches[index];
-        matches[index] = matches[randomIndex];
-        matches[randomIndex] = tempValue;
+        randomIndex = random.Next(0, competitors.Count);
+        tempValue = competitors[index];
+        competitors[index] = competitors[randomIndex];
+        competitors[randomIndex] = tempValue;
       }
 
-      return matches;
+      return competitors;
     }
 
-    private List<MatchDTO> AssignValuesToMatches(List<MatchDTO> matches)
+    public List<MatchDTO> AssignValuesToMatches(string eventName)
     {
-      return null;
+      var newMatches = new List<MatchDTO>();
+
+      for (int i = 0; i < competitors.Count; i++)
+      {
+        var match = new MatchDTO
+        {
+          Round = 1,
+          Fighter1 = competitors[i].Username,
+          Fighter2 = competitors[i + 1]?.Username ?? null,
+          Event = eventName,
+          Winner = null,
+          TournamentId = tournament.Id
+        };
+
+        newMatches.Add(match);
+      }
+
+      return newMatches;
     }
   }
 }

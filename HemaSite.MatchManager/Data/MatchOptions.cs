@@ -7,6 +7,6 @@ namespace HemaSite.MatchManager.Data
   public class MatchOptions
   {
     public int Action { get; set; }
-    public List<MatchDTO> SubmittedMatches { get; set; }
+    public TournamentDTO Tournament { get; set; }
   }
 }

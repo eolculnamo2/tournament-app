@@ -15,15 +15,15 @@ namespace HemaSite.MatchManager
   {
     public MatchManager(MatchOptions options)
     {
-      SelectAction(options.Action, options.SubmittedMatches);
+      SelectAction(options.Action, options.Tournament);
     }
 
-    public MatchAction SelectAction(int actionType, List<MatchDTO> submittedMatches)
+    public MatchAction SelectAction(int actionType, TournamentDTO tournament)
     {
       switch (actionType)
       {
         case (int)ActionsEnum.GenerateRandomMatches:
-          return new GenerateRandomMatches(submittedMatches);
+          return new GenerateRandomMatches(tournament);
         default:
           return null;
       }
