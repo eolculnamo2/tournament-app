@@ -5,7 +5,9 @@ using HemaSite.Models;
 
 namespace HemaSite.MatchManager.Core
 {
-  public class GenerateRandomMatches : MatchAction
+  // add service
+
+  public class GenerateRandomMatches
   {
     private TournamentDTO tournament { get; set; }
     private List<Competitor> competitors { get; set; }
