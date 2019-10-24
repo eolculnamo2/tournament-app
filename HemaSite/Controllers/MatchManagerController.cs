@@ -16,7 +16,7 @@ namespace HemaSite.Controllers {
       this.matchManagerService = matchManagerService;
     }
 
-    [HttpGet("generate-matches")]
+    [HttpPost("generate-matches")]
     public void GenerateMatches(int tournamentId) {
         //WIP -- Find tournament and add matches
     }
