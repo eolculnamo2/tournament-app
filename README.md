@@ -2,15 +2,11 @@
 
 ## Set up
 
-1. yarn install in both the root directory and in the client folder.
+1. In the HemaSite directory, run dotnet restore.
 
-2. Add a .env file in root directory. It has two values... MONGO_URI and KEY. Enter the full Mongo Uri for MONGO_URI and any random characters for KEY (it is for express-session).
+2. In the Client directory, run yarn to install dependencies, and then yarn start for hot reload.
 
 ## Starting local server
+1. In the HemaSite directory, use  dotnet run to start the project. You can view the project at localhost:5000
+2. For hot reload, go to the client directory and yarn start.
 
-1. yarn run dev in root in one terminal and yarn start in app in a second terminal.
-2. Go to localhost:8080 for development.
-
-## Dual startup with Svelte
-
-1. "yarn sv" in root to start server and app in one command
