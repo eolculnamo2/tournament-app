@@ -83,16 +83,7 @@ namespace HemaSite.Services
       foreach (Tournament tournament in tournaments)
       {
         var mappedTournament = mapper.Map<Tournament, AdminUsersTournamentsDTO>(tournament);
-
-        if (mappedTournament.StartDate > DateTime.Now)
-        {
-          mappedTournament.UpcomingTournament = true;
-        }
-        else
-        {
-          mappedTournament.UpcomingTournament = false;
-        }
-
+        mappedTournament.UpcomingTournament = mappedTournament.StartDate > DateTime.Now;
         tournamentsList.Add(mappedTournament);
       }
 
