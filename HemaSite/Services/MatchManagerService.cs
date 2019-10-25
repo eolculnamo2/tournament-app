@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using HemaSite.DTO;
 using HemaSite.Models;
 
-namespace HemaSite.MatchManager.Core
+namespace HemaSite.Services
 {
   // add service
+  public interface IMatchManagerService {
+    List<MatchDTO> AssignValuesToMatches(string eventName);
 
-  public class GenerateRandomMatches
+  }
+
+  public class MatchManagerService : IMatchManagerService
   {
-    private TournamentDTO tournament { get; set; }
+    //private TournamentDTO tournament { get; set; }
     private List<Competitor> competitors { get; set; }
-    public GenerateRandomMatches(TournamentDTO tournament)
+    public MatchManagerService()
     {
-      this.tournament = tournament;
-      competitors = RandomizeCompetitors(tournament.Competitors);
+     // this.tournament = tournament;
+      //competitors = RandomizeCompetitors(tournament.Competitors);
     }
 
     private List<Competitor> RandomizeCompetitors(List<Competitor> competitors)
@@ -48,7 +52,7 @@ namespace HemaSite.MatchManager.Core
           Fighter2 = competitors[i + 1]?.Username ?? null,
           Event = eventName,
           Winner = null,
-          TournamentId = tournament.Id
+          //TournamentId = tournament.Id
         };
 
         newMatches.Add(match);
