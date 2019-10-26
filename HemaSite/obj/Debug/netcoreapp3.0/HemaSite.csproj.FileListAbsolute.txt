@@ -1,0 +1,115 @@
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/appsettings.Development.json
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/appsettings.json
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Properties/launchSettings.json
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/HemaSite
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.deps.json
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.runtimeconfig.json
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.runtimeconfig.dev.json
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.pdb
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.EntityFrameworkCore.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.IdentityModel.Logging.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.IdentityModel.Protocols.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.IdentityModel.Tokens.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Newtonsoft.Json.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.csprojAssemblyReference.cache
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/obj/Debug/netcoreapp3.0/staticwebassets/HemaSite.StaticWebAssets.Manifest.cache
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/obj/Debug/netcoreapp3.0/staticwebassets/HemaSite.StaticWebAssets.xml
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.MvcApplicationPartsAssemblyInfo.cache
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.AssemblyInfoInputs.cache
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.AssemblyInfo.cs
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.RazorTargetAssemblyInfo.cache
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.csproj.CopyComplete
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.pdb
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.Data.Sqlite.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.DotNet.PlatformAbstractions.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.EntityFrameworkCore.Sqlite.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.Extensions.DependencyModel.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/SQLitePCLRaw.batteries_v2.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/SQLitePCLRaw.nativelibrary.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/SQLitePCLRaw.core.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/SQLitePCLRaw.provider.dynamic_cdecl.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/runtimes/alpine-x64/native/libe_sqlite3.so
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/runtimes/linux-arm/native/libe_sqlite3.so
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/runtimes/linux-arm64/native/libe_sqlite3.so
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/runtimes/linux-armel/native/libe_sqlite3.so
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/runtimes/linux-musl-x64/native/libe_sqlite3.so
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/runtimes/linux-x64/native/libe_sqlite3.so
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/runtimes/linux-x86/native/libe_sqlite3.so
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/runtimes/osx-x64/native/libe_sqlite3.dylib
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/runtimes/win-arm/native/e_sqlite3.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/runtimes/win-arm64/native/e_sqlite3.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/runtimes/win-x64/native/e_sqlite3.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/runtimes/win-x86/native/e_sqlite3.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Client/package.json
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.AspNetCore.NodeServices.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.AspNetCore.SpaServices.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.AspNetCore.SpaServices.Extensions.dll
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.MvcApplicationPartsAssemblyInfo.cs
+/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/AutoMapper.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/appsettings.Development.json
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/appsettings.json
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Client/package.json
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Properties/launchSettings.json
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/HemaSite
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.deps.json
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.runtimeconfig.json
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.runtimeconfig.dev.json
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/HemaSite.pdb
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/AutoMapper.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.AspNetCore.NodeServices.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.AspNetCore.SpaServices.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.AspNetCore.SpaServices.Extensions.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.Data.Sqlite.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.DotNet.PlatformAbstractions.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.EntityFrameworkCore.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.EntityFrameworkCore.Sqlite.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.Extensions.DependencyModel.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.IdentityModel.Logging.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.IdentityModel.Protocols.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.IdentityModel.Tokens.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Newtonsoft.Json.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/SQLitePCLRaw.batteries_v2.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/SQLitePCLRaw.nativelibrary.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/SQLitePCLRaw.core.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/SQLitePCLRaw.provider.dynamic_cdecl.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/runtimes/alpine-x64/native/libe_sqlite3.so
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/runtimes/linux-arm/native/libe_sqlite3.so
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/runtimes/linux-arm64/native/libe_sqlite3.so
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/runtimes/linux-armel/native/libe_sqlite3.so
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/runtimes/linux-musl-x64/native/libe_sqlite3.so
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/runtimes/linux-x64/native/libe_sqlite3.so
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/runtimes/linux-x86/native/libe_sqlite3.so
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/runtimes/osx-x64/native/libe_sqlite3.dylib
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/runtimes/win-arm/native/e_sqlite3.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/runtimes/win-arm64/native/e_sqlite3.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/runtimes/win-x64/native/e_sqlite3.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/runtimes/win-x86/native/e_sqlite3.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.csprojAssemblyReference.cache
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/obj/Debug/netcoreapp3.0/staticwebassets/HemaSite.StaticWebAssets.Manifest.cache
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/obj/Debug/netcoreapp3.0/staticwebassets/HemaSite.StaticWebAssets.xml
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.MvcApplicationPartsAssemblyInfo.cs
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.MvcApplicationPartsAssemblyInfo.cache
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.AssemblyInfoInputs.cache
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.AssemblyInfo.cs
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.RazorTargetAssemblyInfo.cache
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.csproj.CopyComplete
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.dll
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.pdb
+/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Client/package-lock.json
