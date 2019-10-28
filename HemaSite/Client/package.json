@@ -28,4 +28,8 @@
     "singleQuote": true
   },
   "proxy": "http://localhost:8080"
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 093d77eceb02f7c453cb96013dbc9020f45e0465

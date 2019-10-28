@@ -55,6 +55,7 @@
 /Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/Microsoft.AspNetCore.SpaServices.Extensions.dll
 /Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.MvcApplicationPartsAssemblyInfo.cs
 /Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/bin/Debug/netcoreapp3.0/AutoMapper.dll
+<<<<<<< HEAD
 /Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/appsettings.Development.json
 /Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/appsettings.json
 /Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Client/package.json
@@ -113,3 +114,5 @@
 /Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.dll
 /Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/obj/Debug/netcoreapp3.0/HemaSite.pdb
 /Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/bin/Debug/netcoreapp3.0/Client/package-lock.json
+=======
+>>>>>>> 093d77eceb02f7c453cb96013dbc9020f45e0465

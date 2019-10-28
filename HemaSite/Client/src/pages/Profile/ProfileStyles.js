@@ -1,6 +1,7 @@
 import emotion from 'emotion/dist/emotion.umd.min.js';
 const {
   css
+<<<<<<< HEAD
 } = emotion
 
 import {SECONDARY_RED,BORDER_GRAY1} from "../../globals/styles-variables.js"
@@ -60,3 +61,11 @@ button{
 
 `
 
+=======
+} = emotion;
+
+export const title = css `
+  color: red;
+  font-size: 2em;
+`
+>>>>>>> 093d77eceb02f7c453cb96013dbc9020f45e0465

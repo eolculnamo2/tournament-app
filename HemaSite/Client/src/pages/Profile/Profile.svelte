@@ -1,4 +1,5 @@
 <script>
+<<<<<<< HEAD
 import {
   profilePage,
   profileImage,
@@ -30,3 +31,9 @@ import { Link } from 'svelte-routing';
 </div>
   
 </div>
+=======
+  import { title } from './ProfileStyles';
+</script>
+
+<div><h1 class={title}>Profile</h1></div>
+>>>>>>> 093d77eceb02f7c453cb96013dbc9020f45e0465
