@@ -1,46 +1,32 @@
 <script>
-  import { 
-    title,
-    pageDiv,
-    imageDiv,
-    profileInfoDiv,
-    formDiv,
-    playerStats,
-    playerName,
-    addImage
-   } from './ProfileStyles';
-  import {
-    globalFormWrap1,
-    globalLabel
-  } from "../../globals/global-styles.js"
+import {
+  profilePage,
+  profileImage,
+  profileHeader,
+  statsDiv,
+  editButton,
+} from "./ProfileStyles.js"
+
+import {globalBtn1} from "../../globals/global-styles.js"
+import { Link } from 'svelte-routing';
 </script>
 
 
-<div class={pageDiv}>
-    <div class={imageDiv}>
-        <input class={addImage} type="image" src="" alt="Submit">
-        <label class="globalLabel">Profile Image</label>
-    </div>
-    
-    <div class={profileInfoDiv}>
-      <h1 class={title}>My Profile</h1>
-      <h3 class={playerName}>Name</h3>
-      <p class={playerStats}>Wins:0</p>
-      <p class={playerStats}> Loses:0</p>
-    </div>
-    
-    <div class={formDiv}>
-      <form class={globalFormWrap1}>
-        <label>First Name:</label>
-        <input type="text"/>
 
-        <label>Last Name:</label>
-        <input type="text"/>
+<div class={profilePage}>
+  <h1 class={profileHeader}> My Profile</h1>
+  <img class ={profileImage} alt="Profile Image"/>
+  <div class = {statsDiv}>
+    <h2>Statistics</h2>
+    <p>Wins:0</p>
+    <p>Loses:0</p>
+    <p>HEMA School</p>
+  </div>
 
-        <label>Title:</label>
-        <input type="text"/>
-
-      </form>
-    </div>
-    
+<div class={editButton}>
+  <Link to="/editprofile">
+    <button >Edit Profile</button>   
+   </Link>
+</div>
+  
 </div>

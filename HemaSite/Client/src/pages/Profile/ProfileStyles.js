@@ -1,57 +1,62 @@
-import {
-  PRIMARY_BLUE, 
-  PRIMARY_FONT,
-
-} from "../../globals/styles-variables.js"
 import emotion from 'emotion/dist/emotion.umd.min.js';
 const {
   css
-} = emotion;
+} = emotion
 
-export const pageDiv = css `
-width:70%;
-margin:auto;
+import {SECONDARY_RED,BORDER_GRAY1} from "../../globals/styles-variables.js"
 
+export const profilePage = css `
 display:grid;
+grid-auto-rows: 0.5fr 1fr 0.5fr;
 grid-auto-columns: 1fr 1fr;
-grid-auto-rows: 1fr 1fr;
-grid-template-areas: 
-"ImageInput ProfileInfo"
-"form form";
+grid-template-areas:
+"header header"
+"profileimage stats"
+"editbutton editbutton";
+grid-gap:1em;
 `
 
-export const title = css `
-  font-family:${PRIMARY_FONT}
-  color: ${PRIMARY_BLUE};
-  font-size: 2em;
-  margin:0;
-  `
+export const profileImage = css `
+grid-area:profileimage;
+justify-self:right;
+align-self:center;
+margin-right:3em;
+`
 
-export const imageDiv = css `
-grid-area:ImageInput;
+export const profileHeader = css `
+grid-area:header;
 justify-self:center;
 align-self:center;
 `
 
-export const profileInfoDiv = css `
-grid-area:ProfileInfo;
+export const statsDiv = css `
+grid-area:stats;
+justify-self:left;
 align-self:center;
 `
 
-export const formDiv = css `
-grid-area:form;
-justify-self:center;
-align-self:center;
+export const editButton = css `
+grid-area:editbutton;
+  justify-self:center;
+  align-self:center;
+  width:7em;
+button{
+  background-color: ${SECONDARY_RED}; 
+    width: 100%;
+    border:0;
+    padding: .1em;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    outline: none;
+    text-transform: capitalize;
+  
+}
+  
+  
+    &:hover {
+      opacity: .8;
+
+
 `
 
-export const playerStats = css `
-margin:0;
-`
-
-export const playerName = css `
-margin:0;
-`
-export const addImage = css `
-width:7em;
-height:7em;
-`
