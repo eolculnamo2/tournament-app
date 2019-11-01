@@ -1,7 +1,7 @@
 export default [{
     text: 'My HEMA Profile',
-    link: '/dashboard',
-    color: '', //red2
+    link: '/profile',
+    color: 'red2',
   },
   {
     text: 'Tournament Stats',

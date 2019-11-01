@@ -9,6 +9,7 @@
   import EventManager from './pages/EventManager/EventManager.svelte';
   import JudgesTable from './pages/JudgesTable/JudgesTable.svelte';
   import Profile from './pages/Profile/Profile.svelte';
+  import ProfileBeingEdited from './pages/ProfileBeingEdited/ProfileBeingEdited.svelte';
   import NotFound from './pages/NotFound/NotFound.svelte';
 </script>
 
@@ -21,4 +22,5 @@
 <Route path="/event-manager" component={EventManager} />
 <Route path="/judges-table" component={JudgesTable} />
 <Route path="/profile" component={Profile} />
+<Route path="/edit-profile" component={ProfileBeingEdited} />
 <Route component={NotFound} />
