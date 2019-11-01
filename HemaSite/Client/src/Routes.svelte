@@ -9,10 +9,7 @@
   import EventManager from './pages/EventManager/EventManager.svelte';
   import JudgesTable from './pages/JudgesTable/JudgesTable.svelte';
   import Profile from './pages/Profile/Profile.svelte';
-<<<<<<< HEAD
-  import ProfileBeingEdited from "./pages/Profile/ProfileBeingEdited.svelte"
-=======
->>>>>>> 093d77eceb02f7c453cb96013dbc9020f45e0465
+  import ProfileBeingEdited from './pages/ProfileBeingEdited/ProfileBeingEdited.svelte';
   import NotFound from './pages/NotFound/NotFound.svelte';
 </script>
 
@@ -25,8 +22,5 @@
 <Route path="/event-manager" component={EventManager} />
 <Route path="/judges-table" component={JudgesTable} />
 <Route path="/profile" component={Profile} />
-<<<<<<< HEAD
-<Route path="/editprofile" component={ProfileBeingEdited}/>
-=======
->>>>>>> 093d77eceb02f7c453cb96013dbc9020f45e0465
+<Route path="/edit-profile" component={ProfileBeingEdited} />
 <Route component={NotFound} />

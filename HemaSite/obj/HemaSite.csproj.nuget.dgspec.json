@@ -1,22 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/HemaSite.csproj": {}
-  },
-  "projects": {
-    "/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/HemaSite.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/HemaSite.csproj",
-        "projectName": "HemaSite",
-        "projectPath": "/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/HemaSite.csproj",
-        "packagesPath": "/Users/davidnogueira/.nuget/packages/",
-        "outputPath": "/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/Users/davidnogueira/.nuget/NuGet/NuGet.Config"
-=======
     "/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/HemaSite.csproj": {}
   },
   "projects": {
@@ -34,7 +18,6 @@
         ],
         "configFilePaths": [
           "/Users/rbertram/.nuget/NuGet/NuGet.Config"
->>>>>>> 093d77eceb02f7c453cb96013dbc9020f45e0465
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"

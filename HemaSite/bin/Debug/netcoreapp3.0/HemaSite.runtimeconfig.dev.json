@@ -1,14 +1,9 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-<<<<<<< HEAD
-      "/Users/davidnogueira/.dotnet/store/|arch|/|tfm|",
-      "/Users/davidnogueira/.nuget/packages"
-=======
       "/Users/rbertram/.dotnet/store/|arch|/|tfm|",
       "/Users/rbertram/.nuget/packages",
       "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
->>>>>>> 093d77eceb02f7c453cb96013dbc9020f45e0465
     ]
   }
 }
