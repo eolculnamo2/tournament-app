@@ -13,7 +13,7 @@ const {
 } = emotion;
 
 export const pageDiv = css `
-  width:70%;
+  width:50%;
   margin:auto;
   display:grid;
   grid-auto-columns: 1fr 1fr;
@@ -33,18 +33,19 @@ export const title = css `
 
 export const imageDiv = css `
   grid-area:ImageInput;
-  justify-self:center;
+  justify-self:left;
   align-self:center;
   `
 
 export const profileInfoDiv = css `
   grid-area:ProfileInfo;
   align-self:center;
+
   `
 
 export const formDiv = css `
   grid-area:form;
-  justify-self:center;
+  justify-self:left;
   align-self:center;
   `
 
@@ -56,8 +57,8 @@ export const playerName = css `
   margin:0;
   `
 export const addImage = css `
-  width:7em;
-  height:7em;
+  width:12em;
+  
   `
 export const cancelButton = css `
   grid-area:button;

@@ -2387,23 +2387,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/rbertram/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "/Users/davidnogueira/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/HemaSite.csproj",
+      "projectUniqueName": "/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/HemaSite.csproj",
       "projectName": "HemaSite",
-      "projectPath": "/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/HemaSite.csproj",
-      "packagesPath": "/Users/rbertram/.nuget/packages/",
-      "outputPath": "/Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/obj/",
+      "projectPath": "/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/HemaSite.csproj",
+      "packagesPath": "/Users/davidnogueira/.nuget/packages/",
+      "outputPath": "/Users/davidnogueira/Documents/My Projects/HEMASite/tournament-app/HemaSite/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "/Users/rbertram/.nuget/NuGet/NuGet.Config"
+        "/Users/davidnogueira/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
@@ -2479,13 +2475,5 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /Users/rbertram/Code/MERN/get-rich/hema-site2/HemaSite/obj/HemaSite.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
