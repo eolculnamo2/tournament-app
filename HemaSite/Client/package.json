@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "emotion": "^10.0.17",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "sirv-cli": "^0.4.4",
     "svelte-calendar": "^1.0.8",
     "svelte-routing": "^1.4.0"
